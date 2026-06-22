@@ -13,14 +13,14 @@
             --text: #ffffff;
             --text-muted: #888888;
             --border: #2a2a2a;
-            --red: #ff4444;
+            --red: #ff3b30;
             --wa: #25D366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; -webkit-font-smoothing: antialiased; padding: 15px; }
 
-        .container { max-width: 1000px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .container { max-width: 1000px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
 
         /* --- Header --- */
         .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; border-bottom: 2px dashed var(--border); padding-bottom: 20px; margin-bottom: 25px; gap: 15px; }
@@ -32,26 +32,62 @@
         .date-box { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
 
         /* --- Customer Details --- */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px; background: #0a0a0a; padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; background: #0a0a0a; padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
         .input-group label { display: block; font-size: 0.75rem; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
-        .input-group input { width: 100%; padding: 12px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; transition: 0.2s; }
+        .input-group input { width: 100%; padding: 12px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 600; outline: none; transition: 0.2s; }
         .input-group input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(255,208,0,0.1); }
 
-        /* --- Desktop List Header (Sticky for 100+ items) --- */
-        .list-header { position: sticky; top: 0; z-index: 50; display: grid; grid-template-columns: 2fr 3.5fr 2fr 1fr 1.5fr 40px; gap: 10px; padding: 12px 15px; background: #1a1a1a; border-radius: 6px; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.8); border: 1px solid var(--border); }
+        /* --- Desktop List Header --- */
+        .list-header { position: sticky; top: 0; z-index: 50; display: grid; grid-template-columns: 1.5fr 3.5fr 2fr 1fr 1fr; gap: 10px; padding: 12px 15px; background: #1a1a1a; border-radius: 6px; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 1px solid var(--border); }
         
         /* --- The Dynamic Row --- */
-        .material-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-        .mat-row { display: grid; grid-template-columns: 2fr 3.5fr 2fr 1fr 1.5fr 40px; gap: 10px; background: #0a0a0a; padding: 8px 15px; border-radius: 8px; border: 1px solid var(--border); align-items: center; transition: 0.3s; position: relative; z-index: 1; }
+        .material-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
         
-        .mat-row.is-duplicate { border-color: var(--red); box-shadow: 0 0 15px rgba(255, 68, 68, 0.2); background: rgba(255, 68, 68, 0.05); }
+        .mat-row { 
+            display: grid; 
+            grid-template-columns: 1.5fr 3.5fr 2fr 1fr 1fr; 
+            gap: 10px; 
+            background: #0a0a0a; 
+            padding: 10px 15px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border); 
+            align-items: center; 
+            position: relative; 
+            z-index: 1; 
+            transition: border-color 0.2s, box-shadow 0.2s;
+            animation: slideDown 0.2s ease-out forwards;
+        }
+        
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .mat-row.is-duplicate { border-color: var(--red); box-shadow: 0 0 15px rgba(255, 59, 48, 0.2); background: rgba(255, 59, 48, 0.05); }
 
         .mat-input, .mat-select { width: 100%; padding: 10px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; outline: none; transition: 0.2s; }
-        .mat-input:focus, .mat-select:focus { border-color: var(--accent); background: #151515; }
+        .mat-input:focus, .mat-select:focus { border-color: var(--accent); background: #151515; box-shadow: inset 0 0 5px rgba(255,208,0,0.1); }
         .mat-input::placeholder { color: #555; font-weight: 400; }
 
-        .btn-del { background: none; border: none; color: #555; font-size: 1.5rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
-        .btn-del:hover { color: var(--red); transform: scale(1.1); }
+        /* --- THE NEW FLOATING DELETE BUTTON --- */
+        .btn-del { 
+            position: absolute; 
+            top: -10px; 
+            right: -10px; 
+            width: 26px; 
+            height: 26px; 
+            border-radius: 50%; 
+            background: var(--red); 
+            color: #fff; 
+            border: 2px solid var(--card); 
+            font-size: 0.9rem; 
+            font-weight: 900; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5); 
+            transition: 0.2s; 
+            z-index: 10;
+        }
+        .btn-del:hover { transform: scale(1.15); background: #ff1a1a; }
 
         /* --- Custom Dropdown --- */
         .custom-dropdown { position: relative; width: 100%; }
@@ -81,79 +117,88 @@
         .btn-reset:hover { background: var(--red); color: #fff; }
 
         /* =======================================================
-           📱 MOBILE OPTIMIZATION (COMPACT CHUNKY CARDS)
+           📱 MOBILE OPTIMIZATION (COMPACT APP LAYOUT)
            ======================================================= */
         @media (max-width: 768px) {
             body { padding: 5px; }
             .container { padding: 15px; border-radius: 8px; }
-            .doc-title { text-align: left; }
+            .doc-title { text-align: left; margin-top: 10px; }
             .list-header { display: none; }
             
             .mat-row { 
                 display: grid; 
                 grid-template-columns: 1fr 1fr; 
-                gap: 10px; 
-                padding: 15px; 
+                gap: 12px; 
+                padding: 15px 12px; 
                 border-radius: 10px; 
                 background: #0f0f0f;
+                margin-bottom: 5px;
             }
             
-            .mat-row > div:nth-child(1) { grid-column: 1 / 3; } /* Category */
-            .mat-row > div:nth-child(2) { grid-column: 1 / 3; } /* Item Name */
-            .mat-row > div:nth-child(3) { grid-column: 1 / 3; } /* Color/Brand */
-            .mat-row > div:nth-child(4) { grid-column: 1 / 2; } /* Qty */
-            .mat-row > div:nth-child(5) { grid-column: 2 / 3; } /* Unit */
+            .mat-row > div:nth-child(2) { grid-column: 1 / 3; } /* Category */
+            .mat-row > div:nth-child(3) { grid-column: 1 / 3; } /* Item Name */
+            .mat-row > div:nth-child(4) { grid-column: 1 / 3; } /* Color/Brand */
+            .mat-row > div:nth-child(5) { grid-column: 1 / 2; } /* Qty */
+            .mat-row > div:nth-child(6) { grid-column: 2 / 3; } /* Unit */
             
-            .btn-del { grid-column: 1 / 3; background: rgba(255,255,255,0.05); color: #888; border-radius: 6px; padding: 10px; font-size: 1rem; border: 1px solid var(--border); }
-            .btn-del::after { content: ' Remove Line'; font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 700; margin-left: 5px; text-transform: uppercase;}
-            .btn-del:hover { background: rgba(255,68,68,0.1); color: var(--red); border-color: var(--red); }
+            .mat-input, .mat-select { padding: 12px 10px; font-size: 1rem; }
         }
 
         /* =======================================================
-           🖨️ MAGIC PRINT CSS (Forces 1-Line Table Layout Even on Mobile)
+           🖨️ ULTIMATE PRO INVOICE PRINT MODE
            ======================================================= */
         @media print {
-            @page { margin: 1cm; }
-            body { background: #fff !important; padding: 0 !important; color: #000 !important; }
+            @page { margin: 1cm; size: A4 portrait; }
+            body { background: #fff !important; padding: 0 !important; color: #000 !important; -webkit-print-color-adjust: exact; }
             .container { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; border-radius: 0 !important; }
             .brand h1, .doc-title h2, .brand h1 span { color: #000 !important; }
-            .info-grid { background: #fff !important; border: 1px solid #000 !important; padding: 15px !important; margin-bottom: 20px !important; }
-            .input-group label { color: #333 !important; }
-            .input-group input { border: none !important; background: transparent !important; padding: 0 !important; color: #000 !important; font-weight: 700 !important; }
+            .tagline { color: #555 !important; }
+            .info-grid { background: #fff !important; border: 1px solid #000 !important; padding: 15px !important; margin-bottom: 25px !important; display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 15px !important; border-radius: 4px !important;}
+            .input-group label { color: #444 !important; font-size: 8pt !important; }
+            .input-group input { border: none !important; background: transparent !important; padding: 0 !important; color: #000 !important; font-weight: 700 !important; font-size: 11pt !important; }
             
-            /* FORCE GRID LAYOUT ON MOBILE DURING PRINT */
+            /* FORCE STRICT TABLE LAYOUT FOR PRINTING */
             .list-header { 
                 display: grid !important; 
-                grid-template-columns: 4fr 2.5fr 1fr 1fr !important; /* ONLY 4 COLUMNS FOR PRINT */
+                grid-template-columns: 4fr 3fr 1fr 1.5fr !important; /* ONLY 4 COLUMNS */
                 background: #f0f0f0 !important; 
                 color: #000 !important; 
                 border: 1px solid #000 !important;
                 border-bottom: 2px solid #000 !important;
-                padding: 10px !important;
+                padding: 8px 12px !important;
                 position: static !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                font-size: 10pt !important;
             }
             .mat-row { 
                 display: grid !important; 
-                grid-template-columns: 4fr 2.5fr 1fr 1fr !important; /* ONLY 4 COLUMNS FOR PRINT */
+                grid-template-columns: 4fr 3fr 1fr 1.5fr !important; /* ONLY 4 COLUMNS */
                 background: #fff !important; 
                 border: none !important; 
                 border-left: 1px solid #000 !important;
                 border-right: 1px solid #000 !important;
                 border-bottom: 1px solid #ccc !important; 
-                padding: 5px 10px !important; 
+                padding: 6px 12px !important; 
                 gap: 10px !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
                 page-break-inside: avoid !important;
             }
+            /* Add bottom border to the very last row printed */
+            .material-list { border-bottom: 1px solid #000 !important; margin-bottom: 20px !important; }
             
-            /* HIDE CATEGORY (1st child) AND DELETE BTN (last child) */
-            .list-header > div:nth-child(1), .list-header > div:nth-child(6) { display: none !important; }
-            .mat-row > div:nth-child(1), .mat-row > div:nth-child(6) { display: none !important; }
+            /* HIDE CATEGORY (child 2) AND DROP-DOWN/DELETE UI */
+            .list-header > div:nth-child(1) { display: none !important; } /* Hide "Category" heading */
+            .mat-row > div:nth-child(2) { display: none !important; } /* Hide Category dropdown */
+            .btn-del, .dropdown-toggle { display: none !important; } /* Hide Buttons */
             
-            /* Clean Inputs for Paper */
-            .mat-input, .mat-select { background: transparent !important; border: none !important; color: #000 !important; padding: 0 !important; -webkit-appearance: none !important; appearance: none !important; font-size: 11pt !important; font-weight: 700 !important;}
+            /* Text inputs become plain text */
+            .mat-input, .mat-select { background: transparent !important; border: none !important; color: #000 !important; padding: 0 !important; -webkit-appearance: none !important; appearance: none !important; font-size: 10pt !important; font-weight: 600 !important;}
+            .mat-input::placeholder { color: transparent !important; }
             
-            /* Hide UI Elements */
-            .actions, .dropdown-toggle, .stats-bar { display: none !important; }
+            /* Hide Web UI */
+            .actions, .stats-bar { display: none !important; }
             .hide-on-print { display: none !important; }
         }
     </style>
@@ -173,6 +218,7 @@
             </div>
         </div>
 
+        <!-- Inputs trigger auto-save -->
         <div class="info-grid">
             <div class="input-group">
                 <label>Client Name</label>
@@ -194,13 +240,13 @@
             <div>Brand / Color</div>
             <div>Qty</div>
             <div>Unit</div>
-            <div></div>
         </div>
 
         <div class="material-list" id="mat-list">
-            </div>
+            <!-- Rows auto-generate here -->
+        </div>
 
-        <div class="stats-bar">
+        <div class="stats-bar no-print">
             <span>Total Unique Items: <span id="total-items-count" style="color: #fff;">0</span></span>
             <span id="save-status" style="color: var(--wa); font-size: 0.9rem;">✔️ Auto-Saved</span>
         </div>
@@ -210,8 +256,8 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Send WhatsApp
             </button>
-            <button class="btn btn-print" onclick="cleanAndPrint()">🖨️ Print Hardware List</button>
-            <button class="btn btn-reset" onclick="startNewNote()">🗑️ Start New Note</button>
+            <button class="btn btn-print" onclick="cleanAndPrint()">🖨️ Print Document</button>
+            <button class="btn btn-reset" onclick="startNewNote()">🗑️ Start New</button>
         </div>
 
     </div>
@@ -229,9 +275,9 @@
 
         const listContainer = document.getElementById('mat-list');
         let globalCategory = "Linter/Slab"; 
-        let globalUnit = "Pcs"; // Remembers last used unit
+        let globalUnit = "Pcs";
 
-        // 🟢 AUTO-SAVE ENGINE (Monitors entire document for typing/changes)
+        // 🟢 AUTO-SAVE ENGINE
         document.addEventListener('input', triggerAutoSave);
         document.addEventListener('change', triggerAutoSave);
 
@@ -239,7 +285,7 @@
             countItems();
             document.getElementById('save-status').innerText = "⏳ Saving...";
             clearTimeout(window.saveTimer);
-            window.saveTimer = setTimeout(saveLocalState, 500); // Saves half a second after you stop typing
+            window.saveTimer = setTimeout(saveLocalState, 500); 
         }
 
         function saveLocalState() {
@@ -271,7 +317,7 @@
                 document.getElementById('c-stage').value = state.cStage || "";
 
                 if (state.rows && state.rows.length > 0) {
-                    listContainer.innerHTML = ""; // Clear
+                    listContainer.innerHTML = ""; 
                     state.rows.forEach(rData => createRow(rData));
                 } else {
                     initDefaultRows();
@@ -283,7 +329,6 @@
             countItems();
         }
 
-        // Initialize on page load
         window.addEventListener('DOMContentLoaded', loadLocalState);
 
         function initDefaultRows() {
@@ -292,7 +337,7 @@
         }
 
         function startNewNote() {
-            if(confirm("Are you sure you want to clear EVERYTHING and start a new note?")) {
+            if(confirm("Start a new note? This will clear your current list.")) {
                 localStorage.removeItem('prakash_mat_note');
                 document.getElementById('c-name').value = "";
                 document.getElementById('c-address').value = "";
@@ -319,15 +364,16 @@
             document.getElementById('total-items-count').innerText = count;
         }
 
-        // 1. CREATE A NEW ROW (MAGIC AUTO-ADD)
+        // 1. CREATE A NEW ROW
         function createRow(data = null) {
             const row = document.createElement('div');
             row.className = 'mat-row';
             
-            // Fast Keyboard Navigation Magic (Press Enter to jump to next input)
+            // Fast Keyboard Nav
             const keyNav = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); this.parentElement.nextElementSibling.querySelector('input, select').focus(); }"`;
 
             row.innerHTML = `
+                <button class="btn-del" onclick="deleteRow(this)" title="Remove Item">✖</button>
                 <div>
                     <select class="mat-select in-cat" onchange="syncCategories(this)">
                         <option value="Linter/Slab">Linter/Slab</option>
@@ -354,7 +400,6 @@
                         <option value="Bdl">Bdl</option>
                     </select>
                 </div>
-                <button class="btn-del" onclick="deleteRow(this)" title="Remove Item">✖</button>
             `;
             
             if (data) {
@@ -445,7 +490,7 @@
             let items = db[rowCat] || [];
             let filterText = input.value.toLowerCase();
             
-            // Get all items ALREADY selected by the user to remove them from dropdown
+            // Filters out items already chosen!
             let usedItems = Array.from(document.querySelectorAll('.in-name'))
                                  .map(inp => input !== inp ? inp.value.trim().toLowerCase() : "")
                                  .filter(val => val !== "");
@@ -455,7 +500,6 @@
 
             items.forEach(item => {
                 let itemLower = item.toLowerCase();
-                // ONLY show if it matches typing AND hasn't been selected already
                 if(itemLower.includes(filterText) && !usedItems.includes(itemLower)) {
                     let li = document.createElement('li');
                     li.innerText = item;
@@ -466,7 +510,6 @@
                         closeAllDropdowns();
                         handleInput(input);
                         triggerAutoSave();
-                        // Jump to next input automatically
                         wrapper.closest('.mat-row').querySelector('.in-spec').focus();
                     };
                     menu.appendChild(li);
@@ -511,7 +554,7 @@
             rows.forEach(row => {
                 let name = row.querySelector('.in-name').value.trim();
                 let qty = row.querySelector('.in-qty').value.trim();
-                if(name === "" || qty === "" || qty === "0") {
+                if(name === "" && (qty === "" || qty === "0")) {
                     row.classList.add('hide-on-print');
                 } else {
                     row.classList.remove('hide-on-print');
