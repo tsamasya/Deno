@@ -15,6 +15,7 @@
             --border: #2a2a2a;
             --red: #ff4444;
             --wa: #25D366;
+            --print-header: #1a2b3c;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,10 +33,10 @@
         .date-box { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
 
         /* --- Customer Details --- */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; background: transparent; padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; background: transparent; padding: 15px 0; }
         .input-group label { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
-        .input-group input { width: 100%; padding: 10px; background: transparent; border: 1px solid var(--border); color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 600; outline: none; transition: 0.2s; }
-        .input-group input:focus { border-color: var(--accent); background: rgba(255,208,0,0.05); }
+        .input-group input { width: 100%; padding: 10px 0; background: transparent; border: none; border-bottom: 1px dashed var(--border); color: var(--text); font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 700; outline: none; transition: 0.2s; }
+        .input-group input:focus { border-bottom-color: var(--accent); }
 
         /* --- Desktop List Header --- */
         .list-header { position: sticky; top: 0; z-index: 50; display: flex; gap: 10px; padding: 12px 15px; background: #1a1a1a; border-radius: 6px; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; border: 1px solid var(--border); }
@@ -45,20 +46,22 @@
         .col-spec { flex: 2; }
         .col-qty { flex: 1; text-align: center; }
         .col-unit { flex: 1.2; }
-        .col-del { width: 30px; }
+        .col-del { width: 30px; text-align: center; }
 
         /* --- The Dynamic Row --- */
         .material-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-        .mat-row { display: flex; gap: 10px; background: #0a0a0a; padding: 8px 15px; border-radius: 8px; border: 1px solid var(--border); align-items: center; position: relative; z-index: 1; }
+        .mat-row { display: flex; gap: 10px; background: #0a0a0a; padding: 6px 15px; border-radius: 8px; border: 1px solid var(--border); align-items: center; position: relative; z-index: 1; transition: 0.2s; }
         
+        .mat-row:focus-within { border-color: #555; background: #111; }
         .mat-row.is-duplicate { border-color: var(--red); background: rgba(255, 68, 68, 0.05); }
 
-        .mat-input, .mat-select { width: 100%; padding: 10px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; outline: none; transition: 0.2s; }
-        .mat-input:focus, .mat-select:focus { border-color: var(--accent); background: #151515; }
+        .mat-input, .mat-select { width: 100%; padding: 10px; background: transparent; border: 1px solid transparent; color: var(--text); border-radius: 6px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 600; outline: none; transition: 0.2s; }
+        .mat-input:focus, .mat-select:focus { background: #1a1a1a; border-color: var(--border); }
         .mat-input::placeholder { color: #444; font-weight: 400; }
+        .col-qty .mat-input { text-align: center; }
 
-        /* --- Slinky 'X' Delete Button (Matches your UI requirement) --- */
-        .btn-del { width: 30px; height: 30px; background: transparent; color: #555; border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+        /* --- Sleek Subtle 'X' Delete Button --- */
+        .btn-del { background: transparent; color: var(--text-muted); border: none; font-size: 1.2rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; }
         .btn-del:hover { color: var(--red); transform: scale(1.2); }
 
         /* --- Custom Dropdown --- */
@@ -67,7 +70,7 @@
         .dropdown-toggle:hover { color: var(--accent); }
         
         .dropdown-menu { position: absolute; top: calc(100% + 5px); left: 0; width: 100%; max-height: 250px; overflow-y: auto; background: #1a1a1a; border: 1px solid var(--accent); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.9); display: none; list-style: none; padding: 5px 0; }
-        .mat-row.active-dropdown { z-index: 100; border-color: #555; }
+        .mat-row.active-dropdown { z-index: 100; border-color: var(--accent); }
         .dropdown-menu.show { display: block; }
         
         .dropdown-menu li { padding: 12px 15px; cursor: pointer; color: #eee; font-size: 0.95rem; border-bottom: 1px solid #252525; }
@@ -75,13 +78,8 @@
         .dropdown-menu li:hover { background: rgba(255,208,0,0.15); color: var(--accent); font-weight: 700; }
 
         /* --- UI Controls --- */
-        .controls-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; }
-        .ai-voice-btn { background: rgba(37, 211, 102, 0.1); border: 1px solid var(--wa); color: var(--wa); padding: 10px 20px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; transition: 0.3s; }
-        .ai-voice-btn:hover { background: var(--wa); color: #000; }
-        .ai-voice-btn.listening { background: var(--red); border-color: var(--red); color: #fff; animation: pulse 1s infinite; }
+        .controls-bar { display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border); padding-top: 15px; margin-bottom: 25px; }
         
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-
         .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .btn { padding: 12px 24px; border: none; border-radius: 50px; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; min-width: 160px; }
         .btn-wa { background: var(--wa); color: #000; }
@@ -95,31 +93,29 @@
         @media (max-width: 768px) {
             body { padding: 5px; }
             .container { padding: 15px; border-radius: 8px; border-top: 3px solid var(--accent); }
-            .list-header { display: none; } /* Hide desktop header */
+            .list-header { display: none; } 
             
             .mat-row { 
                 display: grid; 
-                grid-template-columns: 1fr 1fr; 
-                gap: 10px; 
-                padding: 15px 12px; 
+                grid-template-columns: 1fr 1fr 30px; 
+                gap: 8px; 
+                padding: 12px 10px; 
                 border-radius: 8px; 
                 background: #0c0c0c;
                 margin-bottom: 5px;
             }
             
-            /* The 'X' Button matched to your drawing */
             .col-del { position: absolute; top: 0px; right: 0px; width: 35px; height: 35px; }
             .btn-del { width: 100%; height: 100%; font-size: 1.1rem; color: #555; }
             
-            .col-cat { grid-column: 1 / 3; padding-right: 25px; } /* Leave room for X */
-            .col-name { grid-column: 1 / 3; } 
-            .col-spec { grid-column: 1 / 3; } 
+            .col-cat { grid-column: 1 / 3; padding-right: 25px; } 
+            .col-name { grid-column: 1 / 4; } 
+            .col-spec { grid-column: 1 / 4; } 
             .col-qty { grid-column: 1 / 2; } 
             .col-unit { grid-column: 2 / 3; } 
             
             .mat-input, .mat-select { padding: 12px 10px; font-size: 1rem; border-color: #222; }
-            .controls-bar { flex-direction: column; align-items: stretch; }
-            .ai-voice-btn { justify-content: center; padding: 15px; font-size: 1.1rem; }
+            .controls-bar { flex-direction: row; justify-content: center; }
         }
 
         /* =======================================================
@@ -130,13 +126,17 @@
             body { background: #fff !important; padding: 0 !important; color: #000 !important; -webkit-print-color-adjust: exact; }
             .container { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; }
             
-            .brand h1, .doc-title h2, .brand h1 span { color: #000 !important; }
+            .header { border-bottom: 2px solid var(--print-header) !important; padding-bottom: 10px !important; margin-bottom: 15px !important; }
+            .brand h1 { color: var(--print-header) !important; }
+            .brand h1 span { color: #000 !important; }
             .tagline { color: #555 !important; }
-            .info-grid { background: #fff !important; border: 1px solid #ccc !important; padding: 10px !important; margin-bottom: 20px !important; display: flex !important; justify-content: space-between !important; border-radius: 4px !important; }
-            .input-group label { color: #666 !important; font-size: 8pt !important; }
-            .input-group input { border: none !important; background: transparent !important; padding: 0 !important; color: #000 !important; font-weight: bold !important; font-size: 11pt !important; }
+            .doc-title h2 { color: var(--print-header) !important; font-size: 1.5rem !important;}
             
-            /* FORCE STRICT 1-LINE TABLE ON PAPER */
+            .info-grid { background: transparent !important; border: none !important; padding: 0 !important; margin-bottom: 20px !important; display: flex !important; justify-content: space-between !important; border-bottom: 1px dashed #ccc !important; padding-bottom: 15px !important; }
+            .input-group label { color: #777 !important; font-size: 8pt !important; margin-bottom: 2px !important; }
+            .input-group input { border: none !important; background: transparent !important; padding: 0 !important; color: #000 !important; font-weight: 700 !important; font-size: 10pt !important; }
+            
+            /* STRICT 1-LINE TABLE LAYOUT */
             .list-header { 
                 display: flex !important; 
                 background: #f4f4f4 !important; 
@@ -160,21 +160,21 @@
                 border-radius: 0 !important;
                 box-shadow: none !important;
                 page-break-inside: avoid !important;
+                align-items: center !important;
             }
+            .mat-row:nth-child(even) { background: #fdfdfd !important; }
             .material-list { border-bottom: 1px solid #000 !important; margin-bottom: 10px !important; gap: 0 !important; }
             
-            /* Strict Column Widths for Print */
-            .col-cat, .col-del { display: none !important; } /* Hide Category and Delete X */
+            .col-cat, .col-del { display: none !important; } 
             .col-name { width: 50% !important; flex: none !important; }
             .col-spec { width: 25% !important; flex: none !important; }
             .col-qty { width: 10% !important; flex: none !important; text-align: center !important; }
             .col-unit { width: 15% !important; flex: none !important; }
             
-            /* Inputs to Plain Text */
             .mat-input, .mat-select { background: transparent !important; border: none !important; color: #000 !important; padding: 0 !important; font-size: 10pt !important; font-weight: bold !important; -webkit-appearance: none !important; appearance: none !important; }
+            .col-name .mat-input { font-weight: 800 !important; color: #000 !important; }
             .mat-input::placeholder { color: transparent !important; }
             
-            /* Hide web buttons */
             .controls-bar, .actions, .dropdown-toggle, .hide-on-print { display: none !important; }
         }
     </style>
@@ -209,12 +209,8 @@
             </div>
         </div>
 
-        <!-- AI Voice & Count Bar -->
         <div class="controls-bar no-print">
-            <button class="ai-voice-btn" id="voice-btn" onclick="startVoiceAI()">
-                🎙️ AI Voice Add (Speak Items)
-            </button>
-            <div style="color: var(--text-muted); font-size: 0.9rem;">
+            <div style="color: var(--text-muted); font-size: 0.95rem;">
                 Items: <span id="total-items-count" style="color: #fff; font-weight: bold;">0</span> | <span id="save-status" style="color: var(--accent);">✔️ Saved</span>
             </div>
         </div>
@@ -233,7 +229,7 @@
         </div>
 
         <div class="actions no-print">
-            <button class="btn btn-print" onclick="cleanAndPrint()">🖨️ Print / Save PDF</button>
+            <button class="btn btn-print" onclick="cleanAndPrint()">🖨️ Print Invoice</button>
             <button class="btn btn-wa" onclick="shareWhatsApp()">📱 WhatsApp List</button>
             <button class="btn btn-reset" onclick="startNewNote()">🗑️ Start New</button>
         </div>
@@ -326,7 +322,11 @@
             const row = document.createElement('div');
             row.className = 'mat-row';
             
-            // Fast Keyboard Nav: Press Enter to jump to the next logical input
+            // Fast Keyboard Nav: Press Enter to jump
+            const keyNav = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); this.closest('.mat-row').querySelector('.in-spec').focus(); }"`;
+            const keyNavSpec = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); this.closest('.mat-row').querySelector('.in-qty').focus(); }"`;
+            const keyNavQty = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); ensureBlankRow(); const nextRow = this.closest('.mat-row').nextElementSibling; if(nextRow) nextRow.querySelector('.in-name').focus(); }"`;
+
             row.innerHTML = `
                 <div class="col-cat">
                     <select class="mat-select in-cat" onchange="syncCategories(this)">
@@ -338,12 +338,13 @@
                     </select>
                 </div>
                 <div class="col-name custom-dropdown">
-                    <input type="text" class="mat-input in-name" placeholder="Material..." oninput="handleInput(this)" onfocus="openDropdown(this)" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.mat-row').querySelector('.in-spec').focus();}">
+                    <input type="text" class="mat-input in-name" placeholder="Material Name" oninput="handleInput(this)" onfocus="openDropdown(this)" ${keyNav}>
                     <div class="dropdown-toggle" onclick="toggleBtn(this)">▼</div>
                     <ul class="dropdown-menu"></ul>
                 </div>
-                <div class="col-spec"><input type="text" class="mat-input in-spec" placeholder="Brand/Color" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.mat-row').querySelector('.in-qty').focus();}"></div>
-                <div class="col-qty"><input type="number" class="mat-input in-qty" placeholder="Qty" min="0" onkeydown="if(event.key==='Enter'){event.preventDefault(); ensureBlankRow(); const nextRow = this.closest('.mat-row').nextElementSibling; if(nextRow) nextRow.querySelector('.in-name').focus();}"></div>
+                <!-- PURE MANUAL TEXT INPUT FOR SPEED -->
+                <div class="col-spec"><input type="text" class="mat-input in-spec" placeholder="Brand / Color" ${keyNavSpec}></div>
+                <div class="col-qty"><input type="number" class="mat-input in-qty" placeholder="Qty" min="0" ${keyNavQty}></div>
                 <div class="col-unit">
                     <select class="mat-select in-unit" onchange="syncUnits(this)">
                         <option value="Pcs">Pcs</option>
@@ -354,7 +355,7 @@
                         <option value="Bdl">Bdl</option>
                     </select>
                 </div>
-                <div class="col-del"><button class="btn-del" onclick="deleteRow(this)" title="Remove Item">✕</button></div>
+                <div class="col-del"><button class="btn-del" onclick="deleteRow(this)" title="Remove">✕</button></div>
             `;
             
             if (data) {
@@ -397,7 +398,7 @@
         function smartUnitGuesser(itemName, unitDropdown) {
             let n = itemName.toLowerCase();
             if(n.includes('wire')) { unitDropdown.value = 'Coil'; syncUnits(unitDropdown); }
-            else if(n.includes('tape') || n.includes('tie') || n.includes('screw') || n.includes('pin')) { unitDropdown.value = 'Pkt'; syncUnits(unitDropdown); }
+            else if(n.includes('tape') || n.includes('tie') || n.includes('screw') || n.includes('pin') || n.includes('blade')) { unitDropdown.value = 'Pkt'; syncUnits(unitDropdown); }
             else if(n.includes('pipe') || n.includes('band')) { unitDropdown.value = 'Pcs'; syncUnits(unitDropdown); }
         }
 
@@ -427,7 +428,6 @@
             let items = db[rowCat] || [];
             let filterText = input.value.toLowerCase();
             
-            // REMOVE ITEMS ALREADY IN THE LIST
             let usedItems = Array.from(document.querySelectorAll('.in-name')).map(i => input !== i ? i.value.trim().toLowerCase() : "").filter(v => v !== "");
             
             menu.innerHTML = "";
@@ -444,12 +444,13 @@
                         closeAllDropdowns();
                         handleInput(input);
                         triggerAutoSave();
+                        // Jump to next input perfectly
                         input.closest('.mat-row').querySelector('.in-spec').focus();
                     };
                     menu.appendChild(li); matchCount++;
                 }
             });
-            if(matchCount === 0) { let li = document.createElement('li'); li.innerText = "Keep typing..."; li.style.color = "#888"; menu.appendChild(li); }
+            if(matchCount === 0) { let li = document.createElement('li'); li.innerText = "Type custom item..."; li.style.color = "#888"; menu.appendChild(li); }
         }
 
         function closeAllDropdowns() {
@@ -468,8 +469,13 @@
         // 5. PRINT INVOICE MODE
         function cleanAndPrint() {
             document.querySelectorAll('.mat-row').forEach(row => {
-                if(row.querySelector('.in-name').value.trim() === "" || !parseFloat(row.querySelector('.in-qty').value)) row.classList.add('hide-on-print');
-                else row.classList.remove('hide-on-print');
+                let name = row.querySelector('.in-name').value.trim();
+                let qty = parseFloat(row.querySelector('.in-qty').value);
+                if(name === "" || isNaN(qty) || qty === 0) {
+                    row.classList.add('hide-on-print');
+                } else {
+                    row.classList.remove('hide-on-print');
+                }
             });
             window.print();
         }
@@ -488,84 +494,6 @@
             });
             for (const [catName, items] of Object.entries(categories)) { msg += `\n*${catName.toUpperCase()}*\n` + items.join("\n") + "\n"; }
             window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        // 🎙️ 7. AI VOICE INPUT ENGINE (THE MAGIC FEATURE)
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        let recognition;
-        
-        if (SpeechRecognition) {
-            recognition = new SpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'en-IN'; // Works great for English and Hinglish
-            
-            recognition.onresult = function(event) {
-                const transcript = event.results[0][0].transcript;
-                processVoiceInput(transcript);
-            };
-            
-            recognition.onerror = function() {
-                document.getElementById('voice-btn').classList.remove('listening');
-                document.getElementById('voice-btn').innerHTML = "🎙️ AI Voice Add";
-                alert("Voice recognition failed. Please try again.");
-            }
-        }
-
-        function startVoiceAI() {
-            if(recognition) {
-                const btn = document.getElementById('voice-btn');
-                btn.classList.add('listening');
-                btn.innerHTML = "🔴 Listening... Speak now";
-                recognition.start();
-            } else {
-                alert("Voice AI is not supported on this browser. Try Google Chrome.");
-            }
-        }
-
-        function processVoiceInput(text) {
-            const btn = document.getElementById('voice-btn');
-            btn.classList.remove('listening');
-            btn.innerHTML = "🎙️ AI Voice Add";
-            
-            // Split the spoken sentence by common separators ("and", "aur", commas)
-            let items = text.split(/(?: and | aur | or |,)/i);
-            
-            let addedCount = 0;
-
-            items.forEach(itemText => {
-                // Find quantity (first number in the string)
-                let qtyMatch = itemText.match(/\d+/);
-                let qty = qtyMatch ? qtyMatch[0] : 1;
-                
-                // Find unit based on common words
-                let unit = "Pcs";
-                let tLower = itemText.toLowerCase();
-                if(/bundle|bandal/i.test(tLower)) unit = "Bdl";
-                if(/coil|wire/i.test(tLower)) unit = "Coil";
-                if(/packet|pkt|box/i.test(tLower)) unit = "Pkt";
-                if(/meter|mtr/i.test(tLower)) unit = "Mtr";
-                
-                // Extract name (remove the number and unit words)
-                let name = itemText.replace(/\d+/g, '')
-                                   .replace(/bundle|bandal|coil|packet|pkt|meter|mtr|pics|pcs|piece|pieces/gi, '')
-                                   .trim();
-                
-                // Capitalize first letter of name
-                if(name.length > 0) {
-                    name = name.charAt(0).toUpperCase() + name.slice(1);
-                    createRow({ name: name, qty: qty, unit: unit, cat: globalCategory });
-                    addedCount++;
-                }
-            });
-
-            if(addedCount > 0) {
-                // Remove blank rows at the top
-                const rows = document.querySelectorAll('.mat-row');
-                rows.forEach(r => { if(r.querySelector('.in-name').value === "") r.remove(); });
-                ensureBlankRow();
-                triggerAutoSave();
-            }
         }
     </script>
 </body>
