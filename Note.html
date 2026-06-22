@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Professional Material Estimate Generator - Create, save, and share material estimates instantly">
     <title>Material Estimate | Prakash Electrician</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -11,810 +10,232 @@
             /* Premium Color Palette */
             --primary: #FFD000;
             --primary-dark: #e6bb00;
-            --primary-light: #fff8e6;
-            --bg-main: #f5f7fa;
-            --bg-alt: #eef0f6;
+            --bg-main: #f0f2f5;
             --card: #ffffff;
             --text-primary: #1a1a2e;
-            --text-secondary: #4a5568;
             --text-muted: #7a8a9a;
             --border-light: #e8eef5;
-            --border-mid: #d4dce6;
             --success: #22c55e;
             --error: #ef4444;
-            --warning: #f97316;
             --whatsapp: #25D366;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
             --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
-            --radius-sm: 8px;
             --radius-md: 12px;
-            --radius-lg: 16px;
             --font-display: 'Barlow Condensed', sans-serif;
             --font-body: 'Nunito', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.2s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
-        
-        body {
-            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-alt) 100%);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            padding: 20px;
-            min-height: 100vh;
-        }
+        body { background: var(--bg-main); color: var(--text-primary); font-family: var(--font-body); -webkit-font-smoothing: antialiased; padding: 20px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--card);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-light);
-            overflow: hidden;
-        }
+        .container { max-width: 1100px; margin: 0 auto; background: var(--card); border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-light); overflow: hidden; }
 
-        /* ===== HEADER SECTION ===== */
-        .header {
-            background: linear-gradient(135deg, var(--text-primary) 0%, #2d3748 100%);
-            color: white;
-            padding: 35px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .header-left { display: flex; align-items: center; gap: 16px; flex: 1; min-width: 250px; }
-        
-        .brand-badge {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            font-family: var(--font-display);
-            box-shadow: 0 4px 16px rgba(255, 208, 0, 0.3);
-        }
-
-        .brand-text h1 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            line-height: 1.1;
-            margin-bottom: 4px;
-        }
-
+        /* ===== HEADER ===== */
+        .header { background: #1a1a2e; color: white; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .brand-badge { width: 55px; height: 55px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #000; font-family: var(--font-display); box-shadow: 0 4px 16px rgba(255, 208, 0, 0.2); }
+        .brand-text h1 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.1; }
         .brand-text h1 span { color: var(--primary); }
+        .brand-text .tagline { color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-top: 2px;}
+        .doc-title { text-align: right; }
+        .doc-title h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+        .doc-date { color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; font-weight: 600; }
 
-        .brand-text .tagline {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
+        /* ===== MAIN CONTENT ===== */
+        .main-content { padding: 30px 40px; }
 
-        .header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-        }
+        /* --- DASHBOARD --- */
+        .summary-dashboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; background: rgba(255, 208, 0, 0.05); padding: 20px; border-radius: var(--radius-md); border: 1px solid rgba(255, 208, 0, 0.2); }
+        .summary-card { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light); }
+        .summary-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 800; margin-bottom: 5px; }
+        .summary-value { font-size: 1.8rem; font-weight: 800; color: #1a1a2e; font-family: var(--font-display); line-height: 1; }
 
-        .doc-title h2 {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* --- CUSTOMER INFO --- */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; background: #f8f9fa; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+        .input-group label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); font-weight: 800; margin-bottom: 5px; }
+        .input-group input { width: 100%; padding: 10px; background: white; border: 1px solid var(--border-light); border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 1rem; font-weight: 700; outline: none; transition: var(--transition); }
+        .input-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.1); }
 
-        .doc-date {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+        /* --- LIST HEADER --- */
+        .list-header { display: flex; gap: 10px; padding: 12px 15px; background: #1a1a2e; color: white; border-radius: 8px; margin-bottom: 10px; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
+        .col-cat { flex: 1.5; }
+        .col-name { flex: 3.5; }
+        .col-spec { flex: 2; }
+        .col-qty { flex: 1; text-align: center; }
+        .col-unit { flex: 1.2; }
+        .col-del { width: 30px; text-align: center; }
 
-        /* ===== CONTENT AREA ===== */
-        .main-content { padding: 40px; }
+        /* --- MATERIAL ROWS --- */
+        .material-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; }
+        .mat-row { display: flex; gap: 10px; background: white; padding: 8px 15px; border-radius: 8px; border: 1px solid var(--border-light); align-items: center; transition: var(--transition); position: relative; z-index: 1; box-shadow: var(--shadow-sm); }
+        .mat-row:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.15); z-index: 10; }
 
-        /* --- SUMMARY DASHBOARD --- */
-        .summary-dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 16px;
-            margin-bottom: 35px;
-            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 208, 0, 0.05) 100%);
-            padding: 24px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 208, 0, 0.3);
-        }
-
-        .summary-card {
-            background: white;
-            padding: 16px;
-            border-radius: var(--radius-sm);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            transition: var(--transition);
-        }
-
-        .summary-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .summary-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .summary-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            font-family: var(--font-display);
-            line-height: 1;
-        }
-
-        /* --- CUSTOMER INFO SECTION --- */
-        .customer-section {
-            margin-bottom: 35px;
-        }
-
-        .section-heading {
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--text-muted);
-            font-weight: 700;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-heading::before {
-            content: '';
-            width: 4px;
-            height: 16px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            background: var(--bg-main);
-            padding: 20px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-light);
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .input-group label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.9px;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
-
-        .input-group input {
-            padding: 10px 12px;
-            background: white;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            font-weight: 600;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .input-group input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.1);
-            background: white;
-        }
-
-        .input-group input::placeholder {
-            color: var(--text-muted);
-            opacity: 0.6;
-        }
-
-        /* --- CONTROLS BAR --- */
-        .controls-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 16px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .status-info {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-        }
-
-        .status-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-secondary);
-        }
-
-        .status-value {
-            color: var(--text-primary);
-            font-weight: 800;
-            font-size: 1rem;
-        }
-
-        .save-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 600;
-            color: var(--success);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .save-indicator.saving {
-            color: var(--primary);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        /* --- MATERIALS SECTION --- */
-        .materials-section h3 { display: none; }
-
-        .list-header {
-            display: flex;
-            gap: 12px;
-            padding: 14px 16px;
-            background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-alt) 100%);
-            border-radius: var(--radius-md);
-            margin-bottom: 12px;
-            font-family: var(--font-display);
-            color: var(--text-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.9px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border: 1px solid var(--border-light);
-            align-items: center;
-        }
-
-        .col-cat { flex: 1.2; }
-        .col-name { flex: 2.5; }
-        .col-spec { flex: 1.8; }
-        .col-qty { flex: 0.7; text-align: center; }
-        .col-unit { flex: 0.9; text-align: center; }
-        .col-del { width: 40px; text-align: center; }
-
-        /* --- MATERIAL LIST --- */
-        .material-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            max-height: 70vh;
-            overflow-y: auto;
-            padding-right: 4px;
-            margin-bottom: 25px;
-        }
-
-        .material-list::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .material-list::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-            opacity: 0.6;
-        }
-
-        .material-list::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        /* --- MATERIAL ROW --- */
-        .mat-row {
-            display: flex;
-            gap: 12px;
-            background: white;
-            padding: 12px 14px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-light);
-            align-items: center;
-            transition: var(--transition);
-            position: relative;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .mat-row:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            background: rgba(255, 208, 0, 0.02);
-        }
-
-        .mat-row:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.15);
-        }
-
-        .mat-row.is-duplicate {
-            border-color: var(--error);
-            background: rgba(239, 68, 68, 0.04);
-        }
-
-        .mat-row.is-empty {
-            opacity: 0.5;
-        }
-
-        .mat-input, .mat-select {
-            width: 100%;
-            padding: 9px 10px;
-            background: var(--bg-main);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            font-weight: 600;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .mat-input:focus, .mat-select:focus {
-            background: white;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.1);
-        }
-
-        .mat-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .col-qty .mat-input {
-            text-align: center;
-            font-weight: 800;
-        }
+        .mat-input, .mat-select { width: 100%; padding: 10px; background: #f8f9fa; border: 1px solid transparent; border-radius: 6px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; outline: none; transition: var(--transition); }
+        .mat-input:focus, .mat-select:focus { background: white; border-color: var(--primary); }
+        .mat-input::placeholder { color: #aaa; font-weight: 500; }
+        .col-qty .mat-input { text-align: center; }
 
         /* --- CUSTOM DROPDOWN --- */
-        .custom-dropdown {
-            position: relative;
-            width: 100%;
-        }
-
-        .dropdown-toggle {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            color: var(--text-muted);
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.6rem;
-            z-index: 2;
-            transition: var(--transition);
-            border-radius: 50%;
-        }
-
-        .dropdown-toggle:hover {
-            background: rgba(0, 0, 0, 0.05);
-            color: var(--primary);
-        }
-
-        .mat-row.active-dropdown {
-            z-index: 100;
-            border-color: var(--primary);
-            box-shadow: 0 8px 24px rgba(255, 208, 0, 0.2);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 0;
-            width: 100%;
-            max-height: 240px;
-            overflow-y: auto;
-            background: white;
-            border: 1px solid var(--border-mid);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            display: none;
-            list-style: none;
-            padding: 6px 0;
-            z-index: 200;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            animation: dropIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes dropIn {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dropdown-menu li {
-            padding: 10px 14px;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--border-light);
-            transition: var(--transition);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
+        .custom-dropdown { position: relative; width: 100%; }
+        .dropdown-toggle { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: transparent; color: var(--text-muted); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.7rem; z-index: 2; transition: 0.2s; border-radius: 50%; }
+        .dropdown-toggle:hover { color: var(--primary-dark); background: rgba(255,208,0,0.1); }
+        
+        .dropdown-menu { position: absolute; top: calc(100% + 5px); left: 0; width: 100%; max-height: 220px; overflow-y: auto; background: white; border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: none; list-style: none; padding: 5px 0; z-index: 200; }
+        .dropdown-menu.show { display: block; animation: dropIn 0.2s ease; }
+        @keyframes dropIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown-menu li { padding: 10px 15px; cursor: pointer; color: var(--text-primary); font-size: 0.95rem; border-bottom: 1px solid #f0f2f5; font-weight: 600; }
         .dropdown-menu li:last-child { border-bottom: none; }
+        .dropdown-menu li:hover { background: #fff8e6; color: var(--primary-dark); padding-left: 20px; transition: 0.2s; }
 
-        .dropdown-menu li:hover {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            font-weight: 700;
-            padding-left: 18px;
-        }
+        /* --- SLEEK DELETE BUTTON --- */
+        .btn-del { background: transparent; color: #ccc; border: none; font-size: 1.2rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+        .btn-del:hover { color: var(--error); transform: scale(1.2); }
 
-        /* --- DELETE BUTTON --- */
-        .btn-del {
-            background: transparent;
-            color: var(--text-muted);
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            padding: 4px;
-            flex-shrink: 0;
-        }
-
-        .btn-del:hover {
-            color: white;
-            background: var(--error);
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-        }
-
-        /* --- EMPTY STATE --- */
-        .empty-state {
-            text-align: center;
-            padding: 60px 40px;
-            color: var(--text-muted);
-        }
-
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-        }
-
-        .empty-state h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .empty-state p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        /* --- ACTIONS SECTION --- */
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            padding-top: 24px;
-            border-top: 2px solid var(--border-light);
-        }
-
-        .btn {
-            padding: 12px 28px;
-            border: none;
-            border-radius: 50px;
-            font-family: var(--font-display);
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 140px;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover::before {
-            transform: translateX(100%);
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-        }
-
-        /* Button Variants */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--text-primary);
-            box-shadow: 0 4px 15px rgba(255, 208, 0, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 208, 0, 0.4);
-        }
-
-        .btn-wa {
-            background: linear-gradient(135deg, var(--whatsapp) 0%, #1ebd5c 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-wa:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-print {
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(26, 26, 46, 0.2);
-        }
-
-        .btn-print:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(26, 26, 46, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--text-primary);
-            border: 2px solid var(--border-mid);
-            box-shadow: none;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary-dark);
-            background: var(--primary-light);
-        }
+        /* --- ACTIONS --- */
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; padding-top: 25px; border-top: 2px solid var(--border-light); }
+        .btn { padding: 14px 28px; border: none; border-radius: 50px; font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 180px; box-shadow: var(--shadow-sm); }
+        .btn:active { transform: scale(0.97); }
+        .btn-wa { background: var(--whatsapp); color: white; }
+        .btn-wa:hover { background: #1ebd5c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
+        .btn-print { background: #1a1a2e; color: white; }
+        .btn-print:hover { background: #2a2a4a; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,26,46,0.3); }
+        .btn-reset { background: white; color: var(--text-muted); border: 2px solid var(--border-light); box-shadow: none; }
+        .btn-reset:hover { border-color: var(--error); color: var(--error); transform: translateY(-2px); }
 
         /* --- TOAST NOTIFICATIONS --- */
-        #toast-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 380px;
-            pointer-events: none;
-        }
+        #toast-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; max-width: 350px; pointer-events: none; }
+        .toast { background: white; color: var(--text-primary); padding: 14px 20px; border-radius: 8px; box-shadow: var(--shadow-md); font-weight: 700; display: flex; align-items: center; gap: 10px; animation: slideUp 0.3s ease; border-left: 4px solid var(--success); font-size: 0.95rem; pointer-events: auto; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .toast {
-            background: var(--card);
-            color: var(--text-primary);
-            padding: 14px 18px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid var(--primary);
-            font-size: 0.9rem;
-            pointer-events: auto;
-        }
-
-        .toast.success { border-left-color: var(--success); }
-        .toast.error { border-left-color: var(--error); }
-        .toast.warning { border-left-color: var(--warning); }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- FOOTER --- */
-        .footer {
-            background: var(--bg-main);
-            padding: 20px 40px;
-            border-top: 1px solid var(--border-light);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 600;
-        }
-
-        /* ===== PRINT STYLES ===== */
-        @media print {
-            body { padding: 0; background: white; }
-            .container { box-shadow: none; border: none; }
-            .header { padding: 25px 40px; }
-            .controls-bar, .actions, .footer, .material-list::-webkit-scrollbar { display: none !important; }
-            .mat-row.hide-on-print { display: none !important; }
-            .main-content { padding: 30px 40px; }
-            .material-list { max-height: none; }
-        }
-
-        /* ===== MOBILE RESPONSIVE ===== */
+        /* =======================================================
+           📱 MOBILE OPTIMIZATION (Compact Fast UI)
+           ======================================================= */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .container { border-radius: var(--radius-md); }
-            .main-content { padding: 20px; }
-
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 25px 20px;
-                gap: 20px;
+            body { padding: 5px; background: #fff; }
+            .container { padding: 15px; border-radius: 0; border: none; box-shadow: none; }
+            .main-content { padding: 10px 0; }
+            .header { padding: 15px; border-radius: 12px; margin-bottom: 20px; flex-direction: column; align-items: flex-start; }
+            .doc-title { text-align: left; }
+            .summary-dashboard { grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 15px 10px; }
+            .summary-value { font-size: 1.4rem; }
+            
+            .list-header { display: none; } 
+            
+            .mat-row { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr 30px; 
+                gap: 8px; 
+                padding: 12px; 
+                border-radius: 10px; 
+                background: #f8f9fa;
+                border: 1px solid var(--border-light);
+                margin-bottom: 5px;
             }
-
-            .header-right { align-items: flex-start; }
-            .doc-title h2 { font-size: 1.2rem; }
-
-            .brand-text h1 { font-size: 1.4rem; }
-            .summary-dashboard { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px; }
-
-            .info-grid { grid-template-columns: 1fr; gap: 12px; }
-            .controls-bar { flex-direction: column; align-items: flex-start; }
-
-            .list-header {
-                font-size: 0.7rem;
-                padding: 10px 12px;
-            }
-
-            .col-spec { display: none; }
-            .col-name { flex: 3; }
-
-            .mat-row {
-                gap: 8px;
-                padding: 10px 12px;
-                font-size: 0.85rem;
-            }
-
-            .mat-input, .mat-select {
-                font-size: 0.85rem;
-                padding: 8px 8px;
-            }
-
-            .actions {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .btn {
-                width: 100%;
-                min-width: unset;
-                padding: 12px 20px;
-            }
-
-            #toast-container {
-                right: 15px;
-                bottom: 20px;
-                max-width: calc(100vw - 30px);
-            }
-
-            .section-heading { font-size: 0.8rem; }
+            
+            .col-cat { grid-column: 1 / 3; padding-right: 35px; } 
+            .col-name { grid-column: 1 / 4; } 
+            .col-spec { grid-column: 1 / 4; } 
+            .col-qty { grid-column: 1 / 2; } 
+            .col-unit { grid-column: 2 / 3; } 
+            .col-del { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; }
+            
+            .mat-input, .mat-select { padding: 10px 8px; font-size: 0.95rem; background: #fff; border: 1px solid #ddd; }
+            .btn { width: 100%; padding: 14px; }
+            #toast-container { right: 10px; left: 10px; max-width: none; bottom: 15px; }
         }
 
-        @media (max-width: 480px) {
-            .header { padding: 18px 15px; }
-            .main-content { padding: 15px; }
-            .brand-text h1 { font-size: 1.1rem; }
-            .brand-badge { width: 45px; height: 45px; font-size: 1.5rem; }
-            .summary-dashboard { grid-template-columns: 1fr; gap: 10px; padding: 12px; }
-            .summary-value { font-size: 1.5rem; }
-            .summary-label { font-size: 0.65rem; }
-            .col-unit { display: none; }
-            .list-header { padding: 8px 10px; }
-            .mat-row { gap: 6px; padding: 8px 10px; }
-        }
+        /* =======================================================
+           🖨️ INVOICE-GRADE PRINT CSS (Perfect 1-Line Table)
+           ======================================================= */
+        @media print {
+            @page { margin: 15mm; size: A4 portrait; }
+            body { background: #fff !important; padding: 0 !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            .container { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; border-radius: 0 !important; }
+            
+            .header { background: transparent !important; color: #000 !important; border-bottom: 2px solid #000 !important; padding: 0 0 15px 0 !important; margin-bottom: 20px !important; }
+            .brand-badge { background: #000 !important; color: #fff !important; box-shadow: none !important; }
+            .brand h1 { color: #000 !important; }
+            .brand h1 span { color: #000 !important; }
+            .brand .tagline { color: #555 !important; }
+            .doc-title h2 { color: #000 !important; font-size: 1.4rem !important; }
+            .doc-date { color: #333 !important; }
+            
+            .summary-dashboard { display: none !important; }
 
-        /* ===== ACCESSIBILITY ===== */
-        @media (prefers-reduced-motion: reduce) {
-            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-        }
-
-        .btn:focus-visible, .mat-input:focus-visible, .mat-select:focus-visible {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
+            .info-grid { background: #fff !important; border: 1px solid #ccc !important; padding: 15px !important; margin-bottom: 25px !important; display: flex !important; justify-content: space-between !important; border-radius: 4px !important; }
+            .input-group label { color: #555 !important; font-size: 8pt !important; margin-bottom: 2px !important; }
+            .input-group input { border: none !important; border-bottom: 1px dotted #ccc !important; background: transparent !important; padding: 2px 0 !important; color: #000 !important; font-weight: 700 !important; font-size: 10pt !important; }
+            
+            /* STRICT 1-LINE TABLE FOR PAPER */
+            .list-header { 
+                display: flex !important; 
+                background: #f0f0f0 !important; 
+                color: #000 !important; 
+                border: 1px solid #000 !important;
+                border-bottom: 2px solid #000 !important;
+                padding: 8px 10px !important;
+                font-size: 10pt !important;
+                font-weight: 800 !important;
+                position: static !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+            .mat-row { 
+                display: flex !important; 
+                background: #fff !important; 
+                border: none !important; 
+                border-left: 1px solid #000 !important;
+                border-right: 1px solid #000 !important;
+                border-bottom: 1px solid #ccc !important; 
+                padding: 4px 10px !important; 
+                gap: 10px !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+                align-items: center !important;
+            }
+            .mat-row:nth-child(even) { background: #fafafa !important; }
+            .material-list { border-bottom: 1px solid #000 !important; margin-bottom: 15px !important; gap: 0 !important; max-height: none !important; overflow: visible !important; }
+            
+            /* Clean Columns */
+            .col-cat, .col-del { display: none !important; } 
+            .col-name { flex: 4 !important; }
+            .col-spec { flex: 2.5 !important; }
+            .col-qty { flex: 1 !important; text-align: center !important; }
+            .col-unit { flex: 1.5 !important; }
+            
+            /* Inputs to Plain Text */
+            .mat-input, .mat-select { background: transparent !important; border: none !important; color: #000 !important; padding: 0 !important; font-size: 10pt !important; font-weight: 700 !important; -webkit-appearance: none !important; appearance: none !important; box-shadow: none !important; }
+            .mat-input::placeholder { color: transparent !important; }
+            
+            .actions, .dropdown-toggle, .hide-on-print { display: none !important; }
         }
     </style>
 </head>
 <body>
+
+    <div id="toast-container"></div>
+
     <div class="container">
-        <!-- ===== PREMIUM HEADER ===== -->
+        
         <header class="header">
             <div class="header-left">
                 <div class="brand-badge">⚡</div>
                 <div class="brand-text">
-                    <h1><span>PRAKASH</span> Electrician</h1>
-                    <div class="tagline">Material Estimate System</div>
+                    <h1><span>Prakash</span> Electrician</h1>
+                    <div class="tagline">Material Requirement Note</div>
                 </div>
             </div>
-            <div class="header-right">
-                <div class="doc-title">
-                    <h2>Estimate</h2>
-                    <div class="doc-date" id="current-date"></div>
-                </div>
+            <div class="doc-title">
+                <h2>Estimate Sheet</h2>
+                <div class="doc-date">Date: <span id="current-date"></span></div>
             </div>
         </header>
 
-        <!-- ===== MAIN CONTENT ===== -->
         <div class="main-content">
-            <!-- SUMMARY DASHBOARD -->
-            <div class="summary-dashboard">
+            
+            <div class="summary-dashboard no-print">
                 <div class="summary-card">
                     <div class="summary-label">Total Items</div>
                     <div class="summary-value" id="total-items">0</div>
@@ -824,221 +245,269 @@
                     <div class="summary-value" id="total-cats">0</div>
                 </div>
                 <div class="summary-card">
-                    <div class="summary-label">Status</div>
-                    <div class="summary-value" id="status-badge" style="font-size: 1.3rem; color: var(--text-muted);">○</div>
+                    <div class="summary-label">Save Status</div>
+                    <div class="summary-value" id="save-status" style="color: var(--success); font-size: 1.5rem;">✔️</div>
                 </div>
             </div>
 
-            <!-- CUSTOMER SECTION -->
-            <div class="customer-section">
-                <div class="section-heading">Customer Details</div>
-                <div class="info-grid">
-                    <div class="input-group">
-                        <label for="c-name">Customer Name</label>
-                        <input type="text" id="c-name" class="info-input" placeholder="Enter customer/project name">
-                    </div>
-                    <div class="input-group">
-                        <label for="c-phone">Phone Number</label>
-                        <input type="tel" id="c-phone" class="info-input" placeholder="+91 98765 43210">
-                    </div>
-                    <div class="input-group">
-                        <label for="c-location">Location / Site</label>
-                        <input type="text" id="c-location" class="info-input" placeholder="Project location">
-                    </div>
-                    <div class="input-group">
-                        <label for="c-notes">Project Notes</label>
-                        <input type="text" id="c-notes" class="info-input" placeholder="Additional details">
-                    </div>
+            <div class="info-grid">
+                <div class="input-group">
+                    <label>👤 Client / Site Name</label>
+                    <input type="text" id="c-name" placeholder="Enter Name" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label>📍 Site Address</label>
+                    <input type="text" id="c-address" placeholder="Location" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label>🔧 Work Stage</label>
+                    <input type="text" id="c-stage" placeholder="e.g. Wall Cutting / Wiring" autocomplete="off">
                 </div>
             </div>
 
-            <!-- MATERIALS SECTION -->
-            <div class="materials-section">
-                <div class="section-heading">Material List</div>
-                
-                <!-- CONTROLS BAR -->
-                <div class="controls-bar">
-                    <div class="status-info">
-                        <div class="status-item">
-                            📦 <span class="status-value" id="item-count">0</span> Items
-                        </div>
-                        <div class="status-item" id="save-status-container">
-                            <span class="save-indicator">✓ Saved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LIST HEADER -->
-                <div class="list-header">
-                    <div class="col-cat">Category</div>
-                    <div class="col-name">Material Name</div>
-                    <div class="col-spec">Specifications</div>
-                    <div class="col-qty">Qty</div>
-                    <div class="col-unit">Unit</div>
-                    <div class="col-del"></div>
-                </div>
-
-                <!-- MATERIAL LIST -->
-                <div class="material-list" id="material-list"></div>
+            <div class="list-header">
+                <div class="col-cat">Category</div>
+                <div class="col-name">Material Name</div>
+                <div class="col-spec">Brand / Color</div>
+                <div class="col-qty">Qty</div>
+                <div class="col-unit">Unit</div>
+                <div class="col-del"></div>
             </div>
 
-            <!-- ACTION BUTTONS -->
-            <div class="actions">
-                <button class="btn btn-primary" onclick="addRow();">➕ Add Item</button>
-                <button class="btn btn-wa" onclick="shareWhatsApp();">💬 Share via WhatsApp</button>
-                <button class="btn btn-print" onclick="cleanAndPrint();">🖨️ Print Estimate</button>
-                <button class="btn btn-secondary" onclick="resetForm();">↻ Reset Form</button>
+            <div class="material-list" id="mat-list"></div>
+
+            <div class="actions no-print">
+                <button class="btn btn-print" onclick="cleanAndPrint()">🖨️ Print Estimate</button>
+                <button class="btn btn-wa" onclick="shareWhatsApp()">💬 Send WhatsApp</button>
+                <button class="btn btn-reset" onclick="startNewNote()">🗑️ Start Fresh</button>
             </div>
         </div>
-
-        <!-- FOOTER -->
-        <footer class="footer">
-            🔐 Data saved locally • Auto-save enabled • Prakash Electrician
-        </footer>
     </div>
 
-    <!-- TOAST NOTIFICATIONS -->
-    <div id="toast-container"></div>
-
     <script>
-        // ==================== DATABASE ====================
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+        // EXPERT DATABASE (Prakash Electrician)
         const db = {
-            "Wiring": ["1.5 sq.mm Wire", "2.5 sq.mm Wire", "4 sq.mm Wire", "6 sq.mm Wire", "10 sq.mm Wire", "16 sq.mm Wire", "Single Phase Wire", "3 Phase Wire", "Earth Wire (GI)"],
-            "Switches": ["Single Switch", "Double Switch", "Triple Switch", "4-Way Switch", "Dimmer Switch", "Smart Switch", "Socket Outlet", "Double Socket", "Power Outlet"],
-            "Breakers": ["MCB 6A", "MCB 10A", "MCB 16A", "MCB 20A", "MCB 32A", "MCB 63A", "RCCB 30mA", "RCBO 16A"],
-            "Panels": ["Distribution Board 4 Way", "Distribution Board 6 Way", "Distribution Board 8 Way", "MCB Panel", "Main Switch Box", "Meter Board"],
-            "Lighting": ["LED Bulb 9W", "LED Bulb 12W", "LED Panel 18W", "LED Panel 36W", "Downlight 7W", "Street Light 50W", "Tube Light 18W", "Spotlight 5W"],
-            "Fans": ["Ceiling Fan", "Exhaust Fan", "Pedestal Fan", "Table Fan", "Air Cooler", "AC Unit"],
-            "AC Equipment": ["Window AC 1.5 Ton", "Window AC 2 Ton", "Split AC 1.5 Ton", "Split AC 2 Ton", "AC Installation Kit", "Copper Pipe 1/4\"", "Copper Pipe 3/8\""],
-            "Conduit": ["PVC Conduit 16mm", "PVC Conduit 20mm", "PVC Conduit 25mm", "Rigid Steel Conduit 16mm", "Rigid Steel Conduit 20mm", "Flexible Conduit 16mm"],
-            "Earthing": ["Earth Rod (Copper)", "Earth Rod (GI)", "Earth Pit", "Earthing Cable", "Earthing Strip", "Bonding Wire"],
-            "Hardware": ["Wooden Box", "Metal Box", "Electrical Tape", "Terminal Block", "Cable Gland", "Isolator Switch", "Knife Switch"]
+            "Linter/Slab": ["20mm Heavy Pipe", "25mm Heavy Pipe", "20mm Heavy Band", "25mm Heavy Band", "Concealed Box", "Fan Box", "3 inch Brown Tape", "Electrical Tape", "Waste Newspaper", "Steel Wire"],
+            "Wall Cutting": ["20mm Light Pipe", "25mm Light Pipe", "20mm Light Band", "25mm Light Band", "Metal Box 2 Module", "Metal Box 3 Module", "Metal Box 4 Module", "Metal Box 6 Module", "Metal Box 8 Module", "Metal Box 12 Module", "Metal Box 16 Module", "Metal Box 18 Module", "Metal Junction Box", "20mm Kaju Pin", "25mm Kaju Pin", "MCB TPN Box", "5-inch Blade", "Electrical Tape"],
+            "Wiring": ["0.75 sqmm Wire", "1.0 sqmm Wire", "1.5 sqmm Wire", "2.5 sqmm Wire", "4.0 sqmm Wire", "6.0 sqmm Wire", "10.0 sqmm Wire", "Telephone Wire", "Camera Wire", "Dish/Coaxial Wire", "Steel GI Wire", "20mm Flexible Pipe", "25mm Flexible Pipe", "Electrical Tape"],
+            "Fittings": ["Modular Plate 2M", "Modular Plate 3M", "Modular Plate 4M", "Modular Plate 6M", "Modular Plate 8M", "Modular Plate 12M", "Modular Plate 16M", "Modular Plate 18M", "Switch 6 Amp", "Switch 16 Amp", "Socket 6 Amp", "Socket 16 Amp", "Fan Regulator", "Mini MCB 20A", "Mini MCB 25A", "Indicator", "Angle Holder", "Batten Holder", "Round Plate", "Fan Plate", "MICA Sheet", "Brass Screw", "Panel Light", "Concealed Light", "COB Light", "Profile Strip", "Cable Tie", "MCB B6", "MCB C10", "MCB C16", "MCB C20", "MCB C32", "Isolator", "RCCB"]
         };
 
-        // ==================== INITIALIZATION ====================
-        window.addEventListener('DOMContentLoaded', function() {
-            loadLocalState();
-            updateSummary();
-            ensureBlankRow();
-            document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-IN', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
+        const listContainer = document.getElementById('mat-list');
+        let globalCategory = "Linter/Slab";
+        let globalUnit = "Pcs";
+
+        // ==================== AUTO-SAVE & DASHBOARD ====================
+        document.addEventListener('input', triggerAutoSave);
+        document.addEventListener('change', triggerAutoSave);
+
+        function triggerAutoSave() {
+            updateDashboard();
+            document.getElementById('save-status').innerText = "⏳";
+            document.getElementById('save-status').style.color = "var(--primary)";
+            clearTimeout(window.saveTimer);
+            window.saveTimer = setTimeout(saveLocalState, 600);
+        }
+
+        function saveLocalState() {
+            let state = {
+                cName: document.getElementById('c-name').value,
+                cAddress: document.getElementById('c-address').value,
+                cStage: document.getElementById('c-stage').value,
+                rows: []
+            };
+            document.querySelectorAll('.mat-row').forEach(row => {
+                state.rows.push({
+                    cat: row.querySelector('.in-cat').value,
+                    name: row.querySelector('.in-name').value,
+                    spec: row.querySelector('.in-spec').value,
+                    qty: row.querySelector('.in-qty').value,
+                    unit: row.querySelector('.in-unit').value
+                });
             });
-        });
-
-        // ==================== MATERIAL ROW TEMPLATE ====================
-        function createMaterialRow() {
-            const row = document.createElement('div');
-            row.className = 'mat-row';
-            row.innerHTML = `
-                <div class="col-cat">
-                    <select class="mat-select in-cat" onchange="handleInput(this); triggerAutoSave();">
-                        <option value="Wiring">Wiring</option>
-                        <option value="Switches">Switches</option>
-                        <option value="Breakers">Breakers</option>
-                        <option value="Panels">Panels</option>
-                        <option value="Lighting">Lighting</option>
-                        <option value="Fans">Fans</option>
-                        <option value="AC Equipment">AC Equip.</option>
-                        <option value="Conduit">Conduit</option>
-                        <option value="Earthing">Earthing</option>
-                        <option value="Hardware">Hardware</option>
-                    </select>
-                </div>
-                <div class="col-name">
-                    <div class="custom-dropdown">
-                        <input type="text" class="mat-input in-name" placeholder="Material name" onkeyup="renderDropdownList(this); handleInput(this);" onfocus="renderDropdownList(this); this.parentElement.querySelector('.dropdown-menu').classList.add('show');" oninput="triggerAutoSave();">
-                        <span class="dropdown-toggle" onclick="this.closest('.custom-dropdown').querySelector('.dropdown-menu').classList.toggle('show');">⌄</span>
-                        <ul class="dropdown-menu"></ul>
-                    </div>
-                </div>
-                <div class="col-spec">
-                    <input type="text" class="mat-input in-spec" placeholder="Size / specs" oninput="handleInput(this); triggerAutoSave();">
-                </div>
-                <div class="col-qty">
-                    <input type="number" class="mat-input in-qty" placeholder="0" min="0" step="0.5" oninput="handleInput(this); triggerAutoSave();">
-                </div>
-                <div class="col-unit">
-                    <select class="mat-select in-unit" oninput="triggerAutoSave();">
-                        <option>Pcs</option>
-                        <option>m</option>
-                        <option>m²</option>
-                        <option>kg</option>
-                        <option>L</option>
-                        <option>Box</option>
-                        <option>Roll</option>
-                    </select>
-                </div>
-                <div class="col-del">
-                    <button class="btn-del" onclick="deleteRow(this);" title="Delete row">✕</button>
-                </div>
-            `;
-            return row;
+            localStorage.setItem('prakash_mat_note', JSON.stringify(state));
+            document.getElementById('save-status').innerText = "✔️";
+            document.getElementById('save-status').style.color = "var(--success)";
         }
 
-        // ==================== ADD ROW ====================
-        function addRow() {
-            document.getElementById('material-list').appendChild(createMaterialRow());
-            triggerAutoSave();
-            updateSummary();
-            showToast('✅ New item added', 'success');
+        function loadLocalState() {
+            let saved = localStorage.getItem('prakash_mat_note');
+            if (saved) {
+                let state = JSON.parse(saved);
+                document.getElementById('c-name').value = state.cName || "";
+                document.getElementById('c-address').value = state.cAddress || "";
+                document.getElementById('c-stage').value = state.cStage || "";
+
+                if (state.rows && state.rows.length > 0) {
+                    listContainer.innerHTML = "";
+                    state.rows.forEach(rData => createRow(rData));
+                } else { initDefaultRows(); }
+            } else { initDefaultRows(); }
+            ensureBlankRow();
+            updateDashboard();
         }
 
-        // ==================== ENSURE BLANK ROW ====================
-        function ensureBlankRow() {
-            const list = document.getElementById('material-list');
-            if (list.children.length === 0) {
-                list.appendChild(createMaterialRow());
+        window.addEventListener('DOMContentLoaded', loadLocalState);
+
+        function initDefaultRows() { listContainer.innerHTML = ""; createRow(); createRow(); createRow(); }
+
+        function startNewNote() {
+            if (confirm("Clear entire list and start fresh? This cannot be undone.")) {
+                localStorage.removeItem('prakash_mat_note');
+                document.getElementById('c-name').value = "";
+                document.getElementById('c-address').value = "";
+                document.getElementById('c-stage').value = "";
+                initDefaultRows();
+                updateDashboard();
+                showToast("🗑️ Form reset successfully");
             }
         }
 
-        // ==================== HANDLE INPUT ====================
-        function handleInput(input) {
-            const row = input.closest('.mat-row');
-            const name = row.querySelector('.in-name').value.trim().toLowerCase();
-            const qty = parseFloat(row.querySelector('.in-qty').value) || 0;
-
-            // Check if empty
-            if (!name && qty === 0) {
-                row.classList.add('is-empty');
-            } else {
-                row.classList.remove('is-empty');
-            }
-
-            // Check for duplicates
-            let isDuplicate = false;
-            document.querySelectorAll('.mat-row').forEach(r => {
-                if (r !== row && r.querySelector('.in-name').value.trim().toLowerCase() === name && name !== "") {
-                    isDuplicate = true;
+        function updateDashboard() {
+            let count = 0;
+            let categories = new Set();
+            document.querySelectorAll('.mat-row').forEach(row => {
+                if (row.querySelector('.in-name').value.trim() !== "") {
+                    count++;
+                    categories.add(row.querySelector('.in-cat').value);
                 }
             });
-            row.classList.toggle('is-duplicate', isDuplicate);
-
-            updateSummary();
+            document.getElementById('total-items').innerText = count;
+            document.getElementById('total-cats').innerText = categories.size;
         }
 
-        // ==================== DROPDOWN LIST ====================
+        // ==================== FAST CREATE ROW ====================
+        function createRow(data = null) {
+            const row = document.createElement('div');
+            row.className = 'mat-row';
+
+            // Expert Keyboard Navigation: Enter jumps smoothly without losing focus
+            const keyNavName = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); closeAllDropdowns(); this.closest('.mat-row').querySelector('.in-spec').focus(); }"`;
+            const keyNavSpec = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); this.closest('.mat-row').querySelector('.in-qty').focus(); }"`;
+            const keyNavQty = `onkeydown="if(event.key === 'Enter') { event.preventDefault(); ensureBlankRow(); const nextRow = this.closest('.mat-row').nextElementSibling; if(nextRow) nextRow.querySelector('.in-name').focus(); }"`;
+
+            row.innerHTML = `
+                <div class="col-cat">
+                    <select class="mat-select in-cat" onchange="syncCategories(this)">
+                        <option value="Linter/Slab">Linter/Slab</option>
+                        <option value="Wall Cutting">Wall Cutting</option>
+                        <option value="Wiring">Wiring</option>
+                        <option value="Fittings">Fittings</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-name custom-dropdown">
+                    <input type="text" class="mat-input in-name" placeholder="Material name..." oninput="handleInput(this)" onfocus="openDropdown(this)" ${keyNavName}>
+                    <div class="dropdown-toggle" onclick="toggleBtn(this)">▼</div>
+                    <ul class="dropdown-menu"></ul>
+                </div>
+                <div class="col-spec"><input type="text" class="mat-input in-spec" placeholder="Brand / Color" ${keyNavSpec}></div>
+                <div class="col-qty"><input type="number" class="mat-input in-qty" placeholder="0" min="0" ${keyNavQty}></div>
+                <div class="col-unit">
+                    <select class="mat-select in-unit" onchange="syncUnits(this)">
+                        <option value="Pcs">Pcs</option>
+                        <option value="Coil">Coil</option>
+                        <option value="Box">Box</option>
+                        <option value="Mtr">Mtr</option>
+                        <option value="Pkt">Pkt</option>
+                        <option value="Bdl">Bdl</option>
+                    </select>
+                </div>
+                <div class="col-del"><button class="btn-del" onclick="deleteRow(this)" title="Delete Row">✕</button></div>
+            `;
+
+            if (data) {
+                row.querySelector('.in-cat').value = data.cat || "Linter/Slab";
+                row.querySelector('.in-name').value = data.name || "";
+                row.querySelector('.in-spec').value = data.spec || "";
+                row.querySelector('.in-qty').value = data.qty || "";
+                row.querySelector('.in-unit').value = data.unit || "Pcs";
+            } else {
+                row.querySelector('.in-cat').value = globalCategory;
+                row.querySelector('.in-unit').value = globalUnit;
+            }
+
+            listContainer.appendChild(row);
+        }
+
+        function ensureBlankRow() {
+            const allRows = document.querySelectorAll('.mat-row');
+            if (allRows.length === 0) { createRow(); return; }
+            const last = allRows[allRows.length - 1];
+            if (last.querySelector('.in-name').value.trim() !== "") createRow();
+        }
+
+        // ==================== SMART SYNC & GUESSER ====================
+        function syncCategories(sel) {
+            globalCategory = sel.value;
+            const rows = Array.from(document.querySelectorAll('.mat-row'));
+            for (let i = rows.indexOf(sel.closest('.mat-row')) + 1; i < rows.length; i++) {
+                if (rows[i].querySelector('.in-name').value.trim() === "") rows[i].querySelector('.in-cat').value = globalCategory;
+                else break;
+            }
+        }
+
+        function syncUnits(sel) {
+            globalUnit = sel.value;
+            const rows = Array.from(document.querySelectorAll('.mat-row'));
+            for (let i = rows.indexOf(sel.closest('.mat-row')) + 1; i < rows.length; i++) {
+                if (rows[i].querySelector('.in-name').value.trim() === "") rows[i].querySelector('.in-unit').value = globalUnit;
+                else break;
+            }
+        }
+
+        function smartUnitGuesser(itemName, unitDropdown) {
+            let n = itemName.toLowerCase();
+            if (n.includes('wire')) { unitDropdown.value = 'Coil'; syncUnits(unitDropdown); } 
+            else if (n.includes('tape') || n.includes('tie') || n.includes('screw') || n.includes('pin') || n.includes('blade')) { unitDropdown.value = 'Pkt'; syncUnits(unitDropdown); } 
+            else if (n.includes('pipe') || n.includes('band')) { unitDropdown.value = 'Pcs'; syncUnits(unitDropdown); }
+        }
+
+        // ==================== DROPDOWN ENGINE ====================
+        function handleInput(inp) {
+            ensureBlankRow();
+            const menu = inp.parentElement.querySelector('.dropdown-menu');
+            if (menu.classList.contains('show')) renderDropdownList(inp);
+        }
+
+        function openDropdown(inp) {
+            closeAllDropdowns();
+            inp.closest('.mat-row').classList.add('active-dropdown');
+            renderDropdownList(inp);
+            inp.parentElement.querySelector('.dropdown-menu').classList.add('show');
+        }
+
+        function toggleBtn(btn) {
+            const input = btn.parentElement.querySelector('.in-name');
+            if (btn.parentElement.querySelector('.dropdown-menu').classList.contains('show')) {
+                closeAllDropdowns();
+            } else {
+                input.value = ""; openDropdown(input); input.focus();
+            }
+        }
+
         function renderDropdownList(input) {
             const menu = input.parentElement.querySelector('.dropdown-menu');
-            const cat = input.closest('.mat-row').querySelector('.in-cat').value;
-            let items = db[cat] || [];
-            let filter = input.value.toLowerCase();
+            const rowCat = input.closest('.mat-row').querySelector('.in-cat').value;
+            let items = db[rowCat] || [];
+            let filterText = input.value.toLowerCase();
 
-            let usedItems = Array.from(document.querySelectorAll('.in-name'))
-                .map(i => input !== i ? i.value.trim().toLowerCase() : "")
-                .filter(v => v);
+            // Filter out items already selected
+            let usedItems = Array.from(document.querySelectorAll('.in-name')).map(i => input !== i ? i.value.trim().toLowerCase() : "").filter(v => v);
 
             menu.innerHTML = "";
             let count = 0;
 
             items.forEach(item => {
-                if (item.toLowerCase().includes(filter) && !usedItems.includes(item.toLowerCase())) {
+                if (item.toLowerCase().includes(filterText) && !usedItems.includes(item.toLowerCase())) {
                     let li = document.createElement('li');
                     li.innerText = item;
                     li.onmousedown = function(e) {
                         e.preventDefault();
                         input.value = item;
+                        smartUnitGuesser(item, input.closest('.mat-row').querySelector('.in-unit'));
                         closeAllDropdowns();
                         handleInput(input);
                         triggerAutoSave();
@@ -1049,9 +518,9 @@
                 }
             });
 
-            if (count === 0 && filter) {
+            if (count === 0) {
                 let li = document.createElement('li');
-                li.innerHTML = "➕ <em>Or type custom item...</em>";
+                li.innerText = "➕ Type custom item...";
                 li.style.color = "#999";
                 li.style.fontStyle = "italic";
                 menu.appendChild(li);
@@ -1060,223 +529,88 @@
 
         function closeAllDropdowns() {
             document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+            document.querySelectorAll('.mat-row').forEach(r => r.classList.remove('active-dropdown'));
         }
-
-        document.addEventListener('mousedown', e => {
-            if (!e.target.closest('.custom-dropdown')) closeAllDropdowns();
-        });
+        document.addEventListener('mousedown', e => { if (!e.target.closest('.custom-dropdown')) closeAllDropdowns(); });
 
         // ==================== DELETE ROW ====================
         function deleteRow(btn) {
-            const list = document.getElementById('material-list');
+            const list = document.getElementById('mat-list');
             if (list.children.length > 1) {
                 btn.closest('.mat-row').remove();
-                showToast('🗑️ Item removed', 'success');
+                showToast("🗑️ Item removed");
             } else {
-                const row = btn.closest('.mat-row');
-                row.querySelector('.in-name').value = "";
-                row.querySelector('.in-spec').value = "";
-                row.querySelector('.in-qty').value = "";
-                row.querySelector('.in-cat').value = "Wiring";
-                showToast('🔄 Form cleared', 'success');
+                const r = btn.closest('.mat-row');
+                r.querySelector('.in-name').value = "";
+                r.querySelector('.in-spec').value = "";
+                r.querySelector('.in-qty').value = "";
             }
-            updateSummary();
+            ensureBlankRow();
             triggerAutoSave();
         }
 
-        // ==================== SUMMARY UPDATE ====================
-        function updateSummary() {
-            let totalItems = 0;
-            let categories = new Set();
-            let completedItems = 0;
-
-            document.querySelectorAll('.mat-row').forEach(row => {
-                const name = row.querySelector('.in-name').value.trim();
-                const qty = parseFloat(row.querySelector('.in-qty').value) || 0;
-                const cat = row.querySelector('.in-cat').value;
-
-                if (name && qty > 0) {
-                    totalItems++;
-                    categories.add(cat);
-                    completedItems++;
-                } else if (name || qty > 0) {
-                    categories.add(cat);
-                }
-            });
-
-            document.getElementById('total-items').textContent = totalItems;
-            document.getElementById('total-cats').textContent = categories.size;
-            document.getElementById('item-count').textContent = totalItems;
-
-            // Status badge
-            const badge = document.getElementById('status-badge');
-            if (totalItems === 0) {
-                badge.textContent = '○';
-                badge.style.color = 'var(--text-muted)';
-            } else if (totalItems < 5) {
-                badge.textContent = '◐';
-                badge.style.color = 'var(--warning)';
-            } else {
-                badge.textContent = '●';
-                badge.style.color = 'var(--success)';
-            }
-        }
-
-        // ==================== AUTO-SAVE ====================
-        let autoSaveTimer;
-        function triggerAutoSave() {
-            clearTimeout(autoSaveTimer);
-            const container = document.getElementById('save-status-container');
-            container.querySelector('.save-indicator').classList.add('saving');
-            container.querySelector('.save-indicator').textContent = '⟳ Saving...';
-
-            autoSaveTimer = setTimeout(() => {
-                saveLocalState();
-                container.querySelector('.save-indicator').classList.remove('saving');
-                container.querySelector('.save-indicator').textContent = '✓ Saved';
-            }, 800);
-        }
-
-        function saveLocalState() {
-            let data = {
-                customerInfo: {
-                    name: document.getElementById('c-name').value,
-                    phone: document.getElementById('c-phone').value,
-                    location: document.getElementById('c-location').value,
-                    notes: document.getElementById('c-notes').value
-                },
-                materials: []
-            };
-
-            document.querySelectorAll('.mat-row').forEach(row => {
-                const item = {
-                    category: row.querySelector('.in-cat').value,
-                    name: row.querySelector('.in-name').value,
-                    spec: row.querySelector('.in-spec').value,
-                    qty: row.querySelector('.in-qty').value,
-                    unit: row.querySelector('.in-unit').value
-                };
-                data.materials.push(item);
-            });
-
-            localStorage.setItem('estimateData', JSON.stringify(data));
-        }
-
-        function loadLocalState() {
-            const saved = localStorage.getItem('estimateData');
-            if (saved) {
-                const data = JSON.parse(saved);
-                
-                // Load customer info
-                document.getElementById('c-name').value = data.customerInfo?.name || '';
-                document.getElementById('c-phone').value = data.customerInfo?.phone || '';
-                document.getElementById('c-location').value = data.customerInfo?.location || '';
-                document.getElementById('c-notes').value = data.customerInfo?.notes || '';
-
-                // Load materials
-                const list = document.getElementById('material-list');
-                list.innerHTML = '';
-                
-                if (data.materials && data.materials.length > 0) {
-                    data.materials.forEach(item => {
-                        const row = createMaterialRow();
-                        row.querySelector('.in-cat').value = item.category;
-                        row.querySelector('.in-name').value = item.name;
-                        row.querySelector('.in-spec').value = item.spec;
-                        row.querySelector('.in-qty').value = item.qty;
-                        row.querySelector('.in-unit').value = item.unit;
-                        list.appendChild(row);
-                    });
-                } else {
-                    list.appendChild(createMaterialRow());
-                }
-            }
-        }
-
-        // ==================== TOAST NOTIFICATIONS ====================
-        function showToast(message, type = "success") {
+        // ==================== TOASTS ====================
+        function showToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `<span>${message.split(' ')[0]}</span> ${message.substring(message.indexOf(' ') + 1)}`;
+            toast.className = `toast`;
+            toast.innerHTML = `<span>✅</span> ${message}`;
             container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.animation = 'slideInUp 0.4s reverse';
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2500);
         }
 
-        // ==================== PRINT ====================
+        // ==================== PRINT INVOICE ====================
         function cleanAndPrint() {
             document.querySelectorAll('.mat-row').forEach(row => {
                 const name = row.querySelector('.in-name').value.trim();
-                const qty = parseFloat(row.querySelector('.in-qty').value) || 0;
-                row.classList.toggle('hide-on-print', !name || qty === 0);
+                // ONLY hide if the material name is completely blank.
+                // Keeps the row if Qty is 0/blank so shopkeepers can fill it!
+                if (name === "") {
+                    row.classList.add('hide-on-print');
+                } else {
+                    row.classList.remove('hide-on-print');
+                }
             });
-            showToast('🖨️ Opening print preview...', 'success');
+            showToast('🖨️ Opening print layout...');
             setTimeout(() => window.print(), 300);
         }
 
         // ==================== WHATSAPP SHARE ====================
         function shareWhatsApp() {
             const cName = document.getElementById('c-name').value || "Customer";
-            const phone = document.getElementById('c-phone').value;
-            const location = document.getElementById('c-location').value;
+            const cAddress = document.getElementById('c-address').value;
             
-            let msg = `*📋 MATERIAL ESTIMATE*\n`;
-            msg += `*Customer:* ${cName}\n`;
-            if (location) msg += `*Location:* ${location}\n`;
-            if (phone) msg += `*Phone:* ${phone}\n`;
-            msg += `*Date:* ${new Date().toLocaleDateString('en-IN')}\n`;
-            msg += `════════════════════════\n`;
+            let msg = `*📋 MATERIAL ESTIMATE*\n*Customer:* ${cName}\n`;
+            if(cAddress) msg += `*Location:* ${cAddress}\n`;
+            msg += `*Date:* ${new Date().toLocaleDateString('en-IN')}\n════════════════════════\n`;
 
             let categories = {};
+            let actualCount = 0;
+
             document.querySelectorAll('.mat-row').forEach(row => {
                 const cat = row.querySelector('.in-cat').value;
                 const name = row.querySelector('.in-name').value.trim();
                 const spec = row.querySelector('.in-spec').value.trim();
-                const qty = parseFloat(row.querySelector('.in-qty').value) || 0;
+                const qty = parseFloat(row.querySelector('.in-qty').value);
                 const unit = row.querySelector('.in-unit').value;
 
-                if (name && qty > 0) {
+                if (name !== "") {
+                    actualCount++;
                     if (!categories[cat]) categories[cat] = [];
-                    categories[cat].push(`▪ ${name}${spec ? ` (${spec})` : ''} → *${qty} ${unit}*`);
+                    // Handle blank/0 quantities gracefully
+                    let qtyText = (!isNaN(qty) && qty > 0) ? ` → *${qty} ${unit}*` : "";
+                    categories[cat].push(`▪ ${name}${spec ? ` (${spec})` : ''}${qtyText}`);
                 }
             });
 
             for (const [catName, items] of Object.entries(categories)) {
-                msg += `\n*${catName.toUpperCase()}*\n`;
-                msg += items.join("\n") + "\n";
+                msg += `\n*${catName.toUpperCase()}*\n` + items.join("\n") + "\n";
             }
 
-            msg += `════════════════════════\n`;
-            msg += `*Total Items:* ${document.querySelectorAll('.mat-row .in-qty').length}\n`;
-            msg += `*Generated by:* Prakash Electrician`;
-
+            msg += `════════════════════════\n*Total Items:* ${actualCount}\n*Generated by Prakash Electrician*`;
             window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-            showToast('💬 Opening WhatsApp...', 'success');
+            showToast('💬 Opening WhatsApp...');
         }
-
-        // ==================== RESET FORM ====================
-        function resetForm() {
-            if (confirm('⚠️ Clear all data? This cannot be undone.')) {
-                document.getElementById('c-name').value = '';
-                document.getElementById('c-phone').value = '';
-                document.getElementById('c-location').value = '';
-                document.getElementById('c-notes').value = '';
-                document.getElementById('material-list').innerHTML = '';
-                ensureBlankRow();
-                updateSummary();
-                localStorage.removeItem('estimateData');
-                showToast('🔄 Form reset successfully', 'success');
-            }
-        }
-
-        // ==================== KEYBOARD SHORTCUTS ====================
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeAllDropdowns();
-        });
     </script>
 </body>
 </html>
