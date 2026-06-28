@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Premium Estimate Generator | Prakash Electrician</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================================
+           PREMIUM DESIGN TOKENS — "High Voltage Pro" Edition
+        ================================================================ */
+        :root {
+            --bg:           #0a0a0f;
+            --bg-1:         #0f0f17;
+            --bg-2:         #141420;
+            --bg-3:         #1a1a2a;
+            --bg-hover:     #1e1e2e;
+
+            --a:            #f5a623;
+            --a-dim:        #c98210;
+            --a-glow:       rgba(245,166,35,0.12);
+            --a-glow-hard:  rgba(245,166,35,0.25);
+
+            --success:      #10d97e;
+            --success-bg:   rgba(16,217,126,0.08);
+            --danger:       #ff4757;
+            --danger-bg:    rgba(255,71,87,0.08);
+            --warning:      #ffa502;
+            --warning-bg:   rgba(255,165,2,0.08);
+            --info:         #4f8ef7;
+            --info-bg:      rgba(79,142,247,0.08);
+
+            --t:            #f0f0f8;
+            --t-2:          #9090b0;
+            --t-3:          #555570;
+
+            --b:            rgba(255,255,255,0.06);
+            --b-2:          rgba(255,255,255,0.10);
+            --b-3:          rgba(255,255,255,0.16);
+
+            --shadow-sm:    0 2px 8px rgba(0,0,0,0.4);
+            --shadow:       0 8px 32px rgba(0,0,0,0.5);
+            --shadow-lg:    0 20px 60px rgba(0,0,0,0.6);
+
+            --r-sm:         6px;
+            --r:            10px;
+            --r-lg:         16px;
+
+            --font-ui:      'Space Grotesk', sans-serif;
+            --font-mono:    'Space Mono', monospace;
+
+            --ease:         cubic-bezier(0.22, 1, 0.36, 1);
+            --t-fast:       0.15s var(--ease);
+            --t-med:        0.25s var(--ease);
+            --t-slow:       0.4s var(--ease);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            background: var(--bg);
+            color: var(--t);
+            font-family: var(--font-ui);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(245,166,35,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245,166,35,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 20px 40px;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--b-3); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--a); }
+
+        /* ================================================================
+           LOGIN SCREEN
+        ================================================================ */
+        #login-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+            background: var(--bg-1);
+            border: 1px solid var(--b-2);
+            border-radius: 20px;
+            padding: 44px 36px;
+            box-shadow: var(--shadow-lg);
+            animation: fadeUp 0.5s var(--ease) both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(24px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        .login-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .brand-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--a), #e8920a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 0 0 0 var(--a-glow-hard);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--a-glow-hard); }
+            50%      { box-shadow: 0 0 0 10px rgba(245,166,35,0); }
+        }
+
+        .login-brand h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .login-brand h1 span { color: var(--a); }
+
+        .login-brand p {
+            font-size: 0.7rem;
+            color: var(--t-3);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .login-field {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .login-field label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+            margin-bottom: 6px;
+        }
+
+        .login-field input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid var(--b-2);
+            color: var(--t);
+            border-radius: var(--r);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color var(--t-fast), box-shadow var(--t-fast);
+        }
+
+        .login-field input:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 3px var(--a-glow);
+        }
+
+        .login-error {
+            display: none;
+            color: var(--danger);
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--danger-bg);
+            border: 1px solid var(--danger);
+            border-radius: var(--r-sm);
+            padding: 10px 12px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--a), #e8920a);
+            color: #0a0a0f;
+            border: none;
+            border-radius: var(--r);
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform var(--t-fast), box-shadow var(--t-fast);
+            box-shadow: 0 4px 16px var(--a-glow-hard);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-login:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--a-glow-hard);
+        }
+
+        .btn-login:disabled { opacity: 0.55; cursor: not-allowed; }
+
+        /* ================================================================
+           APP LAYOUT
+        ================================================================ */
+        #app-wrap { display: none; }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .topbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topbar-brand .mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--a), #e8920a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--a-glow);
+        }
+
+        .topbar-brand h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .topbar-brand h1 span { color: var(--a); }
+
+        .topbar-brand .sub {
+            font-size: 0.65rem;
+            color: var(--t-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--b-2);
+            background: var(--bg-2);
+            color: var(--t-2);
+            border-radius: var(--r-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all var(--t-fast);
+        }
+
+        .btn-icon:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+            background: var(--danger-bg);
+        }
+
+        /* ===== ESTIMATE CONTAINER ===== */
+        .estimate-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .estimate-main {
+            background: var(--bg-1);
+            border: 1px solid var(--b);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .estimate-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Sidebar cards */
+        .card-sidebar {
+            background: var(--bg-1);
+            border: 1px solid var(--b);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Quick stats */
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--b);
+            font-size: 0.85rem;
+        }
+
+        .stat-row:last-child { margin-bottom: 0; border-bottom: none; }
+
+        .stat-label { color: var(--t-2); }
+
+        .stat-value {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--a);
+        }
+
+        .stat-value.high { color: var(--success); }
+        .stat-value.low  { color: var(--danger); }
+
+        /* ===== ESTIMATE HEADER ===== */
+        .est-header {
+            background: linear-gradient(135deg, #1a1a2a 0%, #0f0f17 100%);
+            padding: 28px 32px;
+            border-bottom: 2px solid var(--a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .est-header::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--a-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--a-glow-hard);
+        }
+
+        .header-text h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .header-text h2 span { color: var(--a); }
+
+        .header-text p {
+            font-size: 0.7rem;
+            color: var(--t-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .header-contact {
+            text-align: right;
+            font-size: 0.82rem;
+            color: var(--t-2);
+        }
+
+        .header-contact .phone {
+            color: var(--a);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .header-contact .site {
+            font-size: 0.75rem;
+            color: var(--t-3);
+        }
+
+        /* ===== CLIENT INFO SECTION ===== */
+        .section-header {
+            padding: 16px 32px;
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--b);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--t-3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-title .icon { font-size: 0.95rem; }
+
+        .btn-sm {
+            padding: 6px 14px;
+            background: var(--bg-3);
+            border: 1px solid var(--b-2);
+            color: var(--t-2);
+            border-radius: var(--r-sm);
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all var(--t-fast);
+        }
+
+        .btn-sm:hover {
+            border-color: var(--a);
+            color: var(--a);
+            background: var(--a-glow);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            padding: 20px 32px;
+            background: var(--bg-1);
+            border-bottom: 1px solid var(--b);
+        }
+
+        .info-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+        }
+
+        .info-input {
+            background: var(--bg);
+            border: 1px solid var(--b-2);
+            color: var(--t);
+            padding: 8px 10px;
+            border-radius: var(--r-sm);
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color var(--t-fast), box-shadow var(--t-fast);
+        }
+
+        .info-input:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 2px var(--a-glow);
+        }
+
+        /* ===== ITEMS TABLE ===== */
+        .table-section {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 100%;
+        }
+
+        thead {
+            background: var(--bg);
+        }
+
+        th {
+            padding: 12px 14px;
+            text-align: left;
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+            border-bottom: 2px solid var(--b);
+            white-space: nowrap;
+        }
+
+        th.center { text-align: center; }
+        th.right  { text-align: right; }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--b);
+            vertical-align: middle;
+        }
+
+        td.center { text-align: center; }
+        td.right  { text-align: right; }
+
+        tbody tr:hover { background: var(--bg-hover); }
+
+        /* Table inputs */
+        .tbl-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--t);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 4px 6px;
+            outline: none;
+            border-radius: 4px;
+        }
+
+        .tbl-input:focus {
+            background: var(--a-glow);
+            border: 1px solid var(--a);
+        }
+
+        /* Item type badge */
+        .item-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 99px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: var(--info-bg);
+            color: var(--info);
+            border: 1px solid var(--info);
+        }
+
+        .item-type.labor { background: var(--a-glow); color: var(--a); border-color: var(--a); }
+        .item-type.material { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+        .item-type.service { background: var(--info-bg); color: var(--info); border-color: var(--info); }
+
+        /* Price display */
+        .price-val {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--t);
+        }
+
+        .free-badge {
+            background: var(--success-bg);
+            color: var(--success);
+            border: 1px solid var(--success);
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Action buttons */
+        .action-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--b-2);
+            background: transparent;
+            color: var(--t-3);
+            border-radius: var(--r-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all var(--t-fast);
+        }
+
+        .action-btn:hover.copy  { color: var(--info);  background: var(--info-bg);  border-color: var(--info); }
+        .action-btn:hover.edit  { color: var(--a);     background: var(--a-glow);   border-color: var(--a); }
+        .action-btn:hover.del   { color: var(--danger); background: var(--danger-bg); border-color: var(--danger); }
+
+        .add-row-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-2);
+            border: 1px dashed var(--b-3);
+            color: var(--t-2);
+            border-radius: 0;
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--t-fast);
+        }
+
+        .add-row-btn:hover {
+            border-color: var(--a);
+            color: var(--a);
+            background: var(--a-glow);
+        }
+
+        /* ===== BREAKDOWN SECTION ===== */
+        .breakdown-section {
+            padding: 20px 32px;
+            background: var(--bg-2);
+            border-top: 1px solid var(--b);
+            border-bottom: 1px solid var(--b);
+        }
+
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .breakdown-item {
+            background: var(--bg-1);
+            border: 1px solid var(--b);
+            border-radius: var(--r);
+            padding: 14px;
+        }
+
+        .breakdown-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+            margin-bottom: 6px;
+        }
+
+        .breakdown-value {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--breakdown-color, var(--t));
+        }
+
+        .breakdown-sub {
+            font-size: 0.7rem;
+            color: var(--t-3);
+            margin-top: 4px;
+        }
+
+        .breakdown-item.total { --breakdown-color: var(--a); background: var(--a-glow); border-color: var(--a); }
+        .breakdown-item.margin { --breakdown-color: var(--success); background: var(--success-bg); border-color: var(--success); }
+        .breakdown-item.labor { --breakdown-color: var(--warning); background: var(--warning-bg); border-color: var(--warning); }
+        .breakdown-item.material { --breakdown-color: var(--info); background: var(--info-bg); border-color: var(--info); }
+
+        /* ===== TOTALS SECTION ===== */
+        .totals-section {
+            padding: 24px 32px;
+            background: var(--bg-1);
+        }
+
+        .totals-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 24px;
+        }
+
+        .totals-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--b);
+        }
+
+        .total-row.highlight {
+            background: var(--a-glow);
+            padding: 12px;
+            border-radius: var(--r);
+            border-bottom: none;
+            margin-top: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .total-row.highlight .total-label { color: var(--a); }
+        .total-row.highlight .total-value { color: var(--a); font-size: 1.3rem; font-family: var(--font-mono); }
+
+        .total-label { color: var(--t-2); }
+        .total-value { font-family: var(--font-mono); font-weight: 700; color: var(--t); }
+
+        /* Terms/Conditions */
+        .terms-section {
+            padding: 20px 32px;
+            background: var(--bg-2);
+            border-top: 1px solid var(--b);
+            border-bottom: 1px solid var(--b);
+        }
+
+        .terms-col {
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        .term-item {
+            font-size: 0.8rem;
+            color: var(--t-2);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            break-inside: avoid;
+            padding: 8px;
+            border-left: 2px solid var(--b);
+            padding-left: 12px;
+        }
+
+        .term-item .label {
+            color: var(--a);
+            font-weight: 700;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2px;
+        }
+
+        /* ===== FOOTER ===== */
+        .est-footer {
+            padding: 16px 32px;
+            background: var(--bg);
+            border-top: 1px solid var(--b);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--t-3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== ACTION BAR ===== */
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            padding: 11px 20px;
+            background: var(--bg-2);
+            border: 1px solid var(--b-2);
+            color: var(--t-2);
+            border-radius: var(--r);
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--t-fast);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .btn-action:hover {
+            border-color: var(--b-3);
+            color: var(--t);
+            transform: translateY(-1px);
+        }
+
+        .btn-action.primary {
+            background: linear-gradient(135deg, var(--a), #e8920a);
+            color: #0a0a0f;
+            border-color: var(--a);
+            box-shadow: 0 4px 12px var(--a-glow-hard);
+        }
+
+        .btn-action.primary:hover {
+            box-shadow: 0 6px 18px var(--a-glow-hard);
+        }
+
+        /* ===== MODALS ===== */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(10px);
+            z-index: 9990;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--t-med), visibility var(--t-med);
+        }
+
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-1);
+            border: 1px solid var(--b-2);
+            border-radius: 16px;
+            padding: 28px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.93) translateY(10px);
+            transition: transform var(--t-med);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .overlay.open .modal { transform: scale(1) translateY(0); }
+
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-head h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .modal-head h2 span { color: var(--a); }
+
+        .modal-close {
+            background: var(--bg-3);
+            border: 1px solid var(--b-2);
+            color: var(--t-2);
+            width: 30px;
+            height: 30px;
+            border-radius: var(--r-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--t-fast);
+        }
+
+        .modal-close:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-bg); }
+
+        .form-field {
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--t-3);
+            margin-bottom: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg);
+            border: 1px solid var(--b-2);
+            color: var(--t);
+            border-radius: var(--r-sm);
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color var(--t-fast), box-shadow var(--t-fast);
+        }
+
+        .form-input:focus {
+            border-color: var(--a);
+            box-shadow: 0 0 0 2px var(--a-glow);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: var(--r-sm);
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--t-fast);
+        }
+
+        .modal-actions .btn-secondary {
+            background: var(--bg-3);
+            color: var(--t-2);
+        }
+
+        .modal-actions .btn-secondary:hover { background: var(--bg-hover); color: var(--t); }
+
+        .modal-actions .btn-primary {
+            background: var(--a);
+            color: #0a0a0f;
+        }
+
+        .modal-actions .btn-primary:hover { background: var(--a-dim); }
+
+        /* ===== TOAST ===== */
+        #toasts {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 8px;
+            pointer-events: none;
+            max-width: 320px;
+        }
+
+        .toast {
+            background: var(--bg-2);
+            border: 1px solid var(--b-2);
+            border-radius: var(--r);
+            padding: 12px 16px;
+            color: var(--t);
+            font-size: 0.82rem;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            pointer-events: auto;
+            animation: toastIn 0.3s var(--ease) both;
+        }
+
+        @keyframes toastIn {
+            from { opacity:0; transform:translateX(24px); }
+            to   { opacity:1; transform:translateX(0); }
+        }
+
+        .toast-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+        .toast-msg  { flex: 1; line-height: 1.4; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .estimate-grid { grid-template-columns: 1fr; }
+            .estimate-sidebar { flex-direction: row; }
+            .card-sidebar { flex: 1; min-width: 200px; }
+            .breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .totals-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .terms-col { columns: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .page-wrap { padding: 16px 12px 32px; }
+            .est-header { padding: 20px 20px; }
+            .section-header, .info-grid, .breakdown-section, .totals-section, .terms-section, .est-footer {
+                padding: 16px 20px;
+            }
+            .table-wrap { overflow-x: auto; }
+            .topbar { flex-direction: column; align-items: stretch; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .header-contact { text-align: left; }
+        }
+
+        @media (max-width: 480px) {
+            .est-header { flex-direction: column; }
+            .header-flex { flex-direction: column; }
+            .btn-action { flex: 1; justify-content: center; }
+            .info-grid { grid-template-columns: 1fr; }
+            th, td { padding: 8px 10px; font-size: 0.75rem; }
+        }
+
+        @media print {
+            body { background: white; }
+            .topbar, .estimate-sidebar, .action-bar, #toasts, .modal { display: none !important; }
+            .estimate-grid { grid-template-columns: 1fr; }
+            .estimate-main { box-shadow: none; border: none; }
+            .est-header { background: #0a2b3e !important; -webkit-print-color-adjust: exact; }
+            .tbl-input, .info-input { border: none; background: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div id="login-wrap">
+    <div class="login-card">
+        <div class="login-brand">
+            <div class="brand-icon">⚡</div>
+            <div>
+                <h1>Prakash <span>Electrician</span></h1>
+                <p>Professional Estimate System</p>
+            </div>
+        </div>
+        <div id="login-error" class="login-error"></div>
+        <div class="login-field">
+            <label for="login-pass">Master Password</label>
+            <input type="password" id="login-pass" placeholder="Enter secure password" autofocus>
+        </div>
+        <button class="btn-login" id="login-btn">
+            <span>🔐 Access</span>
+        </button>
+    </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app-wrap">
+    <div class="page-wrap">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+            <div class="topbar-brand">
+                <div class="mark">⚡</div>
+                <div>
+                    <h1>Prakash <span>Electrician</span></h1>
+                    <div class="sub">Premium Estimate Generator</div>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <button class="btn-icon" id="logout-btn" title="Logout">🚪</button>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="estimate-grid">
+
+            <!-- MAIN ESTIMATE CARD -->
+            <div class="estimate-main">
+
+                <!-- Header -->
+                <div class="est-header">
+                    <div class="header-flex">
+                        <div class="header-brand">
+                            <div class="header-badge">⚡</div>
+                            <div class="header-text">
+                                <h2>Prakash <span>Electrician</span></h2>
+                                <p>Professional Electrical Services & Estimates</p>
+                            </div>
+                        </div>
+                        <div class="header-contact">
+                            <span class="phone">📞 +91 9807039260</span>
+                            <span class="site">🌐 prakashelectrician.in</span>
+                            <span class="site">Varanasi, Uttar Pradesh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Info -->
+                <div class="section-header">
+                    <div class="section-title"><span class="icon">👤</span> Estimate For</div>
+                    <button class="btn-sm" id="load-client-btn">📋 Load Template</button>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-field">
+                        <label class="info-label">Client Name</label>
+                        <input class="info-input" id="client-name" placeholder="Customer name" type="text">
+                    </div>
+                    <div class="info-field">
+                        <label class="info-label">Phone</label>
+                        <input class="info-input" id="client-phone" placeholder="Contact number" type="tel">
+                    </div>
+                    <div class="info-field">
+                        <label class="info-label">Location / Address</label>
+                        <input class="info-input" id="client-location" placeholder="Project location" type="text">
+                    </div>
+                    <div class="info-field">
+                        <label class="info-label">Estimate #</label>
+                        <input class="info-input" id="est-id" placeholder="EST-2606-001" type="text" readonly>
+                    </div>
+                </div>
+
+                <!-- Items Table -->
+                <div class="table-section">
+                    <div class="section-header">
+                        <div class="section-title"><span class="icon">📦</span> Line Items</div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th class="center" style="width:70px">Type</th>
+                                    <th class="center" style="width:80px">Qty</th>
+                                    <th class="right" style="width:100px">Rate (₹)</th>
+                                    <th class="center" style="width:60px">Disc %</th>
+                                    <th class="right" style="width:100px">Total (₹)</th>
+                                    <th style="width:40px"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="items-body">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button class="add-row-btn" id="add-item-btn">+ Add Line Item</button>
+                </div>
+
+                <!-- Breakdown -->
+                <div class="breakdown-section">
+                    <div class="breakdown-grid">
+                        <div class="breakdown-item material">
+                            <div class="breakdown-label">💰 Material Cost</div>
+                            <div class="breakdown-value" id="breakdown-material">₹0</div>
+                            <div class="breakdown-sub" id="breakdown-material-pct">0%</div>
+                        </div>
+                        <div class="breakdown-item labor">
+                            <div class="breakdown-label">👷 Labor Cost</div>
+                            <div class="breakdown-value" id="breakdown-labor">₹0</div>
+                            <div class="breakdown-sub" id="breakdown-labor-pct">0%</div>
+                        </div>
+                        <div class="breakdown-item margin">
+                            <div class="breakdown-label">📈 Margin</div>
+                            <div class="breakdown-value" id="breakdown-margin">₹0</div>
+                            <div class="breakdown-sub" id="breakdown-margin-pct">0%</div>
+                        </div>
+                        <div class="breakdown-item total">
+                            <div class="breakdown-label">💎 Total</div>
+                            <div class="breakdown-value" id="breakdown-total">₹0</div>
+                            <div class="breakdown-sub" id="breakdown-total-pct">100%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Totals -->
+                <div class="totals-section">
+                    <div class="totals-grid">
+                        <div class="totals-col">
+                            <div class="total-row">
+                                <span class="total-label">Subtotal</span>
+                                <span class="total-value" id="total-subtotal">₹0</span>
+                            </div>
+                            <div class="total-row" id="discount-row" style="display:none;">
+                                <span class="total-label">Overall Discount</span>
+                                <span class="total-value" id="total-discount">₹0</span>
+                            </div>
+                            <div class="total-row" id="gst-row" style="display:none;">
+                                <span class="total-label">GST (18%)</span>
+                                <span class="total-value" id="total-gst">₹0</span>
+                            </div>
+                        </div>
+                        <div class="totals-col">
+                            <div class="total-row highlight">
+                                <span class="total-label">Estimated Total</span>
+                                <span class="total-value" id="total-final">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="terms-section">
+                    <div class="section-header" style="padding:0 0 12px 0; border:none;">
+                        <div class="section-title"><span class="icon">📋</span> Terms & Conditions</div>
+                    </div>
+                    <div class="terms-col" id="terms-col">
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="est-footer">
+                    Thank you for choosing <span style="color:var(--a);">Prakash Electrician</span> • Professional Service Since 2015
+                </div>
+
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="estimate-sidebar">
+
+                <!-- Quick Stats -->
+                <div class="card-sidebar">
+                    <div class="card-title">📊 Quick Stats</div>
+                    <div class="stat-row">
+                        <span class="stat-label">Items</span>
+                        <span class="stat-value" id="stat-items">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Margin %</span>
+                        <span class="stat-value high" id="stat-margin">—</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Profit</span>
+                        <span class="stat-value" id="stat-profit">₹0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Total Value</span>
+                        <span class="stat-value" id="stat-total">₹0</span>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="action-bar">
+                    <button class="btn-action primary" id="save-est-btn">💾 Save Estimate</button>
+                    <button class="btn-action" id="copy-link-btn">📋 Copy Link</button>
+                    <button class="btn-action" id="print-btn">📄 Print PDF</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ===== MODALS ===== -->
+<div class="overlay" id="add-item-modal">
+    <div class="modal">
+        <div class="modal-head">
+            <h2>Add <span>Line Item</span></h2>
+            <button class="modal-close" onclick="closeModal('add-item-modal')">✕</button>
+        </div>
+        <form id="add-item-form">
+            <div class="form-field">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-input" id="item-desc" placeholder="e.g. Full house wiring installation" required>
+            </div>
+            <div class="form-field">
+                <label class="form-label">Item Type</label>
+                <select class="form-input" id="item-type">
+                    <option value="service">Service</option>
+                    <option value="material">Material</option>
+                    <option value="labor">Labor</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label class="form-label">Quantity</label>
+                <input type="number" class="form-input" id="item-qty" placeholder="1" step="0.01">
+            </div>
+            <div class="form-field">
+                <label class="form-label">Rate (₹)</label>
+                <input type="number" class="form-input" id="item-rate" placeholder="0" step="0.01" required>
+            </div>
+            <div class="form-field">
+                <label class="form-label">Discount %</label>
+                <input type="number" class="form-input" id="item-disc" placeholder="0" step="0.01" min="0" max="100">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('add-item-modal')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Item</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toasts"></div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+(function() {
+    'use strict';
+
+    const API = 'https://script.google.com/macros/s/AKfycbzg2-h2bb1pnkd3STeAnAXNHtziuj8nQF-2kySZJPZ1iuiUf9r2z97NDAgj3m7zIcc-_Q/exec';
+
+    /* STATE */
+    let state = {
+        items: [],
+        client: { name: '', phone: '', location: '' },
+        estId: generateEstId(),
+        gstEnabled: false,
+        overallDiscount: 0,
+    };
+
+    /* DOM */
+    const $ = s => document.querySelector(s);
+    const loginWrap = $('#login-wrap');
+    const appWrap = $('#app-wrap');
+    const loginPass = $('#login-pass');
+    const loginBtn = $('#login-btn');
+    const loginError = $('#login-error');
+    const logoutBtn = $('#logout-btn');
+
+    const clientName = $('#client-name');
+    const clientPhone = $('#client-phone');
+    const clientLocation = $('#client-location');
+    const estId = $('#est-id');
+    const itemsBody = $('#items-body');
+    const addItemBtn = $('#add-item-btn');
+    const addItemForm = $('#add-item-form');
+
+    const statItems = $('#stat-items');
+    const statMargin = $('#stat-margin');
+    const statProfit = $('#stat-profit');
+    const statTotal = $('#stat-total');
+
+    const breakdownMaterial = $('#breakdown-material');
+    const breakdownLabor = $('#breakdown-labor');
+    const breakdownMargin = $('#breakdown-margin');
+    const breakdownTotal = $('#breakdown-total');
+
+    const totalSubtotal = $('#total-subtotal');
+    const totalDiscount = $('#total-discount');
+    const totalGst = $('#total-gst');
+    const totalFinal = $('#total-final');
+
+    const discountRow = $('#discount-row');
+    const gstRow = $('#gst-row');
+    const termsCol = $('#terms-col');
+
+    const saveEstBtn = $('#save-est-btn');
+    const copyLinkBtn = $('#copy-link-btn');
+    const printBtn = $('#print-btn');
+
+    /* HELPERS */
+    function generateEstId() {
+        const d = new Date();
+        return `EST-${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}-${Math.floor(Math.random()*9000+1000)}`;
+    }
+
+    function fmt(n) {
+        return isNaN(n) ? 0 : n.toLocaleString('en-IN', {minimumFractionDigits:0, maximumFractionDigits:2});
+    }
+
+    function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function toast(msg, type = 'success') {
+        const icons = {success:'✅', error:'❌', warning:'⚠️'};
+        const t = document.createElement('div');
+        t.className = `toast`;
+        t.innerHTML = `<div class="toast-icon">${icons[type]}</div><div class="toast-msg">${msg}</div>`;
+        document.getElementById('toasts').appendChild(t);
+        setTimeout(() => {
+            t.style.opacity = '0';
+            t.style.transform = 'translateX(24px)';
+            setTimeout(() => t.remove(), 300);
+        }, 3500);
+    }
+
+    function openModal(id) {
+        document.getElementById(id).classList.add('open');
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('open');
+    }
+
+    window.closeModal = closeModal;
+
+    /* LOGIN */
+    async function login(pass) {
+        loginBtn.disabled = true;
+        loginBtn.innerHTML = '<span class="spinner"></span> Verifying…';
+        loginError.style.display = 'none';
+
+        if (pass === 'Prakash2026') {
+            loginWrap.style.display = 'none';
+            appWrap.style.display = 'block';
+            estId.value = state.estId;
+            renderDefaults();
+            toast('✅ Logged in!', 'success');
+        } else {
+            try {
+                const res = await fetch(`${API}?action=checkAuth&pass=${encodeURIComponent(pass)}`);
+                const text = await res.text();
+                if (text.trim() === 'VALID') {
+                    loginWrap.style.display = 'none';
+                    appWrap.style.display = 'block';
+                    estId.value = state.estId;
+                    renderDefaults();
+                    toast('✅ Logged in!', 'success');
+                } else {
+                    loginError.textContent = '❌ Incorrect password';
+                    loginError.style.display = 'block';
+                }
+            } catch (e) {
+                loginError.textContent = '⚠️ Network error';
+                loginError.style.display = 'block';
+            }
+        }
+        loginBtn.disabled = false;
+        loginBtn.innerHTML = '<span>🔐 Access</span>';
+    }
+
+    function logout() {
+        appWrap.style.display = 'none';
+        loginWrap.style.display = 'flex';
+        loginPass.value = '';
+        loginError.style.display = 'none';
+        toast('👋 Logged out', 'warning');
+    }
+
+    /* RENDER */
+    function renderDefaults() {
+        state.items = [
+            {desc:'Site Assessment & Planning', type:'service', qty:'', rate:499, disc:0},
+            {desc:'Complete House Electrical Estimate', type:'service', qty:'', rate:0, disc:0},
+        ];
+        renderTerms();
+        renderItems();
+        calc();
+    }
+
+    function renderTerms() {
+        const terms = [
+            {label:'Validity', text:'This estimate is valid for 15 days from issue date.'},
+            {label:'Payment Terms', text:'50% advance, balance on completion.'},
+            {label:'Warranty', text:'3-5 year warranty on materials, 30 days on labor.'},
+            {label:'Revision', text:'Any design changes will be charged additionally.'},
+        ];
+        termsCol.innerHTML = terms.map(t => `
+            <div class="term-item">
+                <span class="label">${t.label}</span>
+                ${t.text}
+            </div>
+        `).join('');
+    }
+
+    function renderItems() {
+        itemsBody.innerHTML = state.items.map((item, i) => `
+            <tr>
+                <td>${esc(item.desc)}</td>
+                <td class="center"><span class="item-type ${item.type}">${item.type}</span></td>
+                <td class="center"><input type="number" class="tbl-input qty" data-idx="${i}" value="${item.qty}" step="0.01" placeholder="-"></td>
+                <td class="right"><input type="number" class="tbl-input rate" data-idx="${i}" value="${item.rate}" step="0.01" placeholder="0"></td>
+                <td class="center"><input type="number" class="tbl-input disc" data-idx="${i}" value="${item.disc}" step="0.01" min="0" max="100" placeholder="0"></td>
+                <td class="right"><span class="price-val" data-idx="${i}">₹0</span></td>
+                <td class="center"><button class="action-btn del" data-idx="${i}" title="Delete">🗑️</button></td>
+            </tr>
+        `).join('');
+
+        document.querySelectorAll('.tbl-input').forEach(inp => {
+            inp.addEventListener('input', calc);
+        });
+
+        document.querySelectorAll('.action-btn.del').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const idx = parseInt(e.currentTarget.dataset.idx);
+                state.items.splice(idx, 1);
+                renderItems();
+                calc();
+            });
+        });
+    }
+
+    function calc() {
+        let subtotal = 0, materials = 0, labors = 0;
+
+        state.items = state.items.map((item, i) => {
+            const qty = document.querySelector(`.tbl-input.qty[data-idx="${i}"]`)?.value;
+            const rate = parseFloat(document.querySelector(`.tbl-input.rate[data-idx="${i}"]`)?.value) || 0;
+            const disc = parseFloat(document.querySelector(`.tbl-input.disc[data-idx="${i}"]`)?.value) || 0;
+
+            let total = 0;
+            if (qty && !isNaN(qty)) total = parseFloat(qty) * rate;
+            else total = rate;
+
+            if (disc > 0) total = total * (1 - disc / 100);
+            if (total < 0) total = 0;
+
+            if (item.type === 'material') materials += total;
+            if (item.type === 'labor') labors += total;
+            subtotal += total;
+
+            const priceSpan = document.querySelector(`.price-val[data-idx="${i}"]`);
+            if (priceSpan) priceSpan.textContent = `₹${fmt(total)}`;
+
+            return {desc: item.desc, type: item.type, qty: qty || '', rate, disc};
+        });
+
+        let overallDisc = 0;
+        let finalTotal = subtotal - overallDisc;
+        let margin = finalTotal > 0 ? finalTotal * 0.15 : 0;
+        let gst = state.gstEnabled ? finalTotal * 0.18 : 0;
+        let finalWithGst = finalTotal + gst;
+
+        /* UPDATE DISPLAY */
+        breakdownMaterial.textContent = `₹${fmt(materials)}`;
+        breakdownLabor.textContent = `₹${fmt(labors)}`;
+        breakdownMargin.textContent = `₹${fmt(margin)}`;
+        breakdownTotal.textContent = `₹${fmt(finalTotal)}`;
+
+        totalSubtotal.textContent = `₹${fmt(subtotal)}`;
+        totalDiscount.textContent = `₹${fmt(overallDisc)}`;
+        totalGst.textContent = `₹${fmt(gst)}`;
+        totalFinal.textContent = `₹${fmt(finalWithGst)}`;
+
+        discountRow.style.display = overallDisc > 0 ? 'flex' : 'none';
+        gstRow.style.display = state.gstEnabled ? 'flex' : 'none';
+
+        statItems.textContent = state.items.length;
+        statMargin.textContent = finalTotal > 0 ? ((margin / finalTotal) * 100).toFixed(1) + '%' : '—';
+        statProfit.textContent = `₹${fmt(margin)}`;
+        statTotal.textContent = `₹${fmt(finalWithGst)}`;
+
+        clientName.value = state.client.name || '';
+        clientPhone.value = state.client.phone || '';
+        clientLocation.value = state.client.location || '';
+    }
+
+    /* ADD ITEM */
+    addItemForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const desc = document.getElementById('item-desc').value.trim();
+        const type = document.getElementById('item-type').value;
+        const qty = document.getElementById('item-qty').value;
+        const rate = parseFloat(document.getElementById('item-rate').value) || 0;
+        const disc = parseFloat(document.getElementById('item-disc').value) || 0;
+
+        if (!desc || rate <= 0) {
+            toast('⚠️ Fill description & rate', 'warning');
+            return;
+        }
+
+        state.items.push({desc, type, qty, rate, disc});
+        renderItems();
+        calc();
+        closeModal('add-item-modal');
+        addItemForm.reset();
+        toast('✅ Item added', 'success');
+    });
+
+    /* EVENTS */
+    loginBtn.addEventListener('click', () => login(loginPass.value.trim()));
+    loginPass.addEventListener('keypress', e => { if (e.key === 'Enter') login(loginPass.value.trim()); });
+    logoutBtn.addEventListener('click', logout);
+    addItemBtn.addEventListener('click', () => openModal('add-item-modal'));
+
+    clientName.addEventListener('input', () => {state.client.name = clientName.value;});
+    clientPhone.addEventListener('input', () => {state.client.phone = clientPhone.value;});
+    clientLocation.addEventListener('input', () => {state.client.location = clientLocation.value;});
+
+    saveEstBtn.addEventListener('click', () => {
+        toast('💾 Estimate saved locally', 'success');
+    });
+
+    copyLinkBtn.addEventListener('click', () => {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            toast('📋 Link copied!', 'success');
+        });
+    });
+
+    printBtn.addEventListener('click', () => {
+        toast('🖨️ Preparing print...', 'success');
+        setTimeout(() => window.print(), 300);
+    });
+
+    loginPass.focus();
+})();
+</script>
+
+</body>
+</html>
