@@ -7,740 +7,175 @@
     <title>Prakash Electrician | Premium Estimate System</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #f0f2f5;
-            font-family: 'Inter', sans-serif;
-            padding: 40px 24px;
-            color: #1a2c3e;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .container {
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f2f5; font-family: 'Inter', sans-serif; padding: 40px 24px; color: #1a2c3e; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; }
+        .container { max-width: 1100px; width: 100%; margin: 0 auto; }
 
         /* ===== LOGIN SCREEN ===== */
-        #login-container {
-            max-width: 440px;
-            margin: 80px auto;
-            background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
-            padding: 40px 32px;
-            text-align: center;
-            border: 1px solid #e9edf2;
-            animation: fadeUp 0.5s ease both;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        #login-container .brand-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #f5b042, #e0912a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 0 auto 16px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            box-shadow: 0 8px 24px rgba(245, 176, 66, 0.3);
-        }
-
-        #login-container h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            color: #0a2b3e;
-            letter-spacing: -0.3px;
-        }
-
-        #login-container .brand-accent {
-            color: #f5b042;
-        }
-
-        #login-container p {
-            color: #5b6e8c;
-            margin-top: 8px;
-            font-size: 0.9rem;
-        }
-
-        #admin-pass {
-            width: 100%;
-            padding: 14px 18px;
-            background: #f8fafc;
-            border: 1px solid #dce3ec;
-            border-radius: 60px;
-            font-size: 1rem;
-            margin: 20px 0 12px;
-            outline: none;
-            transition: 0.2s;
-            font-family: monospace;
-            letter-spacing: 1px;
-        }
-
-        #admin-pass:focus {
-            border-color: #f5b042;
-            box-shadow: 0 0 0 3px rgba(245,176,66,0.2);
-        }
-
-        #login-btn {
-            background: #0a2b3e;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        #login-btn:hover {
-            background: #f5b042;
-            color: #0a2b3e;
-        }
-
-        #login-msg {
-            margin-top: 16px;
-            font-size: 0.85rem;
-            display: none;
-        }
+        #login-container { max-width: 440px; margin: 80px auto; background: #ffffff; border-radius: 28px; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15); padding: 40px 32px; text-align: center; border: 1px solid #e9edf2; animation: fadeUp 0.5s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        #login-container .brand-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #f5b042, #e0912a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0 auto 16px; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 8px 24px rgba(245, 176, 66, 0.3); }
+        #login-container h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; color: #0a2b3e; letter-spacing: -0.3px; }
+        #login-container .brand-accent { color: #f5b042; }
+        #login-container p { color: #5b6e8c; margin-top: 8px; font-size: 0.9rem; }
+        #admin-pass { width: 100%; padding: 14px 18px; background: #f8fafc; border: 1px solid #dce3ec; border-radius: 60px; font-size: 1rem; margin: 20px 0 12px; outline: none; transition: 0.2s; font-family: monospace; letter-spacing: 1px; text-align: center; }
+        #admin-pass:focus { border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245,176,66,0.2); }
+        #login-btn { background: #0a2b3e; color: white; border: none; width: 100%; padding: 14px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
+        #login-btn:hover { background: #f5b042; color: #0a2b3e; }
+        #login-msg { margin-top: 16px; font-size: 0.85rem; display: none; }
 
         /* ===== TOOLBAR ===== */
-        .toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .toolbar-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .toolbar-left .item-counter {
-            background: #0a2b3e;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .toolbar-left .last-updated {
-            color: #5b6e8c;
-            font-size: 0.8rem;
-        }
-
-        .toolbar-right {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            border: none;
-            background: white;
-            padding: 10px 22px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: #0a2b3e;
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #f5b042;
-            color: #0a2b3e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(245, 176, 66, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            border: 1px solid #cddae9;
-        }
-        .btn-secondary:hover {
-            border-color: #f5b042;
-            background: #fff8ef;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #cddae9;
-            color: #5b6e8c;
-        }
-        .btn-outline:hover {
-            border-color: #0a2b3e;
-            color: #0a2b3e;
-        }
+        .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+        .toolbar-left { display: flex; align-items: center; gap: 16px; }
+        .toolbar-left .item-counter { background: #0a2b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; }
+        .toolbar-left .last-updated { color: #5b6e8c; font-size: 0.8rem; font-weight: 500; }
+        .toolbar-right { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { border: none; background: white; padding: 10px 22px; border-radius: 40px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: #0a2b3e; color: white; }
+        .btn-primary:hover { background: #f5b042; color: #0a2b3e; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245, 176, 66, 0.3); }
+        .btn-secondary { background: white; border: 1px solid #cddae9; color: #1a2c3e; }
+        .btn-secondary:hover { border-color: #f5b042; background: #fff8ef; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1px solid #cddae9; color: #5b6e8c; box-shadow: none; }
+        .btn-outline:hover { border-color: #0a2b3e; color: #0a2b3e; }
 
         /* ===== INVOICE CARD ===== */
-        .invoice-card {
-            background: white;
-            border-radius: 28px;
-            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
+        .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
+        .invoice-card:hover { box-shadow: 0 24px 48px -12px rgba(0,0,0,0.18); }
 
-        .invoice-card:hover {
-            box-shadow: 0 24px 48px -12px rgba(0,0,0,0.18);
-        }
+        /* HEADER */
+        .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; border-bottom: 4px solid #f5b042; position: relative; overflow: hidden; }
+        .invoice-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 350px; height: 350px; background: rgba(245, 176, 66, 0.05); border-radius: 50%; pointer-events: none; }
+        .brand { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+        .brand-badge { width: 54px; height: 54px; background: #f5b042; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; flex-shrink: 0; box-shadow: 0 4px 12px rgba(245, 176, 66, 0.3); }
+        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; }
+        .brand-text h1 span { color: #f5b042; }
+        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+        .header-contact { text-align: right; position: relative; z-index: 1; }
+        .header-contact p { color: #cbddee; font-size: 0.9rem; margin-bottom: 5px; }
+        .header-contact strong { color: #f5b042; }
 
-        /* ===== HEADER ===== */
-        .invoice-header {
-            background: #0a2b3e;
-            padding: 28px 40px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-bottom: 4px solid #f5b042;
-            position: relative;
-            overflow: hidden;
-        }
+        /* INFO PANEL */
+        .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
+        .info-group { flex: 1; min-width: 240px; }
+        .info-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.2px; color: #5b6e8c; margin-bottom: 16px; border-bottom: 2px solid #f5b042; display: inline-block; padding-bottom: 6px; }
+        .editable-field { display: block; width: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-bottom: 1px dashed #dce3ec; margin-bottom: 10px; outline: none; transition: 0.2s; }
+        .editable-field:focus { border-bottom-color: #f5b042; background: #fffbf4; border-radius: 6px 6px 0 0; }
+        .inv-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .inv-meta-row label { font-weight: 700; width: 90px; font-size: 0.8rem; color: #5b6e8c; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .invoice-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: rgba(245, 176, 66, 0.05);
-            border-radius: 50%;
-            pointer-events: none;
-        }
+        /* TABLE */
+        .table-wrapper { padding: 0 40px; overflow-x: auto; }
+        .items-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        .items-table th { background: #f8fafc; padding: 16px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .items-table th.center, .items-table td.center { text-align: center; }
+        .items-table th.right, .items-table td.right { text-align: right; }
+        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+        .items-table tr { animation: rowIn 0.3s ease forwards; }
+        @keyframes rowIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+        .items-table tr:hover td { background: #fafcff; }
+        .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 8px; border-radius: 6px; outline: none; transition: 0.2s; }
+        .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
+        input[type="number"] { text-align: right; }
+        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; }
+        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .delete-row:hover { color: #ef4444; background: #fef2f2; }
+        
+        .add-row-btn { margin: 16px 0 24px 0; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; cursor: pointer; width: 100%; transition: 0.2s; color: #5b6e8c; }
+        .add-row-btn:hover { background: #fffbf4; border-color: #f5b042; color: #0a2b3e; }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
+        /* PAYMENT / TOTALS */
+        .payment-section { padding: 24px 40px 30px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-top: 1px solid #edf2f7; }
+        .payment-left { flex: 1.2; min-width: 280px; }
+        .payment-left h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; color: #0a2b3e; font-weight: 800; }
+        .payment-left p { color: #5b6e8c; font-size: 0.9rem; line-height: 1.6; }
+        
+        .payment-right { flex: 0.8; min-width: 260px; background: #f8fafc; padding: 24px; border-radius: 20px; border: 1px solid #e9edf2; display: flex; flex-direction: column; justify-content: center; }
+        .totals-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; color: #3f5570; align-items: center; }
+        .totals-row.subtotal { border-bottom: 1px dashed #cbd5e1; padding-bottom: 14px; margin-bottom: 14px; }
+        .totals-row.discount-row { color: #10b981; font-weight: 600; }
+        .totals-row.balance-due { background: #fffbf4; padding: 18px 16px; border-radius: 14px; margin-top: 4px; margin-bottom: 0; font-weight: 800; font-size: 1.3rem; border-left: 4px solid #f5b042; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 4px 12px rgba(245, 176, 66, 0.08); }
+        .totals-row .label { font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .totals-row .value { font-weight: 700; font-size: 1.05rem; }
 
-        .brand-badge {
-            width: 50px;
-            height: 50px;
-            background: #f5b042;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #0a2b3e;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(245, 176, 66, 0.3);
-        }
+        /* NOTES SECTION */
+        .terms-block { padding: 30px 40px; background: #fafcff; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7; }
+        .terms-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .terms-header h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #0a2b3e; font-weight: 800; }
+        .add-note-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: 0.2s; color: #5b6e8c; text-transform: uppercase; letter-spacing: 0.5px; }
+        .add-note-btn:hover { background: #0a2b3e; color: #ffffff; border-color: #0a2b3e; }
+        .notes-list { list-style: none; }
+        .note-item { display: flex; align-items: flex-start; margin-bottom: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid #e9edf2; background: white; transition: 0.2s; }
+        .note-item:focus-within { border-color: #f5b042; box-shadow: 0 4px 12px rgba(245, 176, 66, 0.1); }
+        .note-bullet { color: #f5b042; margin-right: 12px; font-size: 1.2rem; line-height: 1.2; flex-shrink: 0; }
+        .note-text { flex: 1; font-size: 0.9rem; line-height: 1.5; color: #3f5570; outline: none; border-bottom: 1px dashed transparent; padding: 2px 0; font-weight: 500; }
+        .note-text:focus { border-bottom: 1px dashed #cbd5e1; }
+        .note-item .delete-row { margin-left: 12px; font-size: 1.1rem; padding: 4px; }
 
-        .brand-text h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            color: white;
-            letter-spacing: -0.5px;
-        }
-
-        .brand-text h1 span {
-            color: #f5b042;
-        }
-
-        .brand-text p {
-            color: #9bb3cc;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        .header-contact {
-            text-align: right;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-contact p {
-            color: #cbddee;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-        }
-
-        .header-contact strong {
-            color: #f5b042;
-        }
-
-        /* ===== INFO PANEL ===== */
-        .info-panel {
-            padding: 28px 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            background: #ffffff;
-            border-bottom: 1px solid #edf2f7;
-        }
-
-        .info-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .info-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            color: #5b6e8c;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #f5b042;
-            display: inline-block;
-            padding-bottom: 4px;
-        }
-
-        .editable-field {
-            display: block;
-            width: 100%;
-            border: none;
-            background: transparent;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            padding: 8px 0;
-            border-bottom: 1px dashed #dce3ec;
-            margin-bottom: 10px;
-            outline: none;
-            transition: 0.15s;
-        }
-
-        .editable-field:focus {
-            border-bottom-color: #f5b042;
-            background: #fffbf4;
-            border-radius: 4px 4px 0 0;
-        }
-
-        .inv-meta-row {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-
-        .inv-meta-row label {
-            font-weight: 600;
-            width: 80px;
-            font-size: 0.8rem;
-            color: #3f5570;
-            flex-shrink: 0;
-        }
-
-        /* ===== TABLE ===== */
-        .table-wrapper {
-            padding: 0 40px;
-            overflow-x: auto;
-        }
-
-        .items-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .items-table th {
-            background: #f8fafc;
-            padding: 14px 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            text-align: left;
-            border-bottom: 2px solid #e2e8f0;
-            color: #1e3a5f;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .items-table th.center,
-        .items-table td.center {
-            text-align: center;
-        }
-
-        .items-table th.right,
-        .items-table td.right {
-            text-align: right;
-        }
-
-        .items-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid #edf2f7;
-            vertical-align: middle;
-        }
-
-        .items-table tr:hover td {
-            background: #fafcff;
-        }
-
-        .items-table input {
-            width: 100%;
-            border: none;
-            background: transparent;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            padding: 6px 4px;
-            border-radius: 6px;
-            outline: none;
-            transition: 0.15s;
-        }
-
-        .items-table input:focus {
-            background: #fffbf4;
-            box-shadow: 0 0 0 2px rgba(245, 176, 66, 0.15);
-        }
-
-        input[type="number"] {
-            text-align: right;
-        }
-
-        .row-total-display {
-            font-weight: 700;
-            color: #1e3a5f;
-            font-size: 1rem;
-        }
-
-        .badge-free {
-            background: #10b981;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 3px 12px;
-            border-radius: 40px;
-            display: inline-block;
-            letter-spacing: 0.5px;
-        }
-
-        .delete-row {
-            background: none;
-            border: none;
-            color: #94a3b8;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.2s;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .delete-row:hover {
-            color: #ef4444;
-            background: #fef2f2;
-        }
-
-        .add-row-btn {
-            margin: 16px 0 20px 0;
-            background: #f1f5f9;
-            border: 1px dashed #cbd5e1;
-            padding: 10px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.2s;
-            color: #5b6e8c;
-        }
-
-        .add-row-btn:hover {
-            background: #fff8ef;
-            border-color: #f5b042;
-            color: #0a2b3e;
-        }
-
-        /* ===== PAYMENT / TOTALS SECTION ===== */
-        .payment-section {
-            padding: 24px 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            background: #ffffff;
-            border-top: 1px solid #edf2f7;
-        }
-
-        .payment-left {
-            flex: 1.2;
-            min-width: 260px;
-        }
-
-        .payment-left h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #1e3a5f;
-        }
-
-        .payment-left p {
-            color: #5b6e8c;
-            font-size: 0.85rem;
-            line-height: 1.6;
-        }
-
-        .payment-right {
-            flex: 0.8;
-            min-width: 260px;
-            background: #fafcff;
-            padding: 20px 24px;
-            border-radius: 16px;
-            border: 1px solid #eef2fa;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .totals-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: #334155;
-        }
-
-        .totals-row.subtotal {
-            border-bottom: 1px dashed #e2e8f0;
-            padding-bottom: 10px;
-        }
-
-        .totals-row.discount-row {
-            color: #10b981;
-            font-weight: 600;
-        }
-
-        .totals-row.balance-due {
-            background: #f5b04220;
-            padding: 16px 14px;
-            border-radius: 14px;
-            margin-top: 6px;
-            margin-bottom: 0;
-            font-weight: 800;
-            font-size: 1.3rem;
-            border-left: 4px solid #f5b042;
-            color: #0a2b3e;
-        }
-
-        .totals-row .label { font-weight: 500; }
-        .totals-row .value { font-weight: 700; }
-
-        /* ===== NOTES SECTION ===== */
-        .terms-block {
-            padding: 20px 40px 30px;
-            background: #fefcf8;
-            border-top: 1px solid #edf2f7;
-        }
-
-        .terms-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .terms-header h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #1e3a5f;
-        }
-
-        .add-note-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            color: #5b6e8c;
-        }
-
-        .add-note-btn:hover {
-            background: #e2e8f0;
-            color: #0a2b3e;
-            border-color: #f5b042;
-        }
-
-        .notes-list {
-            list-style: none;
-        }
-
-        .note-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 6px;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid #f1f5f9;
-            background: white;
-            transition: 0.2s;
-        }
-
-        .note-item:focus-within {
-            border-color: #f5b042;
-            box-shadow: 0 2px 8px rgba(245, 176, 66, 0.08);
-        }
-
-        .note-bullet {
-            color: #f5b042;
-            margin-right: 10px;
-            font-size: 1.1rem;
-            line-height: 1.3;
-            flex-shrink: 0;
-        }
-
-        .note-text {
-            flex: 1;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #334155;
-            outline: none;
-            border-bottom: 1px dashed transparent;
-            padding: 2px 0;
-        }
-
-        .note-text:focus {
-            border-bottom: 1px dashed #cbd5e1;
-        }
-
-        .note-item .delete-row {
-            margin-left: 8px;
-            font-size: 1rem;
-            padding: 2px 6px;
-        }
-
-        /* ===== FOOTER ===== */
-        .invoice-footer {
-            background: #0a2b3e;
-            color: #9bb3cc;
-            text-align: center;
-            padding: 16px;
-            font-size: 0.75rem;
-        }
-
-        .invoice-footer a {
-            color: #f5b042;
-            text-decoration: none;
-            font-weight: 600;
-        }
+        /* FOOTER */
+        .invoice-footer { background: #0a2b3e; color: #9bb3cc; text-align: center; padding: 24px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; }
+        .invoice-footer a { color: #f5b042; text-decoration: none; font-weight: 700; }
 
         /* ===== TOAST ===== */
-        #toast-container {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: center;
-            max-width: 90%;
-            pointer-events: none;
-        }
-
-        .toast {
-            background: #1e293b;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            animation: slideUp 0.3s ease;
-            pointer-events: auto;
-            border-left: 4px solid #f5b042;
-        }
-
+        #toast-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 90%; pointer-events: none; }
+        .toast { background: #1e293b; color: white; padding: 14px 28px; border-radius: 16px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; border-left: 4px solid #f5b042; display: flex; align-items: center; gap: 10px; }
         .toast.success { border-left-color: #10b981; }
         .toast.error { border-left-color: #ef4444; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             body { padding: 16px; }
-            .invoice-header { padding: 20px; flex-direction: column; align-items: flex-start; }
-            .header-contact { text-align: left; width: 100%; }
-            .brand-text h1 { font-size: 1.6rem; }
-            .info-panel { padding: 20px; flex-direction: column; gap: 20px; }
+            .invoice-card { border-radius: 16px; }
+            .invoice-header { padding: 24px; flex-direction: column; align-items: flex-start; }
+            .header-contact { text-align: left; width: 100%; margin-top: 10px; }
+            .brand-text h1 { font-size: 1.8rem; }
+            .info-panel { padding: 24px; flex-direction: column; gap: 24px; }
             .table-wrapper { padding: 0 16px; }
-            .payment-section { padding: 16px 20px; flex-direction: column; }
-            .terms-block { padding: 16px 20px; }
+            .items-table { min-width: 600px; }
+            .payment-section { padding: 24px 20px; flex-direction: column; }
+            .terms-block { padding: 24px 20px; }
             .toolbar { flex-direction: column; align-items: stretch; }
             .toolbar-left { justify-content: space-between; }
-            .toolbar-right { justify-content: center; }
-        }
-
-        @media (max-width: 480px) {
-            .items-table { font-size: 0.8rem; min-width: 500px; }
-            .invoice-header { padding: 16px; }
-            .brand-badge { width: 40px; height: 40px; font-size: 1.2rem; }
-            .brand-text h1 { font-size: 1.3rem; }
-            .btn { padding: 8px 14px; font-size: 0.8rem; }
-            .totals-row.balance-due { font-size: 1.1rem; padding: 12px; }
+            .toolbar-right { justify-content: stretch; }
+            .toolbar-right .btn { flex: 1; justify-content: center; }
         }
 
         /* ===== PRINT STYLES ===== */
         @media print {
             body { background: white; padding: 0; margin: 0; }
             .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
-            .invoice-card { box-shadow: none; border-radius: 0; }
-            .invoice-header { background: #0a2b3e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .brand-text h1 { color: white !important; }
+            .invoice-card { box-shadow: none; border-radius: 0; border: none; }
+            /* Strict Invoice Letterhead Design */
+            .invoice-header { background: transparent !important; border-bottom: 3px solid #0a2b3e !important; padding: 0 0 20px 0 !important; color: #000 !important; }
+            .invoice-header::before { display: none !important; }
+            .brand-badge { background: #0a2b3e !important; color: #fff !important; box-shadow: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .brand-text h1 { color: #0a2b3e !important; }
             .brand-text h1 span { color: #f5b042 !important; }
-            .header-contact p { color: #cbddee !important; }
-            .header-contact strong { color: #f5b042 !important; }
-            .items-table input, .editable-field { border: none !important; background: transparent !important; padding: 0; }
-            .note-item { padding: 4px 0; border: none; background: transparent; }
-            .note-text:focus { border: none; }
-            .payment-right { background: none; border: 1px solid #ddd; }
-            .badge-free { background: #10b981 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .balance-due { background: #f5b04220 !important; -webkit-print-color-adjust: exact; }
-            .invoice-footer { background: #0a2b3e !important; -webkit-print-color-adjust: exact; }
-            .invoice-footer a { color: #f5b042 !important; }
-            .totals-row.balance-due { background: #f5b04220 !important; -webkit-print-color-adjust: exact; }
+            .brand-text p { color: #555 !important; }
+            .header-contact p { color: #333 !important; }
+            
+            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; }
+            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; }
+            .editable-field { border: none !important; background: transparent !important; padding: 4px 0 !important; font-weight: 600 !important; color: #000 !important; }
+            .editable-field::placeholder { color: transparent !important; }
+            
+            .table-wrapper { padding: 0 !important; margin-top: 20px !important; }
+            .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .items-table td { border-bottom: 1px solid #ddd !important; padding: 8px !important; }
+            .items-table input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; }
+            
+            .payment-section { padding: 20px 0 !important; border-top: none !important; }
+            .payment-right { background: transparent !important; border: 1px solid #0a2b3e !important; border-radius: 8px !important; padding: 15px !important; }
+            .totals-row.balance-due { background: #f0f4f8 !important; border-left: 4px solid #0a2b3e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            
+            .terms-block { padding: 20px 0 !important; background: transparent !important; border-top: 2px solid #eee !important; border-bottom: none !important; }
+            .note-item { padding: 4px 0 !important; border: none !important; background: transparent !important; }
+            .note-text { font-weight: 600 !important; color: #333 !important; }
+            .note-text:focus { border: none !important; }
+            
+            .badge-free { background: #10b981 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .invoice-footer { background: transparent !important; color: #555 !important; border-top: 1px solid #ddd !important; padding: 15px 0 !important; font-weight: 600 !important; }
         }
     </style>
 </head>
@@ -748,7 +183,6 @@
 
 <div class="container">
 
-    <!-- ===== LOGIN SCREEN ===== -->
     <div id="login-container">
         <div class="brand-icon">⚡</div>
         <h2>Prakash <span class="brand-accent">Electrician</span></h2>
@@ -758,28 +192,26 @@
         <div id="login-msg"></div>
     </div>
 
-    <!-- ===== ESTIMATE APP ===== -->
     <div class="invoice-app" id="invoice-app" style="display: none;">
-        <div class="toolbar">
+        <div class="toolbar no-print">
             <div class="toolbar-left">
                 <span class="item-counter" id="item-counter">📋 Items: 0</span>
                 <span class="last-updated" id="last-updated">Last updated: Just now</span>
             </div>
             <div class="toolbar-right">
                 <button class="btn btn-secondary" id="newInvoiceBtn">+ New Estimate</button>
-                <button class="btn btn-outline" id="copyLinkBtn">📋 Copy Link</button>
-                <button class="btn btn-primary" id="printPdfBtn">📄 Save as PDF</button>
+                <button class="btn btn-outline" id="exportCsvBtn">📥 Export CSV</button>
+                <button class="btn btn-primary" id="printPdfBtn">📄 Save as PDF / Print</button>
             </div>
         </div>
 
         <div class="invoice-card" id="invoiceCard">
-            <!-- HEADER -->
             <div class="invoice-header">
                 <div class="brand">
-                    <div class="brand-badge">⚡</div>
+                    <div class="brand-badge">PE</div>
                     <div class="brand-text">
                         <h1>Prakash <span>Electrician</span></h1>
-                        <p>PROFESSIONAL WIRING · LIGHTING · ELECTRICAL ESTIMATES</p>
+                        <p>Mumbai's #1 Rated Electrical Service</p>
                     </div>
                 </div>
                 <div class="header-contact">
@@ -789,43 +221,40 @@
                 </div>
             </div>
 
-            <!-- INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">ESTIMATED FOR</div>
                     <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="">
                     <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location">
-                    <input type="text" class="editable-field" id="custAddr2" placeholder="Address line 2 (Varanasi)">
-                    <input type="text" class="editable-field" id="custPhone" placeholder="Contact number">
+                    <input type="text" class="editable-field" id="custAddr2" placeholder="City / State / PIN">
+                    <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number">
                 </div>
                 <div class="info-group">
                     <div class="info-title">ESTIMATE DETAILS</div>
-                    <div class="inv-meta-row"><label>Estimate #</label><input type="text" id="invNumber" class="editable-field" style="flex:1; color:#d97706;" placeholder="EST-2606-001"></div>
-                    <div class="inv-meta-row"><label>Date Issued</label><input type="text" id="invDate" class="editable-field" style="flex:1"></div>
-                    <div class="inv-meta-row"><label>Valid Until</label><input type="text" id="validUntil" class="editable-field" style="flex:1"></div>
+                    <div class="inv-meta-row"><label>Estimate #</label><input type="text" id="invNumber" class="editable-field" style="color:#d97706; font-weight:800;" placeholder="EST-2606-001"></div>
+                    <div class="inv-meta-row"><label>Date Issued</label><input type="text" id="invDate" class="editable-field"></div>
+                    <div class="inv-meta-row"><label>Valid Until</label><input type="text" id="validUntil" class="editable-field"></div>
                 </div>
             </div>
 
-            <!-- TABLE -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
                         <tr>
                             <th>Description of Work / Material</th>
-                            <th class="center" style="width:90px">Qty/SqFt</th>
-                            <th class="right" style="width:110px">Rate (₹)</th>
-                            <th class="center" style="width:80px">Disc %</th>
-                            <th class="right" style="width:130px">Total (₹)</th>
-                            <th style="width:30px" class="no-print"></th>
+                            <th class="center" style="width:100px">Qty/SqFt</th>
+                            <th class="right" style="width:120px">Rate (₹)</th>
+                            <th class="center" style="width:90px">Disc %</th>
+                            <th class="right" style="width:140px">Total (₹)</th>
+                            <th style="width:40px" class="no-print"></th>
                         </tr>
                     </thead>
                     <tbody id="itemsBody">
-                    </tbody>
+                        </tbody>
                 </table>
-                <button class="add-row-btn no-print" id="addRowBtn">+ Add new service / material</button>
+                <button class="add-row-btn no-print" id="addRowBtn">＋ Add new service / material</button>
             </div>
 
-            <!-- TOTALS -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>ABOUT THIS ESTIMATE</h4>
@@ -837,43 +266,35 @@
                         <span class="value">₹ <span id="subtotalVal">0</span></span>
                     </div>
                     <div class="totals-row discount-row" id="discount-row" style="display:none;">
-                        <span class="label">Discount</span>
+                        <span class="label">Total Savings</span>
                         <span class="value">-₹ <span id="discountVal">0</span></span>
                     </div>
                     <div class="totals-row balance-due">
-                        <span>ESTIMATED TOTAL</span>
-                        <span>₹ <span id="balanceDue">0</span></span>
+                        <span class="label" style="font-size: 0.9rem;">ESTIMATED TOTAL</span>
+                        <span class="value">₹ <span id="balanceDue">0</span></span>
                     </div>
                 </div>
             </div>
 
-            <!-- NOTES -->
             <div class="terms-block">
                 <div class="terms-header">
                     <h4>PROJECT NOTES & CONDITIONS</h4>
-                    <button class="add-note-btn no-print" onclick="addNewNote()">+ Add Note</button>
+                    <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
                 </div>
                 <ul class="notes-list" id="notesList">
-                </ul>
+                    </ul>
             </div>
 
-            <!-- FOOTER -->
             <div class="invoice-footer">
                 Thank you for considering <span style="color:#f5b042;">Prakash Electrician</span> for your project.
             </div>
         </div>
     </div>
 
-    <!-- ===== TOAST CONTAINER ===== -->
     <div id="toast-container"></div>
 </div>
 
 <script>
-    // ================================================================
-    //  PREMIUM ESTIMATE SYSTEM – Self-contained
-    //  No external dependencies – pure vanilla JS + CSS
-    // ================================================================
-
     (function() {
         'use strict';
 
@@ -882,47 +303,35 @@
 
         // ===== DOM REFS =====
         const $ = (sel) => document.querySelector(sel);
-        const $$ = (sel) => document.querySelectorAll(sel);
 
         const loginContainer = $('#login-container');
-        const invoiceApp = $('#invoice-app');
-        const loginBtn = $('#login-btn');
-        const loginMsg = $('#login-msg');
-        const adminPass = $('#admin-pass');
+        const invoiceApp     = $('#invoice-app');
+        const loginBtn       = $('#login-btn');
+        const loginMsg       = $('#login-msg');
+        const adminPass      = $('#admin-pass');
 
-        const itemsBody = $('#itemsBody');
-        const addRowBtn = $('#addRowBtn');
-        const printPdfBtn = $('#printPdfBtn');
-        const newInvoiceBtn = $('#newInvoiceBtn');
-        const copyLinkBtn = $('#copyLinkBtn');
+        const itemsBody      = $('#itemsBody');
+        const addRowBtn      = $('#addRowBtn');
+        const printPdfBtn    = $('#printPdfBtn');
+        const newInvoiceBtn  = $('#newInvoiceBtn');
+        const exportCsvBtn   = $('#exportCsvBtn');
 
-        const subtotalSpan = $('#subtotalVal');
-        const discountSpan = $('#discountVal');
-        const balanceSpan = $('#balanceDue');
-        const discountRow = $('#discount-row');
-        const itemCounter = $('#item-counter');
-        const lastUpdated = $('#last-updated');
+        const subtotalSpan   = $('#subtotalVal');
+        const discountSpan   = $('#discountVal');
+        const balanceSpan    = $('#balanceDue');
+        const discountRow    = $('#discount-row');
+        const itemCounter    = $('#item-counter');
+        const lastUpdated    = $('#last-updated');
 
-        const invNumber = $('#invNumber');
-        const invDate = $('#invDate');
-        const validUntil = $('#validUntil');
-        const notesList = $('#notesList');
+        const invNumber      = $('#invNumber');
+        const invDate        = $('#invDate');
+        const validUntil     = $('#validUntil');
+        const notesList      = $('#notesList');
 
         // ===== STATE =====
-        let lastUpdateTime = new Date();
-        let isAuthenticated = false;
+        let projectNotes = [];
 
-        // ===== DATE SETUP =====
-        const today = new Date();
-        const expiry = new Date(today);
-        expiry.setDate(expiry.getDate() + 15);
-
-        invDate.value = today.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-        validUntil.value = expiry.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-        invNumber.value = 'EST-' + today.getFullYear() + String(today.getMonth()+1).padStart(2,'0') + '-' + Math.floor(Math.random()*900+100);
-
-        // ===== DEFAULT DATA =====
-        let projectNotes = [
+        const defaultNotes = [
             "Standard warranty of 3 to 5 years on concealed wiring and 30 days on general electrical services.",
             "Installation of specialty fixtures (e.g., ceiling fans, geysers, decorative chandeliers, profile lighting) will incur additional charges unless explicitly itemized above.",
             "This estimate is valid for 15 days from the date of issue. Material prices are subject to market fluctuations.",
@@ -934,6 +343,17 @@
             { desc: "Complete House Wiring Estimate", qty: "", rate: 0, disc: 0, isFree: false },
         ];
 
+        // ===== DATE SETUP =====
+        function setupDates() {
+            const today = new Date();
+            const expiry = new Date(today);
+            expiry.setDate(expiry.getDate() + 15); 
+
+            invDate.value = today.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).replace(/ /g, '-');
+            validUntil.value = expiry.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).replace(/ /g, '-');
+            invNumber.value = 'EST-' + today.getFullYear() + String(today.getMonth()+1).padStart(2,'0') + '-' + Math.floor(Math.random()*900+100);
+        }
+
         // ===== HELPERS =====
         function formatINR(num) {
             if (isNaN(num)) num = 0;
@@ -943,16 +363,14 @@
         function escapeHtml(str) {
             if (!str) return '';
             return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
+                const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;' };
+                return map[m];
             });
         }
 
         function updateTimestamp() {
-            lastUpdateTime = new Date();
-            lastUpdated.textContent = 'Last updated: ' + lastUpdateTime.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+            const now = new Date();
+            lastUpdated.textContent = 'Last updated: ' + now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
         }
 
         // ===== TOAST =====
@@ -960,11 +378,12 @@
             const container = $('#toast-container');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
-            toast.textContent = message;
+            toast.innerHTML = `<span style="font-size:1.2rem;">${type==='success'?'✅':'⚠️'}</span> ${message}`;
             container.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
-                toast.style.transform = 'translateY(10px)';
+                toast.style.transform = 'translateY(10px) translateX(-50%)';
+                toast.style.transition = 'all 0.3s ease';
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
@@ -1006,105 +425,109 @@
             itemsBody.innerHTML = '';
             rowsData.forEach((row, idx) => {
                 const tr = document.createElement('tr');
-                tr.setAttribute('data-row-idx', idx);
                 tr.innerHTML = `
                     <td><input type="text" class="desc-input" value="${escapeHtml(row.desc)}" placeholder="Service / Material description"></td>
                     <td class="center"><input type="number" class="qty-input" value="${row.qty !== '' ? row.qty : ''}" placeholder="-"></td>
                     <td class="right"><input type="number" class="rate-input" value="${row.rate}" step="1"></td>
                     <td class="center"><input type="number" class="disc-input" value="${row.disc}" step="1"></td>
-                    <td class="right"><span class="row-total-display">0</span><span class="badge-free" style="display:none">FREE</span></td>
-                    <td class="center no-print"><button class="delete-row" data-idx="${idx}">✕</button></td>
+                    <td class="right">
+                        <span class="row-total-display">0</span>
+                        <span class="badge-free" style="display:none">FREE</span>
+                    </td>
+                    <td class="center no-print"><button class="delete-row" title="Delete Row">✕</button></td>
                 `;
+                
+                // Attach individual row events so we don't rely on global indexes
+                const delBtn = tr.querySelector('.delete-row');
+                delBtn.addEventListener('click', () => {
+                    tr.remove();
+                    recalcTotals();
+                    updateTimestamp();
+                });
+
+                const inputs = tr.querySelectorAll('input');
+                inputs.forEach(inp => {
+                    inp.addEventListener('input', () => {
+                        recalcTotals();
+                        updateTimestamp();
+                    });
+                });
+
                 itemsBody.appendChild(tr);
             });
-            attachRowEvents();
+            
             recalcTotals();
-        }
-
-        function attachRowEvents() {
-            document.querySelectorAll('.delete-row[data-idx]').forEach(btn => {
-                btn.removeEventListener('click', handleDelete);
-                btn.addEventListener('click', handleDelete);
-            });
-            const inputs = itemsBody.querySelectorAll('input');
-            inputs.forEach(inp => {
-                inp.removeEventListener('input', recalcTotals);
-                inp.addEventListener('input', recalcTotals);
-            });
-        }
-
-        function handleDelete(e) {
-            const idx = e.currentTarget.getAttribute('data-idx');
-            if (idx !== null) {
-                const rows = getCurrentRowsFromDOM();
-                rows.splice(parseInt(idx), 1);
-                renderRows(rows);
-                updateTimestamp();
-            }
         }
 
         function getCurrentRowsFromDOM() {
             const rows = [];
             const trs = itemsBody.querySelectorAll('tr');
             trs.forEach(tr => {
-                const desc = tr.querySelector('.desc-input')?.value || '';
-                const qty = tr.querySelector('.qty-input')?.value;
-                const rate = parseFloat(tr.querySelector('.rate-input')?.value) || 0;
-                const disc = parseFloat(tr.querySelector('.disc-input')?.value) || 0;
-                rows.push({
-                    desc: desc,
-                    qty: (qty === '' || isNaN(parseFloat(qty))) ? '' : parseFloat(qty),
-                    rate: rate,
-                    disc: disc,
-                });
+                const desc = tr.querySelector('.desc-input').value;
+                const qtyStr = tr.querySelector('.qty-input').value;
+                const qty = (qtyStr === '' || isNaN(parseFloat(qtyStr))) ? '' : parseFloat(qtyStr);
+                const rate = parseFloat(tr.querySelector('.rate-input').value) || 0;
+                const disc = parseFloat(tr.querySelector('.disc-input').value) || 0;
+                rows.push({ desc, qty, rate, disc });
             });
             return rows;
         }
 
         function recalcTotals() {
-            const rows = getCurrentRowsFromDOM();
             let subtotal = 0;
             let totalDiscount = 0;
+            let validItemCount = 0;
 
-            rows.forEach((row, idx) => {
-                let { qty, rate, disc } = row;
+            const trs = itemsBody.querySelectorAll('tr');
+            
+            trs.forEach(tr => {
+                const desc = tr.querySelector('.desc-input').value.trim();
+                const qtyStr = tr.querySelector('.qty-input').value;
+                const qty = parseFloat(qtyStr) || 0;
+                const rate = parseFloat(tr.querySelector('.rate-input').value) || 0;
+                const disc = parseFloat(tr.querySelector('.disc-input').value) || 0;
+                
+                if (desc !== "") validItemCount++;
+
                 let total = 0;
-                const hasQty = (qty !== '' && !isNaN(qty) && qty > 0);
-                if (hasQty && !isNaN(rate) && rate > 0) {
+                const hasQty = (qtyStr !== '' && qty > 0);
+                
+                if (hasQty && rate > 0) {
                     total = qty * rate;
-                } else if (!hasQty && !isNaN(rate)) {
+                } else if (!hasQty && rate > 0) {
                     total = rate;
                 }
-                // apply discount %
+                
+                // Apply discount
                 let discountAmount = 0;
-                if (disc && !isNaN(disc) && disc > 0 && total > 0) {
+                if (disc > 0 && total > 0) {
                     discountAmount = total * (disc / 100);
                     total = total - discountAmount;
                     totalDiscount += discountAmount;
                 }
+                
                 if (total < 0) total = 0;
-
-                const rowTotalSpan = itemsBody.querySelectorAll('tr')[idx]?.querySelector('.row-total-display');
-                const freeSpan = itemsBody.querySelectorAll('tr')[idx]?.querySelector('.badge-free');
-                if (rowTotalSpan && freeSpan) {
-                    if ((row.rate === 0 && total === 0) || (disc === 100 && total === 0)) {
-                        rowTotalSpan.style.display = 'none';
-                        freeSpan.style.display = 'inline-block';
-                        freeSpan.textContent = 'FREE';
-                        total = 0;
-                    } else {
-                        rowTotalSpan.style.display = 'inline';
-                        freeSpan.style.display = 'none';
-                        rowTotalSpan.textContent = '₹ ' + formatINR(total);
-                    }
+                
+                // UI updates for this specific row
+                const rowTotalSpan = tr.querySelector('.row-total-display');
+                const freeSpan = tr.querySelector('.badge-free');
+                
+                if ((rate === 0 && total === 0) || (disc === 100 && total === 0)) {
+                    rowTotalSpan.style.display = 'none';
+                    freeSpan.style.display = 'inline-block';
+                } else {
+                    rowTotalSpan.style.display = 'inline';
+                    freeSpan.style.display = 'none';
+                    rowTotalSpan.textContent = '₹ ' + formatINR(total);
                 }
+                
                 subtotal += total;
             });
-
+            
             subtotalSpan.innerText = formatINR(subtotal);
-            balanceSpan.innerText = formatINR(subtotal);
+            balanceSpan.innerText = formatINR(subtotal); 
 
-            // Show discount row if any discount applied
+            // Show global discount row if applicable
             if (totalDiscount > 0) {
                 discountRow.style.display = 'flex';
                 discountSpan.innerText = formatINR(totalDiscount);
@@ -1112,64 +535,93 @@
                 discountRow.style.display = 'none';
             }
 
-            // Update item counter
-            const totalItems = rows.filter(r => r.desc.trim() !== '').length;
-            itemCounter.textContent = '📋 Items: ' + totalItems;
-
-            updateTimestamp();
+            itemCounter.textContent = '📋 Items: ' + validItemCount;
         }
 
         // ===== ROW ACTIONS =====
         function addNewRow() {
             const currentRows = getCurrentRowsFromDOM();
-            currentRows.push({ desc: "New service / material", qty: "", rate: 0, disc: 0 });
+            currentRows.push({ desc: "", qty: "", rate: 0, disc: 0 });
             renderRows(currentRows);
             updateTimestamp();
+            
+            // Focus the new row's description
+            const allDescInputs = document.querySelectorAll('.desc-input');
+            if (allDescInputs.length > 0) {
+                allDescInputs[allDescInputs.length - 1].focus();
+            }
         }
 
-        // ===== COPY LINK =====
-        function copyEstimateLink() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                showToast('📋 Estimate link copied to clipboard!', 'success');
-            }).catch(() => {
-                const input = document.createElement('input');
-                input.value = url;
-                document.body.appendChild(input);
-                input.select();
-                document.execCommand('copy');
-                input.remove();
-                showToast('📋 Link copied!', 'success');
+        // ===== EXPORT CSV =====
+        function exportCSV() {
+            const rows = getCurrentRowsFromDOM();
+            if (rows.length === 0) {
+                showToast('Add some items first!', 'error');
+                return;
+            }
+            
+            let csv = 'Description,Qty,Rate,Discount %,Total\n';
+            rows.forEach(r => {
+                if(r.desc) {
+                    let total = r.qty ? (r.qty * r.rate) : r.rate;
+                    total = total - (total * (r.disc/100));
+                    csv += `"${r.desc.replace(/"/g, '""')}","${r.qty}","${r.rate}","${r.disc}","${total}"\n`;
+                }
             });
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Estimate_${invNumber.value}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast('📥 CSV Downloaded successfully', 'success');
         }
 
         // ===== RESET =====
         function resetInvoice() {
-            document.getElementById('custName').value = '';
-            document.getElementById('custAddr').value = '';
-            document.getElementById('custAddr2').value = '';
-            document.getElementById('custPhone').value = '';
-
-            const newNum = 'EST-' + new Date().getFullYear() + String(new Date().getMonth()+1).padStart(2,'0') + '-' + Math.floor(Math.random()*900+100);
-            invNumber.value = newNum;
-
-            renderRows([...defaultRows]);
-            projectNotes = [
-                "Standard warranty of 3 to 5 years on concealed wiring and 30 days on general electrical services.",
-                "Installation of specialty fixtures (e.g., ceiling fans, geysers, decorative chandeliers, profile lighting) will incur additional charges unless explicitly itemized above.",
-                "This estimate is valid for 15 days from the date of issue. Material prices are subject to market fluctuations.",
-                "Final billing will be calculated based on actual measured quantities and materials consumed on-site."
-            ];
-            renderNotes();
-            recalcTotals();
-            showToast('🔄 New estimate started', 'success');
+            if(confirm("Start a new estimate? This will clear current fields.")) {
+                $('#custName').value = '';
+                $('#custAddr').value = '';
+                $('#custAddr2').value = '';
+                $('#custPhone').value = '';
+                
+                setupDates();
+                
+                projectNotes = [...defaultNotes];
+                renderRows([...defaultRows]);
+                renderNotes();
+                recalcTotals();
+                showToast('✨ New Estimate Created', 'success');
+            }
         }
 
         // ===== PRINT =====
         function handlePrint() {
             updateTimestamp();
-            showToast('🖨️ Preparing print...', 'success');
-            setTimeout(() => window.print(), 300);
+            // Optional: Hide empty rows during print to make it cleaner
+            document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                const desc = tr.querySelector('.desc-input').value.trim();
+                const qtyStr = tr.querySelector('.qty-input').value;
+                const rate = parseFloat(tr.querySelector('.rate-input').value) || 0;
+                
+                if (desc === "" && qtyStr === "" && rate === 0) {
+                    tr.style.display = 'none'; // Temporarily hide
+                }
+            });
+            
+            window.print();
+            
+            // Restore hidden rows after print dialog closes
+            setTimeout(() => {
+                document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                    tr.style.display = 'table-row';
+                });
+            }, 1000);
         }
 
         // ===== AUTHENTICATION =====
@@ -1179,42 +631,45 @@
             loginBtn.innerText = "Verifying...";
             loginMsg.style.display = "none";
 
-            // Fast local auth for demo
+            // Local Auth Bypass
             if (pass === "Prakash2026") {
                 loginContainer.style.display = "none";
                 invoiceApp.style.display = "block";
-                renderRows(defaultRows);
+                setupDates();
+                projectNotes = [...defaultNotes];
+                renderRows([...defaultRows]);
                 renderNotes();
                 attachGlobalListeners();
                 recalcTotals();
-                isAuthenticated = true;
-                showToast('✅ Login successful!', 'success');
+                showToast('Login successful!', 'success');
             } else {
+                // Server Auth via Google Sheets
                 fetch(GOOGLE_SHEET_URL + "?action=checkAuth&pass=" + encodeURIComponent(pass))
                 .then(res => res.text())
                 .then(data => {
                     if (data === "VALID") {
                         loginContainer.style.display = "none";
                         invoiceApp.style.display = "block";
-                        renderRows(defaultRows);
+                        setupDates();
+                        projectNotes = [...defaultNotes];
+                        renderRows([...defaultRows]);
                         renderNotes();
                         attachGlobalListeners();
                         recalcTotals();
-                        isAuthenticated = true;
-                        showToast('✅ Login successful!', 'success');
+                        showToast('Login successful!', 'success');
                     } else {
                         loginMsg.style.display = "block";
                         loginMsg.innerHTML = "❌ Incorrect password";
                         loginMsg.style.color = "#dc2626";
                         loginBtn.innerText = "Authenticate";
-                        showToast('❌ Login failed', 'error');
+                        showToast('Login failed', 'error');
                     }
                 })
                 .catch(() => {
                     loginMsg.style.display = "block";
                     loginMsg.innerHTML = "⚠️ Network error. Try again.";
                     loginBtn.innerText = "Authenticate";
-                    showToast('⚠️ Network error', 'error');
+                    showToast('Network error', 'error');
                 });
             }
         }
@@ -1224,17 +679,17 @@
             addRowBtn.addEventListener('click', addNewRow);
             printPdfBtn.addEventListener('click', handlePrint);
             newInvoiceBtn.addEventListener('click', resetInvoice);
-            copyLinkBtn.addEventListener('click', copyEstimateLink);
+            exportCsvBtn.addEventListener('click', exportCSV);
         }
 
         loginBtn.addEventListener('click', verifyLogin);
         adminPass.addEventListener('keypress', (e) => { if (e.key === 'Enter') verifyLogin(); });
 
-        // Autofocus
-        adminPass.focus();
+        // Auto-focus on load
+        window.addEventListener('load', () => {
+            adminPass.focus();
+        });
 
-        console.log('⚡ Premium Estimate System loaded.');
-        console.log('📋 Login with password: Prakash2026 (or your Google Apps Script password)');
     })();
 </script>
 
