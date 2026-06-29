@@ -38,7 +38,6 @@
 
         /* ===== INVOICE CARD ===== */
         .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
-        .invoice-card:hover { box-shadow: 0 24px 48px -12px rgba(0,0,0,0.18); }
 
         /* HEADER */
         .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; border-bottom: 4px solid #f5b042; position: relative; overflow: hidden; }
@@ -51,7 +50,7 @@
         .header-contact p { color: #cbddee; font-size: 0.9rem; margin-bottom: 5px; }
         .header-contact a { color: #cbddee; text-decoration: none; transition: 0.2s; }
         .header-contact a:hover { color: #f5b042; }
-        .header-contact strong { color: #f5b042; }
+        .header-contact strong, .header-contact strong a { color: #f5b042; }
 
         /* INFO PANEL */
         .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
@@ -65,19 +64,26 @@
         /* TABLE */
         .table-wrapper { padding: 0 40px; overflow-x: auto; }
         .items-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-bottom: 10px; }
-        .items-table th { background: #f8fafc; padding: 16px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .items-table th { background: #f8fafc; padding: 14px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .items-table th.center, .items-table td.center { text-align: center; }
         .items-table th.right, .items-table td.right { text-align: right; }
-        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
+        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+        .items-table tr { animation: rowIn 0.3s ease forwards; }
+        @keyframes rowIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
         
-        .items-table input, .items-table textarea { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 8px; border-radius: 6px; outline: none; transition: 0.2s; resize: none; overflow: hidden; }
-        .items-table input:focus, .items-table textarea:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
-        .items-table input::placeholder, .items-table textarea::placeholder { color: #94a3b8; }
+        .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-radius: 6px; outline: none; transition: 0.2s; }
+        .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
+        .items-table input::placeholder { color: #94a3b8; }
         input[type="number"] { text-align: right; }
+
+        /* Smart Content Editable for Descriptions */
+        .desc-input { width: 100%; min-height: 20px; padding: 8px 6px; outline: none; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; border: 1px solid transparent; border-radius: 6px; transition: 0.2s; white-space: pre-wrap; word-break: break-word; text-align: left; }
+        .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
+        .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
         
-        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; padding-top: 8px; }
-        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; margin-top: 8px; }
-        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; }
+        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
         .delete-row:hover { color: #ef4444; background: #fef2f2; }
         
         .add-row-btn { margin: 10px 0 24px 0; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; cursor: pointer; width: 100%; transition: 0.2s; color: #5b6e8c; }
@@ -152,26 +158,26 @@
             .brand-text h1 span { color: #f5b042 !important; }
             .brand-text p { color: #555 !important; }
             .header-contact { text-align: right !important; }
-            .header-contact p { color: #333 !important; }
-            .header-contact a { color: #333 !important; text-decoration: none !important; }
+            .header-contact p, .header-contact a { color: #333 !important; text-decoration: none !important; }
             
-            /* Two Column Info Grid */
-            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; justify-content: space-between !important; gap: 20px !important; }
-            .info-group { flex: 1 !important; }
-            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; }
-            .editable-field { border: none !important; background: transparent !important; padding: 4px 0 !important; font-weight: 600 !important; color: #000 !important; }
+            /* Fix: Force strict side-by-side columns in print */
+            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
+            .info-group { flex: none !important; width: 48% !important; display: block !important; }
+            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 8px !important; }
+            .editable-field { border: none !important; background: transparent !important; padding: 2px 0 !important; margin-bottom: 4px !important; font-weight: 600 !important; color: #000 !important; }
             .editable-field::placeholder { color: transparent !important; }
             
-            /* Table Wrapping */
+            /* Table Wrapping & Compact Height */
             .table-wrapper { padding: 0 !important; margin-top: 20px !important; overflow: visible !important; }
-            .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; }
-            .items-table td { border-bottom: 1px solid #ddd !important; padding: 8px !important; }
-            .items-table input, .items-table textarea { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; resize: none !important; overflow: hidden !important; }
-            .items-table textarea::placeholder, .items-table input::placeholder { color: transparent !important; }
+            .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; padding: 8px !important; }
+            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; } /* Compact padding */
+            .items-table input, .desc-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; }
+            .desc-input:empty::before, .items-table input::placeholder { color: transparent !important; }
             
-            .payment-section { padding: 20px 0 !important; border-top: none !important; display: flex !important; justify-content: space-between !important; gap: 20px !important;}
-            .payment-left { flex: 1.5 !important; }
-            .payment-right { flex: 1 !important; background: transparent !important; border: 1px solid #0a2b3e !important; border-radius: 8px !important; padding: 15px !important; }
+            /* Fix: Force Totals section side-by-side */
+            .payment-section { padding: 20px 0 !important; border-top: none !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important;}
+            .payment-left { flex: none !important; width: 55% !important; padding-right: 20px !important;}
+            .payment-right { flex: none !important; width: 40% !important; background: transparent !important; border: 1px solid #0a2b3e !important; border-radius: 8px !important; padding: 15px !important; }
             .totals-row.balance-due { background: #f0f4f8 !important; border-left: 4px solid #0a2b3e !important; }
             
             .terms-block { padding: 20px 0 !important; background: transparent !important; border-top: 2px solid #eee !important; border-bottom: none !important; }
@@ -189,6 +195,7 @@
 
 <div class="container">
 
+    <!-- ===== LOGIN SCREEN ===== -->
     <div id="login-container">
         <div class="brand-icon">⚡</div>
         <h2>Prakash <span class="brand-accent">Electrician</span></h2>
@@ -198,6 +205,7 @@
         <div id="login-msg"></div>
     </div>
 
+    <!-- ===== ESTIMATE APP ===== -->
     <div class="invoice-app" id="invoice-app" style="display: none;">
         <div class="toolbar no-print">
             <div class="toolbar-left">
@@ -211,6 +219,7 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
+            <!-- HEADER -->
             <div class="invoice-header">
                 <div class="brand">
                     <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
@@ -222,12 +231,13 @@
                     </a>
                 </div>
                 <div class="header-contact">
-                    <p><strong>📞 +91 9807039260</strong></p>
+                    <p><strong><a href="tel:+919807039260">📞 +91 9807039260</a></strong></p>
                     <p><a href="https://prakashelectrician.in" target="_blank">🌐 prakashelectrician.in</a></p>
                     <p>Varanasi, Uttar Pradesh</p>
                 </div>
             </div>
 
+            <!-- INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">ESTIMATED FOR</div>
@@ -244,6 +254,7 @@
                 </div>
             </div>
 
+            <!-- TABLE -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
@@ -257,11 +268,13 @@
                         </tr>
                     </thead>
                     <tbody id="itemsBody">
-                        </tbody>
+                        <!-- rows will be injected dynamically -->
+                    </tbody>
                 </table>
                 <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
             </div>
 
+            <!-- TOTALS -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>ABOUT THIS ESTIMATE</h4>
@@ -283,21 +296,25 @@
                 </div>
             </div>
 
+            <!-- NOTES -->
             <div class="terms-block">
                 <div class="terms-header">
                     <h4>PROJECT NOTES & CONDITIONS</h4>
                     <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
                 </div>
                 <ul class="notes-list" id="notesList">
-                    </ul>
+                    <!-- Notes injected by JS -->
+                </ul>
             </div>
 
+            <!-- FOOTER -->
             <div class="invoice-footer">
                 Thank you for considering <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a> for your project.
             </div>
         </div>
     </div>
 
+    <!-- ===== TOAST CONTAINER ===== -->
     <div id="toast-container"></div>
 </div>
 
@@ -345,7 +362,7 @@
         const rows = [];
         document.querySelectorAll('#itemsBody tr').forEach(tr => {
             rows.push({
-                desc: tr.querySelector('.desc-input').value,
+                desc: tr.querySelector('.desc-input').innerText.trim(),
                 qty: tr.querySelector('.qty-input').value,
                 rate: tr.querySelector('.rate-input').value,
                 disc: tr.querySelector('.disc-input').value
@@ -434,13 +451,6 @@
         return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
     }
 
-    // Expanding Textarea for Descriptions
-    function autoExpand(el) {
-        el.style.height = 'auto';
-        el.style.height = (el.scrollHeight) + 'px';
-        triggerAutoSave();
-    }
-
     function showToast(message, type = 'success') {
         const container = document.getElementById('toast-container');
         const toast = document.createElement('div');
@@ -458,10 +468,10 @@
     function appendRowHtml(desc, qty, rate, disc) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td><textarea class="desc-input" rows="1" placeholder="Service / Material description" oninput="autoExpand(this)">${escapeHtml(desc)}</textarea></td>
+            <td><div class="desc-input" contenteditable="true" data-placeholder="Service / Material description" oninput="recalcTotals(); triggerAutoSave();">${escapeHtml(desc)}</div></td>
             <td class="center"><input type="number" class="qty-input" value="${qty}" placeholder="-" oninput="recalcTotals(); triggerAutoSave();"></td>
-            <td class="right"><input type="number" class="rate-input" value="${rate}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
-            <td class="center"><input type="number" class="disc-input" value="${disc}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
+            <td class="right"><input type="number" class="rate-input" value="${rate === 0 || rate === '' ? '' : rate}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
+            <td class="center"><input type="number" class="disc-input" value="${disc === 0 || disc === '' ? '' : disc}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
             <td class="right">
                 <span class="row-total-display">-</span>
                 <span class="badge-free" style="display:none">FREE</span>
@@ -469,10 +479,6 @@
             <td class="center no-print"><button class="delete-row" title="Delete Row" onclick="removeRow(this)">✕</button></td>
         `;
         itemsBody.appendChild(tr);
-        
-        // Auto-expand textarea if populated on load
-        const ta = tr.querySelector('.desc-input');
-        setTimeout(() => { ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight) + 'px'; }, 10);
     }
 
     function addNewRow() {
@@ -493,7 +499,7 @@
         let validItemCount = 0;
 
         document.querySelectorAll('#itemsBody tr').forEach(tr => {
-            const desc = tr.querySelector('.desc-input').value.trim();
+            const desc = tr.querySelector('.desc-input').innerText.trim();
             const qtyStr = tr.querySelector('.qty-input').value;
             const rateStr = tr.querySelector('.rate-input').value;
             const discStr = tr.querySelector('.disc-input').value;
@@ -596,7 +602,7 @@
     // ===== PRINT ENGINE =====
     window.handlePrint = function() {
         document.querySelectorAll('#itemsBody tr').forEach(tr => {
-            const desc = tr.querySelector('.desc-input').value.trim();
+            const desc = tr.querySelector('.desc-input').innerText.trim();
             const qtyStr = tr.querySelector('.qty-input').value;
             const rateStr = tr.querySelector('.rate-input').value;
             
@@ -615,6 +621,16 @@
     };
 
     // ===== AUTHENTICATION =====
+    window.addEventListener('load', () => {
+        let savedPass = localStorage.getItem('wk_admin_pass');
+        if(savedPass) {
+            adminPass.value = savedPass;
+            loginBtn.click();
+        } else {
+            adminPass.focus();
+        }
+    });
+
     loginBtn.addEventListener('click', () => {
         const pass = adminPass.value.trim();
         if (!pass) return;
@@ -622,6 +638,7 @@
         loginMsg.style.display = "none";
 
         if (pass === "Prakash2026") {
+            localStorage.setItem('wk_admin_pass', pass);
             loginContainer.style.display = "none";
             invoiceApp.style.display = "block";
             loadData();
@@ -631,6 +648,7 @@
             .then(res => res.text())
             .then(data => {
                 if (data === "VALID") {
+                    localStorage.setItem('wk_admin_pass', pass);
                     loginContainer.style.display = "none";
                     invoiceApp.style.display = "block";
                     loadData();
@@ -650,7 +668,6 @@
     });
 
     adminPass.addEventListener('keypress', (e) => { if (e.key === 'Enter') loginBtn.click(); });
-    window.addEventListener('load', () => { adminPass.focus(); });
 
 </script>
 
