@@ -39,18 +39,19 @@
         /* ===== INVOICE CARD ===== */
         .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
 
-        /* HEADER */
-        .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; border-bottom: 4px solid #f5b042; position: relative; overflow: hidden; }
-        .brand { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+        /* EXACT HEADER LAYOUT */
+        .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 4px solid #f5b042; }
+        .brand { display: flex; align-items: center; gap: 16px; }
         .brand-badge { width: 54px; height: 54px; background: #f5b042; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; flex-shrink: 0; }
-        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; }
+        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; }
         .brand-text h1 span { color: #f5b042; }
-        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
-        .header-contact { text-align: right; position: relative; z-index: 1; }
-        .header-contact p { color: #cbddee; font-size: 0.9rem; margin-bottom: 5px; }
+        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+        
+        .header-contact { text-align: right; display: flex; flex-direction: column; gap: 4px; }
+        .header-contact p { color: #cbddee; font-size: 0.9rem; }
         .header-contact a { color: #cbddee; text-decoration: none; transition: 0.2s; }
         .header-contact a:hover { color: #f5b042; }
-        .header-contact strong, .header-contact strong a { color: #f5b042; }
+        .header-contact strong, .header-contact strong a { color: #f5b042; font-weight: 700; }
 
         /* INFO PANEL */
         .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
@@ -67,9 +68,7 @@
         .items-table th { background: #f8fafc; padding: 14px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .items-table th.center, .items-table td.center { text-align: center; }
         .items-table th.right, .items-table td.right { text-align: right; }
-        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
-        .items-table tr { animation: rowIn 0.3s ease forwards; }
-        @keyframes rowIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
         
         .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-radius: 6px; outline: none; transition: 0.2s; }
         .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
@@ -81,8 +80,8 @@
         .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
         .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
         
-        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; }
+        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; padding-top: 8px; }
+        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; margin-top: 8px; }
         .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
         .delete-row:hover { color: #ef4444; background: #fef2f2; }
         
@@ -151,16 +150,17 @@
             .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
             .invoice-card { box-shadow: none; border-radius: 0; border: none; }
             
-            /* Clean Header Layout */
-            .invoice-header { background: transparent !important; border-bottom: 3px solid #0a2b3e !important; padding: 0 0 15px 0 !important; color: #000 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+            /* Clean Header Layout (STRICTLY Side-by-Side) */
+            .invoice-header { background: transparent !important; border-bottom: 3px solid #0a2b3e !important; padding: 0 0 15px 0 !important; color: #000 !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; }
+            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
             .brand-badge { background: #0a2b3e !important; color: #fff !important; box-shadow: none !important; }
-            .brand-text h1 { color: #0a2b3e !important; }
+            .brand-text h1 { color: #0a2b3e !important; margin-bottom: 2px !important; }
             .brand-text h1 span { color: #f5b042 !important; }
-            .brand-text p { color: #555 !important; }
-            .header-contact { text-align: right !important; }
-            .header-contact p, .header-contact a { color: #333 !important; text-decoration: none !important; }
+            .brand-text p { color: #555 !important; margin: 0 !important; }
+            .header-contact { text-align: right !important; display: flex !important; flex-direction: column !important; gap: 2px !important; margin: 0 !important;}
+            .header-contact p, .header-contact a { color: #333 !important; text-decoration: none !important; margin: 0 !important;}
             
-            /* Fix: Force strict side-by-side columns in print */
+            /* Two Column Info Grid (STRICTLY Side-by-Side) */
             .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
             .info-group { flex: none !important; width: 48% !important; display: block !important; }
             .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 8px !important; }
@@ -170,16 +170,17 @@
             /* Table Wrapping & Compact Height */
             .table-wrapper { padding: 0 !important; margin-top: 20px !important; overflow: visible !important; }
             .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; padding: 8px !important; }
-            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; } /* Compact padding */
+            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; } 
             .items-table input, .desc-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; }
             .desc-input:empty::before, .items-table input::placeholder { color: transparent !important; }
             
-            /* Fix: Force Totals section side-by-side */
+            /* Force Totals section side-by-side */
             .payment-section { padding: 20px 0 !important; border-top: none !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important;}
             .payment-left { flex: none !important; width: 55% !important; padding-right: 20px !important;}
             .payment-right { flex: none !important; width: 40% !important; background: transparent !important; border: 1px solid #0a2b3e !important; border-radius: 8px !important; padding: 15px !important; }
             .totals-row.balance-due { background: #f0f4f8 !important; border-left: 4px solid #0a2b3e !important; }
             
+            /* Clean Footer & Notes */
             .terms-block { padding: 20px 0 !important; background: transparent !important; border-top: 2px solid #eee !important; border-bottom: none !important; }
             .note-item { padding: 4px 0 !important; border: none !important; background: transparent !important; }
             .note-text { font-weight: 600 !important; color: #333 !important; }
@@ -219,16 +220,14 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
-            <!-- HEADER -->
+            <!-- EXACT HEADER MATCH -->
             <div class="invoice-header">
                 <div class="brand">
-                    <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
-                        <div class="brand-badge">PE</div>
-                        <div class="brand-text">
-                            <h1>Prakash <span>Electrician</span></h1>
-                            <p>Mumbai's #1 Rated Electrical Service</p>
-                        </div>
-                    </a>
+                    <div class="brand-badge">PE</div>
+                    <div class="brand-text">
+                        <h1>Prakash <span>Electrician</span></h1>
+                        <p>Mumbai's #1 Rated Electrical Service</p>
+                    </div>
                 </div>
                 <div class="header-contact">
                     <p><strong><a href="tel:+919807039260">📞 +91 9807039260</a></strong></p>
@@ -319,13 +318,8 @@
 </div>
 
 <script>
-    // ================================================================
-    //  PREMIUM ESTIMATE SYSTEM – Auto-Save & Print Optimized
-    // ================================================================
-
     const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzg2-h2bb1pnkd3STeAnAXNHtziuj8nQF-2kySZJPZ1iuiUf9r2z97NDAgj3m7zIcc-_Q/exec";
 
-    // DOM Elements
     const loginContainer = document.getElementById('login-container');
     const invoiceApp     = document.getElementById('invoice-app');
     const adminPass      = document.getElementById('admin-pass');
@@ -334,7 +328,6 @@
     const itemsBody      = document.getElementById('itemsBody');
     const notesList      = document.getElementById('notesList');
     
-    // Default Data
     const defaultNotes = [
         "Standard warranty of 3 to 5 years on concealed wiring and 30 days on general electrical services.",
         "Installation of specialty fixtures (e.g., ceiling fans, geysers, decorative chandeliers, profile lighting) will incur additional charges unless explicitly itemized above.",
