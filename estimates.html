@@ -43,12 +43,12 @@
         .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 4px solid #f5b042; }
         .brand { display: flex; align-items: center; gap: 16px; }
         .brand-badge { width: 54px; height: 54px; background: #f5b042; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; flex-shrink: 0; }
-        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; }
+        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; white-space: nowrap; }
         .brand-text h1 span { color: #f5b042; }
-        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
         
         .header-contact { text-align: right; display: flex; flex-direction: column; gap: 4px; }
-        .header-contact p { color: #cbddee; font-size: 0.9rem; }
+        .header-contact p { color: #cbddee; font-size: 0.9rem; white-space: nowrap; }
         .header-contact a { color: #cbddee; text-decoration: none; transition: 0.2s; }
         .header-contact a:hover { color: #f5b042; }
         .header-contact strong, .header-contact strong a { color: #f5b042; font-weight: 700; }
@@ -150,15 +150,15 @@
             .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
             .invoice-card { box-shadow: none; border-radius: 0; border: none; }
             
-            /* Clean Header Layout (STRICTLY Side-by-Side) */
+            /* Clean Header Layout (STRICTLY Force single line texts) */
             .invoice-header { background: transparent !important; border-bottom: 3px solid #0a2b3e !important; padding: 0 0 15px 0 !important; color: #000 !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; }
-            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
+            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; flex-shrink: 0 !important; }
             .brand-badge { background: #0a2b3e !important; color: #fff !important; box-shadow: none !important; }
-            .brand-text h1 { color: #0a2b3e !important; margin-bottom: 2px !important; }
+            .brand-text h1 { color: #0a2b3e !important; margin-bottom: 2px !important; white-space: nowrap !important; }
             .brand-text h1 span { color: #f5b042 !important; }
-            .brand-text p { color: #555 !important; margin: 0 !important; }
-            .header-contact { text-align: right !important; display: flex !important; flex-direction: column !important; gap: 2px !important; margin: 0 !important;}
-            .header-contact p, .header-contact a { color: #333 !important; text-decoration: none !important; margin: 0 !important;}
+            .brand-text p { color: #555 !important; margin: 0 !important; white-space: nowrap !important; }
+            .header-contact { text-align: right !important; display: flex !important; flex-direction: column !important; gap: 2px !important; margin: 0 !important; flex-shrink: 0 !important;}
+            .header-contact p, .header-contact a { color: #333 !important; text-decoration: none !important; margin: 0 !important; white-space: nowrap !important;}
             
             /* Two Column Info Grid (STRICTLY Side-by-Side) */
             .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
@@ -196,7 +196,6 @@
 
 <div class="container">
 
-    <!-- ===== LOGIN SCREEN ===== -->
     <div id="login-container">
         <div class="brand-icon">⚡</div>
         <h2>Prakash <span class="brand-accent">Electrician</span></h2>
@@ -206,7 +205,6 @@
         <div id="login-msg"></div>
     </div>
 
-    <!-- ===== ESTIMATE APP ===== -->
     <div class="invoice-app" id="invoice-app" style="display: none;">
         <div class="toolbar no-print">
             <div class="toolbar-left">
@@ -220,14 +218,15 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
-            <!-- EXACT HEADER MATCH -->
             <div class="invoice-header">
                 <div class="brand">
-                    <div class="brand-badge">PE</div>
-                    <div class="brand-text">
-                        <h1>Prakash <span>Electrician</span></h1>
-                        <p>Mumbai's #1 Rated Electrical Service</p>
-                    </div>
+                    <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
+                        <div class="brand-badge">PE</div>
+                        <div class="brand-text">
+                            <h1>Prakash <span>Electrician</span></h1>
+                            <p>Mumbai's #1 Rated Electrical Service</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="header-contact">
                     <p><strong><a href="tel:+919807039260">📞 +91 9807039260</a></strong></p>
@@ -236,7 +235,6 @@
                 </div>
             </div>
 
-            <!-- INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">ESTIMATED FOR</div>
@@ -253,7 +251,6 @@
                 </div>
             </div>
 
-            <!-- TABLE -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
@@ -267,13 +264,11 @@
                         </tr>
                     </thead>
                     <tbody id="itemsBody">
-                        <!-- rows will be injected dynamically -->
-                    </tbody>
+                        </tbody>
                 </table>
                 <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
             </div>
 
-            <!-- TOTALS -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>ABOUT THIS ESTIMATE</h4>
@@ -295,25 +290,21 @@
                 </div>
             </div>
 
-            <!-- NOTES -->
             <div class="terms-block">
                 <div class="terms-header">
                     <h4>PROJECT NOTES & CONDITIONS</h4>
                     <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
                 </div>
                 <ul class="notes-list" id="notesList">
-                    <!-- Notes injected by JS -->
-                </ul>
+                    </ul>
             </div>
 
-            <!-- FOOTER -->
             <div class="invoice-footer">
                 Thank you for considering <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a> for your project.
             </div>
         </div>
     </div>
 
-    <!-- ===== TOAST CONTAINER ===== -->
     <div id="toast-container"></div>
 </div>
 
