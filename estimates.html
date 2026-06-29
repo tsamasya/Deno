@@ -7,666 +7,1799 @@
     <title>Prakash Electrician | Premium Estimate System</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #f0f2f5; font-family: 'Inter', sans-serif; padding: 40px 24px; color: #1a2c3e; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; }
-        .container { max-width: 1100px; width: 100%; margin: 0 auto; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+            padding: 24px;
+            color: #1a2c3e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            max-width: 1120px;
+            width: 100%;
+            margin: 0 auto;
+        }
 
         /* ===== LOGIN SCREEN ===== */
-        #login-container { max-width: 440px; margin: 80px auto; background: #ffffff; border-radius: 28px; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15); padding: 40px 32px; text-align: center; border: 1px solid #e9edf2; animation: fadeUp 0.5s ease both; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        #login-container .brand-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #f5b042, #e0912a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0 auto 16px; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 8px 24px rgba(245, 176, 66, 0.3); }
-        #login-container h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; color: #0a2b3e; letter-spacing: -0.3px; }
-        #login-container .brand-accent { color: #f5b042; }
-        #login-container p { color: #5b6e8c; margin-top: 8px; font-size: 0.9rem; }
-        #admin-pass { width: 100%; padding: 14px 18px; background: #f8fafc; border: 1px solid #dce3ec; border-radius: 60px; font-size: 1rem; margin: 20px 0 12px; outline: none; transition: 0.2s; font-family: monospace; letter-spacing: 1px; text-align: center; }
-        #admin-pass:focus { border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245,176,66,0.2); }
-        #login-btn { background: #0a2b3e; color: white; border: none; width: 100%; padding: 14px; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
-        #login-btn:hover { background: #f5b042; color: #0a2b3e; }
-        #login-msg { margin-top: 16px; font-size: 0.85rem; display: none; }
+        #login-container {
+            max-width: 440px;
+            margin: 80px auto;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid #e9edf2;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #login-container .brand-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f5b042, #e0912a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 auto 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            box-shadow: 0 8px 24px rgba(245, 176, 66, 0.3);
+        }
+
+        #login-container h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            color: #0a2b3e;
+            letter-spacing: -0.3px;
+        }
+
+        #login-container .brand-accent {
+            color: #f5b042;
+        }
+
+        #login-container p {
+            color: #5b6e8c;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        #admin-pass {
+            width: 100%;
+            padding: 14px 18px;
+            background: #f8fafc;
+            border: 1px solid #dce3ec;
+            border-radius: 60px;
+            font-size: 1rem;
+            margin: 20px 0 12px;
+            outline: none;
+            transition: 0.2s;
+            font-family: monospace;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        #admin-pass:focus {
+            border-color: #f5b042;
+            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.2);
+        }
+
+        #login-btn {
+            background: #0a2b3e;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        #login-btn:hover {
+            background: #f5b042;
+            color: #0a2b3e;
+        }
+
+        #login-msg {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            display: none;
+        }
 
         /* ===== TOOLBAR ===== */
-        .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
-        .toolbar-left { display: flex; align-items: center; gap: 16px; }
-        .toolbar-left .item-counter { background: #0a2b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; }
-        .toolbar-left .last-updated { color: #10b981; font-size: 0.85rem; font-weight: 700; }
-        .toolbar-right { display: flex; gap: 12px; flex-wrap: wrap; }
-        .btn { border: none; background: white; padding: 10px 22px; border-radius: 40px; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.05); display: inline-flex; align-items: center; gap: 8px; }
-        .btn-primary { background: #0a2b3e; color: white; }
-        .btn-primary:hover { background: #f5b042; color: #0a2b3e; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245, 176, 66, 0.3); }
-        .btn-secondary { background: white; border: 1px solid #cddae9; color: #1a2c3e; }
-        .btn-secondary:hover { border-color: #f5b042; background: #fff8ef; transform: translateY(-2px); }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-left .item-counter {
+            background: #0a2b3e;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .toolbar-left .status-badge {
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #cbd5e1;
+            color: #5b6e8c;
+            background: #f8fafc;
+        }
+
+        .toolbar-left .status-badge.draft {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #92400e;
+        }
+
+        .toolbar-left .status-badge.sent {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1e3a5f;
+        }
+
+        .toolbar-left .status-badge.approved {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+
+        .toolbar-left .last-updated {
+            color: #10b981;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .toolbar-right {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            background: white;
+            padding: 9px 18px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #1a2c3e;
+        }
+
+        .btn-primary {
+            background: #0a2b3e;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #f5b042;
+            color: #0a2b3e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 176, 66, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid #cddae9;
+            color: #1a2c3e;
+        }
+
+        .btn-secondary:hover {
+            border-color: #f5b042;
+            background: #fff8ef;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+        }
 
         /* ===== INVOICE CARD ===== */
-        .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
+        .invoice-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
 
-        /* HEADER */
-        .invoice-header { background: #0a2b3e; padding: 35px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 4px solid #f5b042; }
-        .brand { display: flex; align-items: center; gap: 16px; width: 60%; }
-        .brand-badge { width: 54px; height: 54px; background: #f5b042; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; flex-shrink: 0; }
-        .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; white-space: nowrap; }
-        .brand-text h1 span { color: #f5b042; }
-        .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
-        
-        .header-contact { text-align: right; display: flex; flex-direction: column; gap: 4px; width: 40%; }
-        .header-contact p { color: #cbddee; font-size: 0.9rem; white-space: nowrap; }
-        .header-contact a { color: #cbddee; text-decoration: none; transition: 0.2s; }
-        .header-contact a:hover { color: #f5b042; }
-        .header-contact strong, .header-contact strong a { color: #f5b042; font-weight: 700; }
+        /* ===== HEADER ===== */
+        .invoice-header {
+            background: #0a2b3e;
+            padding: 28px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 4px solid #f5b042;
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* INFO PANEL */
-        .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
-        .info-group { flex: 1; min-width: 240px; }
-        .info-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.2px; color: #5b6e8c; margin-bottom: 16px; border-bottom: 2px solid #f5b042; display: inline-block; padding-bottom: 6px; }
-        .editable-field { display: block; width: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-bottom: 1px dashed #dce3ec; margin-bottom: 10px; outline: none; transition: 0.2s; }
-        .editable-field:focus { border-bottom-color: #f5b042; background: #fffbf4; border-radius: 6px 6px 0 0; }
-        .inv-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .inv-meta-row label { font-weight: 700; width: 90px; font-size: 0.8rem; color: #5b6e8c; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .invoice-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(245, 176, 66, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-        /* TABLE */
-        .table-wrapper { padding: 0 40px; overflow-x: auto; }
-        .items-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-bottom: 10px; }
-        .items-table th { background: #f8fafc; padding: 14px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .items-table th.center, .items-table td.center { text-align: center; }
-        .items-table th.right, .items-table td.right { text-align: right; }
-        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
-        
-        .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-radius: 6px; outline: none; transition: 0.2s; }
-        .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
-        .items-table input::placeholder { color: #94a3b8; }
-        input[type="number"] { text-align: right; }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1;
+        }
 
-        .desc-input { width: 100%; min-height: 20px; padding: 8px 6px; outline: none; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; border: 1px solid transparent; border-radius: 6px; transition: 0.2s; white-space: pre-wrap; word-break: break-word; text-align: left; }
-        .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
-        .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1); }
-        
-        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; padding-top: 8px; }
-        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; margin-top: 8px; }
-        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-        .delete-row:hover { color: #ef4444; background: #fef2f2; }
-        
-        .add-row-btn { margin: 10px 0 24px 0; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; cursor: pointer; width: 100%; transition: 0.2s; color: #5b6e8c; }
-        .add-row-btn:hover { background: #fffbf4; border-color: #f5b042; color: #0a2b3e; }
+        .brand-badge {
+            width: 52px;
+            height: 52px;
+            background: #f5b042;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0a2b3e;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(245, 176, 66, 0.3);
+        }
 
-        /* PAYMENT / TOTALS */
-        .payment-section { padding: 24px 40px 30px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-top: 1px solid #edf2f7; }
-        .payment-left { flex: 1.2; min-width: 280px; }
-        .payment-left h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; color: #0a2b3e; font-weight: 800; }
-        .payment-left p { color: #5b6e8c; font-size: 0.9rem; line-height: 1.6; }
-        
-        .payment-right { flex: 0.8; min-width: 260px; background: #f8fafc; padding: 24px; border-radius: 20px; border: 1px solid #e9edf2; display: flex; flex-direction: column; justify-content: center; }
-        .totals-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; color: #3f5570; align-items: center; }
-        .totals-row.subtotal { border-bottom: 1px dashed #cbd5e1; padding-bottom: 14px; margin-bottom: 14px; }
-        .totals-row.discount-row { color: #10b981; font-weight: 600; }
-        .totals-row.balance-due { background: #fffbf4; padding: 18px 16px; border-radius: 14px; margin-top: 4px; margin-bottom: 0; font-weight: 800; font-size: 1.3rem; border-left: 4px solid #f5b042; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 4px 12px rgba(245, 176, 66, 0.08); }
-        .totals-row .label { font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
-        .totals-row .value { font-weight: 700; font-size: 1.05rem; }
+        .brand-text h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            color: white;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
 
-        /* NOTES SECTION */
-        .terms-block { padding: 30px 40px; background: #fafcff; border-top: 1px solid #edf2f7; border-bottom: 1px solid #edf2f7; }
-        .terms-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .terms-header h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #0a2b3e; font-weight: 800; }
-        .add-note-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 6px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: 0.2s; color: #5b6e8c; text-transform: uppercase; letter-spacing: 0.5px; }
-        .add-note-btn:hover { background: #0a2b3e; color: #ffffff; border-color: #0a2b3e; }
-        .notes-list { list-style: none; }
-        .note-item { display: flex; align-items: flex-start; margin-bottom: 8px; padding: 12px 16px; border-radius: 12px; border: 1px solid #e9edf2; background: white; transition: 0.2s; }
-        .note-item:focus-within { border-color: #f5b042; box-shadow: 0 4px 12px rgba(245, 176, 66, 0.1); }
-        .note-bullet { color: #f5b042; margin-right: 12px; font-size: 1.2rem; line-height: 1.2; flex-shrink: 0; }
-        .note-text { flex: 1; font-size: 0.9rem; line-height: 1.5; color: #3f5570; outline: none; border-bottom: 1px dashed transparent; padding: 2px 0; font-weight: 500; }
-        .note-text:focus { border-bottom: 1px dashed #cbd5e1; }
-        .note-item .delete-row { margin-left: 12px; font-size: 1.1rem; padding: 4px; }
+        .brand-text h1 span {
+            color: #f5b042;
+        }
 
-        /* FOOTER */
-        .invoice-footer { background: #0a2b3e; color: #9bb3cc; text-align: center; padding: 24px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; }
-        .invoice-footer a { color: #f5b042; text-decoration: none; font-weight: 700; transition: 0.2s; }
-        .invoice-footer a:hover { color: #fff; }
+        .brand-text p {
+            color: #9bb3cc;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .header-contact {
+            text-align: right;
+            z-index: 1;
+        }
+
+        .header-contact p {
+            color: #cbddee;
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        .header-contact a {
+            color: #cbddee;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .header-contact a:hover {
+            color: #f5b042;
+        }
+
+        .header-contact strong,
+        .header-contact strong a {
+            color: #f5b042;
+            font-weight: 700;
+        }
+
+        /* ===== INFO PANEL ===== */
+        .info-panel {
+            padding: 28px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .info-group {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .info-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1.2px;
+            color: #5b6e8c;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f5b042;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .editable-field {
+            display: block;
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a2c3e;
+            padding: 8px 6px;
+            border-bottom: 1px dashed #dce3ec;
+            margin-bottom: 8px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .editable-field:focus {
+            border-bottom-color: #f5b042;
+            background: #fffbf4;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .editable-field::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .inv-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .inv-meta-row label {
+            font-weight: 700;
+            width: 90px;
+            font-size: 0.75rem;
+            color: #5b6e8c;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .inv-meta-row .editable-field {
+            margin-bottom: 0;
+            padding: 4px 6px;
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrapper {
+            padding: 0 40px;
+            overflow-x: auto;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .items-table th {
+            background: #f8fafc;
+            padding: 12px 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+            color: #0a2b3e;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .items-table th.center,
+        .items-table td.center {
+            text-align: center;
+        }
+
+        .items-table th.right,
+        .items-table td.right {
+            text-align: right;
+        }
+
+        .items-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: top;
+        }
+
+        .items-table td .desc-input {
+            min-height: 24px;
+            padding: 6px 4px;
+            outline: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a2c3e;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            transition: 0.2s;
+            white-space: pre-wrap;
+            word-break: break-word;
+            text-align: left;
+            background: transparent;
+            width: 100%;
+        }
+
+        .items-table td .desc-input:empty:before {
+            content: attr(data-placeholder);
+            color: #94a3b8;
+            pointer-events: none;
+            display: block;
+        }
+
+        .items-table td .desc-input:focus {
+            background: #fffbf4;
+            border-color: #f5b042;
+            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1);
+        }
+
+        .items-table input[type="number"] {
+            width: 100%;
+            border: 1px solid transparent;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a2c3e;
+            padding: 6px 4px;
+            border-radius: 6px;
+            outline: none;
+            transition: 0.2s;
+            text-align: right;
+            min-width: 60px;
+        }
+
+        .items-table input[type="number"]:focus {
+            background: #fffbf4;
+            border-color: #f5b042;
+            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1);
+        }
+
+        .items-table input[type="number"]::placeholder {
+            color: #94a3b8;
+        }
+
+        .items-table td.center input[type="number"] {
+            text-align: center;
+        }
+
+        .row-total-display {
+            font-weight: 700;
+            color: #0a2b3e;
+            font-size: 1.05rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-block;
+            padding-top: 6px;
+        }
+
+        .badge-free {
+            background: #10b981;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 40px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+
+        .delete-row {
+            background: transparent;
+            border: none;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .delete-row:hover {
+            color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .add-row-btn {
+            margin: 8px 0 20px 0;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            color: #5b6e8c;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .add-row-btn:hover {
+            background: #fffbf4;
+            border-color: #f5b042;
+            color: #0a2b3e;
+        }
+
+        /* ===== PAYMENT / TOTALS ===== */
+        .payment-section {
+            padding: 24px 40px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #ffffff;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .payment-left {
+            flex: 1.2;
+            min-width: 260px;
+        }
+
+        .payment-left .terms-summary {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 1px solid #e9edf2;
+        }
+
+        .payment-left .terms-summary p {
+            color: #5b6e8c;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .payment-left .terms-summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .payment-left .terms-summary strong {
+            color: #0a2b3e;
+        }
+
+        .payment-right {
+            flex: 0.8;
+            min-width: 260px;
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid #e9edf2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #3f5570;
+            align-items: center;
+        }
+
+        .totals-row.subtotal {
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+
+        .totals-row.discount-row {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .totals-row.tax-row {
+            color: #5b6e8c;
+        }
+
+        .totals-row.balance-due {
+            background: #fffbf4;
+            padding: 16px 16px;
+            border-radius: 14px;
+            margin-top: 4px;
+            margin-bottom: 0;
+            font-weight: 800;
+            font-size: 1.3rem;
+            border-left: 4px solid #f5b042;
+            color: #0a2b3e;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            box-shadow: 0 4px 12px rgba(245, 176, 66, 0.08);
+        }
+
+        .totals-row .label {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .totals-row .value {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .tax-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .tax-input-row input {
+            width: 70px;
+            padding: 4px 8px;
+            border: 1px solid #cddae9;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            outline: none;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+            background: white;
+        }
+
+        .tax-input-row input:focus {
+            border-color: #f5b042;
+            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.1);
+        }
+
+        .tax-input-row span {
+            color: #5b6e8c;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ===== NOTES SECTION ===== */
+        .terms-block {
+            padding: 24px 40px;
+            background: #fafcff;
+            border-top: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .terms-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .terms-header h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0a2b3e;
+            font-weight: 800;
+        }
+
+        .add-note-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #5b6e8c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .add-note-btn:hover {
+            background: #0a2b3e;
+            color: #ffffff;
+            border-color: #0a2b3e;
+        }
+
+        .notes-list {
+            list-style: none;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #e9edf2;
+            background: white;
+            transition: 0.2s;
+        }
+
+        .note-item:focus-within {
+            border-color: #f5b042;
+            box-shadow: 0 4px 12px rgba(245, 176, 66, 0.08);
+        }
+
+        .note-bullet {
+            color: #f5b042;
+            margin-right: 10px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .note-text {
+            flex: 1;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #3f5570;
+            outline: none;
+            border-bottom: 1px dashed transparent;
+            padding: 2px 0;
+            font-weight: 500;
+        }
+
+        .note-text:focus {
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .note-item .delete-row {
+            margin-left: 10px;
+            font-size: 1rem;
+            padding: 2px 6px;
+        }
+
+        /* ===== FOOTER ===== */
+        .invoice-footer {
+            background: #0a2b3e;
+            color: #9bb3cc;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .invoice-footer a {
+            color: #f5b042;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .invoice-footer a:hover {
+            color: #fff;
+        }
 
         /* ===== TOAST ===== */
-        #toast-container { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 90%; pointer-events: none; }
-        .toast { background: #1e293b; color: white; padding: 14px 28px; border-radius: 16px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: auto; border-left: 4px solid #f5b042; display: flex; align-items: center; gap: 10px; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            max-width: 90%;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: #1e293b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+            border-left: 4px solid #f5b042;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            body { padding: 16px; }
-            .invoice-card { border-radius: 16px; }
-            .invoice-header { padding: 24px; flex-direction: column; align-items: flex-start; }
-            .header-contact { text-align: left; width: 100%; margin-top: 10px; }
-            .brand { width: 100%; }
-            .brand-text h1 { font-size: 1.8rem; }
-            .info-panel { padding: 24px; flex-direction: column; gap: 24px; }
-            .table-wrapper { padding: 0 16px; }
-            .items-table { min-width: 600px; }
-            .payment-section { padding: 24px 20px; flex-direction: column; }
-            .terms-block { padding: 24px 20px; }
-            .toolbar { flex-direction: column; align-items: stretch; }
-            .toolbar-left { justify-content: space-between; }
-            .toolbar-right { justify-content: stretch; }
-            .toolbar-right .btn { flex: 1; justify-content: center; }
+            body {
+                padding: 12px;
+            }
+
+            .invoice-card {
+                border-radius: 16px;
+            }
+
+            .invoice-header {
+                padding: 20px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-contact {
+                text-align: left;
+                width: 100%;
+                margin-top: 8px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.6rem;
+            }
+
+            .brand-badge {
+                width: 44px;
+                height: 44px;
+                font-size: 1.3rem;
+            }
+
+            .info-panel {
+                padding: 20px 24px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .table-wrapper {
+                padding: 0 16px;
+            }
+
+            .items-table {
+                min-width: 600px;
+                font-size: 0.85rem;
+            }
+
+            .payment-section {
+                padding: 20px 24px;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .terms-block {
+                padding: 20px 24px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .toolbar-left {
+                justify-content: space-between;
+            }
+
+            .toolbar-right {
+                justify-content: stretch;
+            }
+
+            .toolbar-right .btn {
+                flex: 1;
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
         }
 
-        /* ===== PERFECT PRINT STYLES ===== */
+        @media (max-width: 480px) {
+            .invoice-header {
+                padding: 16px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .brand-text p {
+                font-size: 0.6rem;
+            }
+
+            .brand-badge {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+
+            .inv-meta-row {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .inv-meta-row label {
+                width: 100%;
+                font-size: 0.7rem;
+            }
+
+            .payment-right {
+                padding: 16px;
+            }
+
+            .totals-row.balance-due {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+
+            .toolbar-left .item-counter {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
         @media print {
-            body { background: white; padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
-            .invoice-card { box-shadow: none; border-radius: 0; border: none; }
-            
-            /* Clean Header Layout with Strict Widths */
-            .invoice-header { background: transparent !important; border-bottom: 3px solid #0a2b3e !important; padding: 0 0 15px 0 !important; color: #000 !important; display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }
-            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; width: 60% !important; }
-            .brand-badge { background: #0a2b3e !important; color: #fff !important; box-shadow: none !important; }
-            .brand-text h1 { color: #0a2b3e !important; margin-bottom: 2px !important; white-space: nowrap !important; }
-            .brand-text h1 span { color: #f5b042 !important; }
-            .brand-text p { color: #555 !important; margin: 0 !important; white-space: nowrap !important; }
-            
-            .header-contact { display: block !important; text-align: right !important; width: 40% !important; margin: 0 !important; }
-            .header-contact p { color: #333 !important; margin: 0 0 2px 0 !important; white-space: nowrap !important; display: block !important; }
-            .header-contact a { color: #333 !important; text-decoration: none !important; }
-            
-            /* Info Grid strictly side by side */
-            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
-            .info-group { flex: none !important; width: 48% !important; display: block !important; }
-            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 8px !important; }
-            .editable-field { border: none !important; background: transparent !important; padding: 2px 0 !important; margin-bottom: 4px !important; font-weight: 600 !important; color: #000 !important; }
-            .editable-field::placeholder { color: transparent !important; }
-            
-            /* Table Wrapping & Compact Height */
-            .table-wrapper { padding: 0 !important; margin-top: 20px !important; overflow: visible !important; }
-            .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; padding: 8px !important; }
-            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; } 
-            .items-table input, .desc-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; }
-            .desc-input:empty::before, .items-table input::placeholder { color: transparent !important; }
-            
-            /* Totals section strictly side by side */
-            .payment-section { padding: 20px 0 !important; border-top: none !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important;}
-            .payment-left { flex: none !important; width: 55% !important; padding-right: 20px !important;}
-            .payment-right { flex: none !important; width: 40% !important; background: transparent !important; border: 1px solid #0a2b3e !important; border-radius: 8px !important; padding: 15px !important; }
-            .totals-row.balance-due { background: #f0f4f8 !important; border-left: 4px solid #0a2b3e !important; }
-            
-            /* Notes & Footer */
-            .terms-block { padding: 20px 0 !important; background: transparent !important; border-top: 2px solid #eee !important; border-bottom: none !important; }
-            .note-item { padding: 4px 0 !important; border: none !important; background: transparent !important; }
-            .note-text { font-weight: 600 !important; color: #333 !important; }
-            .note-text:focus { border: none !important; }
-            
-            .badge-free { background: #10b981 !important; color: white !important; }
-            .invoice-footer { background: transparent !important; color: #555 !important; border-top: 1px solid #ddd !important; padding: 15px 0 !important; font-weight: 600 !important; }
-            .invoice-footer a { color: #555 !important; }
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .toolbar,
+            .add-row-btn,
+            .delete-row,
+            .add-note-btn,
+            .no-print {
+                display: none !important;
+            }
+
+            .invoice-card {
+                box-shadow: none;
+                border-radius: 0;
+                border: none;
+            }
+
+            .invoice-header {
+                background: #0a2b3e !important;
+                border-bottom: 4px solid #f5b042 !important;
+                padding: 20px 30px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .brand-text h1 {
+                color: white !important;
+            }
+
+            .brand-text h1 span {
+                color: #f5b042 !important;
+            }
+
+            .brand-text p {
+                color: #9bb3cc !important;
+            }
+
+            .header-contact p {
+                color: #cbddee !important;
+            }
+
+            .header-contact a {
+                color: #cbddee !important;
+            }
+
+            .header-contact strong a {
+                color: #f5b042 !important;
+            }
+
+            .info-panel {
+                padding: 16px 30px !important;
+                border-bottom: 1px solid #edf2f7 !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: space-between !important;
+                gap: 0 !important;
+            }
+
+            .info-group {
+                flex: none !important;
+                width: 48% !important;
+            }
+
+            .info-title {
+                color: #0a2b3e !important;
+                border-bottom: 2px solid #0a2b3e !important;
+            }
+
+            .editable-field {
+                border: none !important;
+                background: transparent !important;
+                padding: 2px 0 !important;
+                margin-bottom: 4px !important;
+                font-weight: 600 !important;
+                color: #000 !important;
+            }
+
+            .editable-field::placeholder {
+                color: transparent !important;
+            }
+
+            .table-wrapper {
+                padding: 0 30px !important;
+                margin-top: 16px !important;
+                overflow: visible !important;
+            }
+
+            .items-table th {
+                background: #f0f4f8 !important;
+                color: #000 !important;
+                border-bottom: 2px solid #0a2b3e !important;
+                padding: 6px 8px !important;
+            }
+
+            .items-table td {
+                border-bottom: 1px solid #ddd !important;
+                padding: 4px 8px !important;
+            }
+
+            .items-table input,
+            .items-table td .desc-input {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                font-weight: 600 !important;
+                color: #000 !important;
+            }
+
+            .items-table td .desc-input:empty:before {
+                content: '' !important;
+            }
+
+            .items-table input::placeholder {
+                color: transparent !important;
+            }
+
+            .payment-section {
+                padding: 16px 30px 20px !important;
+                border-top: none !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: space-between !important;
+                gap: 0 !important;
+            }
+
+            .payment-left {
+                flex: none !important;
+                width: 55% !important;
+                padding-right: 20px !important;
+            }
+
+            .payment-left .terms-summary {
+                background: #f8fafc !important;
+                border: 1px solid #e9edf2 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .payment-right {
+                flex: none !important;
+                width: 40% !important;
+                background: transparent !important;
+                border: 1px solid #0a2b3e !important;
+                border-radius: 8px !important;
+                padding: 12px 16px !important;
+            }
+
+            .totals-row.balance-due {
+                background: #f0f4f8 !important;
+                border-left: 4px solid #0a2b3e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .terms-block {
+                padding: 16px 30px !important;
+                background: transparent !important;
+                border-top: 1px solid #edf2f7 !important;
+                border-bottom: none !important;
+            }
+
+            .note-item {
+                padding: 4px 0 !important;
+                border: none !important;
+                background: transparent !important;
+            }
+
+            .note-text {
+                font-weight: 600 !important;
+                color: #333 !important;
+            }
+
+            .note-text:focus {
+                border: none !important;
+            }
+
+            .badge-free {
+                background: #10b981 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .invoice-footer {
+                background: #0a2b3e !important;
+                color: #9bb3cc !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 14px !important;
+            }
+
+            .invoice-footer a {
+                color: #f5b042 !important;
+            }
+
+            .tax-input-row input {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                width: 50px !important;
+                font-weight: 700 !important;
+                color: #000 !important;
+            }
+
+            .toolbar-left .status-badge {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <!-- ===== LOGIN SCREEN ===== -->
-    <div id="login-container">
-        <div class="brand-icon">⚡</div>
-        <h2>Prakash <span class="brand-accent">Electrician</span></h2>
-        <p>Estimate Generator · Secure Access</p>
-        <input type="password" id="admin-pass" placeholder="Master password" autocomplete="off">
-        <button id="login-btn">Authenticate</button>
-        <div id="login-msg"></div>
-    </div>
-
-    <!-- ===== ESTIMATE APP ===== -->
-    <div class="invoice-app" id="invoice-app" style="display: none;">
-        <div class="toolbar no-print">
-            <div class="toolbar-left">
-                <span class="item-counter" id="item-counter">📋 Items: 0</span>
-                <span class="last-updated" id="last-updated">Status: Ready</span>
-            </div>
-            <div class="toolbar-right">
-                <button class="btn btn-secondary" onclick="resetEstimate()">+ New Estimate</button>
-                <button class="btn btn-primary" onclick="handlePrint()">📄 Save as PDF / Print</button>
-            </div>
+        <!-- ===== LOGIN SCREEN ===== -->
+        <div id="login-container">
+            <div class="brand-icon">⚡</div>
+            <h2>Prakash <span class="brand-accent">Electrician</span></h2>
+            <p>Estimate Generator · Secure Access</p>
+            <input type="password" id="admin-pass" placeholder="Master password" autocomplete="off">
+            <button id="login-btn">Authenticate</button>
+            <div id="login-msg"></div>
         </div>
 
-        <div class="invoice-card" id="invoiceCard">
-            <!-- EXACT HEADER MATCH -->
-            <div class="invoice-header">
-                <div class="brand">
-                    <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
+        <!-- ===== ESTIMATE APP ===== -->
+        <div class="invoice-app" id="invoice-app" style="display: none;">
+            <div class="toolbar no-print">
+                <div class="toolbar-left">
+                    <span class="item-counter" id="item-counter">📋 Items: 0</span>
+                    <span class="status-badge draft" id="status-badge">📄 Draft</span>
+                    <span class="last-updated" id="last-updated">Status: Ready</span>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-secondary" onclick="resetEstimate()">🔄 New</button>
+                    <button class="btn btn-secondary" onclick="changeStatus()">📌 Status</button>
+                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">💬 Share</button>
+                    <button class="btn btn-primary" onclick="handlePrint()">📄 Print</button>
+                </div>
+            </div>
+
+            <div class="invoice-card" id="invoiceCard">
+
+                <!-- ===== HEADER ===== -->
+                <div class="invoice-header">
+                    <div class="brand">
                         <div class="brand-badge">PE</div>
                         <div class="brand-text">
                             <h1>Prakash <span>Electrician</span></h1>
                             <p>Mumbai's #1 Rated Electrical Service</p>
                         </div>
-                    </a>
-                </div>
-                <div class="header-contact">
-                    <p><strong><a href="tel:+919807039260">📞 +91 9807039260</a></strong></p>
-                    <p><a href="https://prakashelectrician.in" target="_blank">🌐 prakashelectrician.in</a></p>
-                    <p>Varanasi, Uttar Pradesh</p>
-                </div>
-            </div>
-
-            <!-- INFO PANEL -->
-            <div class="info-panel">
-                <div class="info-group">
-                    <div class="info-title">ESTIMATED FOR</div>
-                    <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="" oninput="triggerAutoSave()">
-                    <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location" oninput="triggerAutoSave()">
-                    <input type="text" class="editable-field" id="custAddr2" placeholder="City / State / PIN" oninput="triggerAutoSave()">
-                    <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number" oninput="triggerAutoSave()">
-                </div>
-                <div class="info-group">
-                    <div class="info-title">ESTIMATE DETAILS</div>
-                    <div class="inv-meta-row"><label>Estimate #</label><input type="text" id="invNumber" class="editable-field" style="color:#d97706; font-weight:800;" placeholder="EST-2606-001" oninput="triggerAutoSave()"></div>
-                    <div class="inv-meta-row"><label>Date Issued</label><input type="text" id="invDate" class="editable-field" oninput="triggerAutoSave()"></div>
-                    <div class="inv-meta-row"><label>Valid Until</label><input type="text" id="validUntil" class="editable-field" oninput="triggerAutoSave()"></div>
-                </div>
-            </div>
-
-            <!-- TABLE -->
-            <div class="table-wrapper">
-                <table class="items-table" id="itemsTable">
-                    <thead>
-                        <tr>
-                            <th>Description of Work / Material</th>
-                            <th class="center" style="width:100px">Qty/SqFt</th>
-                            <th class="right" style="width:120px">Rate (₹)</th>
-                            <th class="center" style="width:90px">Disc %</th>
-                            <th class="right" style="width:140px">Total (₹)</th>
-                            <th style="width:40px" class="no-print"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="itemsBody">
-                        <!-- rows will be injected dynamically -->
-                    </tbody>
-                </table>
-                <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
-            </div>
-
-            <!-- TOTALS -->
-            <div class="payment-section">
-                <div class="payment-left">
-                    <h4>ABOUT THIS ESTIMATE</h4>
-                    <p>This document is an estimate of charges for the proposed electrical work. It is not a final invoice. The final total may vary slightly based on unforeseen site conditions or changes in customer requirements during execution.</p>
-                </div>
-                <div class="payment-right">
-                    <div class="totals-row subtotal">
-                        <span class="label">Subtotal</span>
-                        <span class="value">₹ <span id="subtotalVal">0</span></span>
                     </div>
-                    <div class="totals-row discount-row" id="discount-row" style="display:none;">
-                        <span class="label">Total Savings</span>
-                        <span class="value">-₹ <span id="discountVal">0</span></span>
-                    </div>
-                    <div class="totals-row balance-due">
-                        <span class="label" style="font-size: 0.9rem;">ESTIMATED TOTAL</span>
-                        <span class="value">₹ <span id="balanceDue">0</span></span>
+                    <div class="header-contact">
+                        <p><strong><a href="tel:+919807039260">📞 +91 9807039260</a></strong></p>
+                        <p><a href="https://prakashelectrician.in" target="_blank">🌐 prakashelectrician.in</a></p>
+                        <p>Varanasi, Uttar Pradesh</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- NOTES -->
-            <div class="terms-block">
-                <div class="terms-header">
-                    <h4>PROJECT NOTES & CONDITIONS</h4>
-                    <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
+                <!-- ===== INFO PANEL ===== -->
+                <div class="info-panel">
+                    <div class="info-group">
+                        <div class="info-title">ESTIMATED FOR</div>
+                        <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="" oninput="triggerAutoSave()">
+                        <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location" oninput="triggerAutoSave()">
+                        <input type="text" class="editable-field" id="custAddr2" placeholder="City / State / PIN" oninput="triggerAutoSave()">
+                        <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number" oninput="triggerAutoSave()">
+                    </div>
+                    <div class="info-group">
+                        <div class="info-title">ESTIMATE DETAILS</div>
+                        <div class="inv-meta-row"><label>Estimate #</label><input type="text" id="invNumber" class="editable-field" style="color:#d97706; font-weight:800;" placeholder="EST-2606-001" oninput="triggerAutoSave()"></div>
+                        <div class="inv-meta-row"><label>Date Issued</label><input type="text" id="invDate" class="editable-field" oninput="triggerAutoSave()"></div>
+                        <div class="inv-meta-row"><label>Valid Until</label><input type="text" id="validUntil" class="editable-field" oninput="triggerAutoSave()"></div>
+                        <div class="inv-meta-row"><label>Project Duration</label><input type="text" id="projectDuration" class="editable-field" placeholder="e.g. 3-5 days" oninput="triggerAutoSave()"></div>
+                    </div>
                 </div>
-                <ul class="notes-list" id="notesList">
-                    <!-- Notes injected by JS -->
-                </ul>
-            </div>
 
-            <!-- FOOTER -->
-            <div class="invoice-footer">
-                Thank you for considering <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a> for your project.
+                <!-- ===== TABLE ===== -->
+                <div class="table-wrapper">
+                    <table class="items-table" id="itemsTable">
+                        <thead>
+                            <tr>
+                                <th>Description of Work / Material</th>
+                                <th class="center" style="width:100px">Qty/SqFt</th>
+                                <th class="right" style="width:120px">Rate (₹)</th>
+                                <th class="center" style="width:90px">Disc %</th>
+                                <th class="right" style="width:140px">Total (₹)</th>
+                                <th style="width:40px" class="no-print"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemsBody">
+                            <!-- rows injected dynamically -->
+                        </tbody>
+                    </table>
+                    <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
+                </div>
+
+                <!-- ===== TOTALS ===== -->
+                <div class="payment-section">
+                    <div class="payment-left">
+                        <div class="terms-summary">
+                            <p><strong>📋 Payment Terms:</strong> 50% advance, 50% upon completion.</p>
+                            <p><strong>🔧 Warranty:</strong> 30 days on workmanship, 3-5 years on concealed wiring.</p>
+                            <p><strong>⏱️ Project Duration:</strong> <span id="durationDisplay">3-5 days</span></p>
+                            <p><strong>📅 Valid Until:</strong> <span id="validDisplay">—</span></p>
+                        </div>
+                    </div>
+                    <div class="payment-right">
+                        <div class="totals-row subtotal">
+                            <span class="label">Subtotal</span>
+                            <span class="value">₹ <span id="subtotalVal">0</span></span>
+                        </div>
+                        <div class="totals-row discount-row" id="discount-row" style="display:none;">
+                            <span class="label">Total Savings</span>
+                            <span class="value">-₹ <span id="discountVal">0</span></span>
+                        </div>
+                        <div class="totals-row tax-row">
+                            <span class="label">Tax (GST)</span>
+                            <span class="value" style="display:flex; align-items:center; gap:6px;">
+                                <span class="tax-input-row no-print">
+                                    <input type="number" id="taxRate" value="5" min="0" max="28" oninput="recalcTotals(); triggerAutoSave();">
+                                    <span>%</span>
+                                </span>
+                                <span class="tax-amount no-print">₹ <span id="taxVal">0</span></span>
+                            </span>
+                        </div>
+                        <div class="totals-row balance-due">
+                            <span class="label" style="font-size: 0.9rem;">ESTIMATED TOTAL</span>
+                            <span class="value">₹ <span id="balanceDue">0</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== NOTES ===== -->
+                <div class="terms-block">
+                    <div class="terms-header">
+                        <h4>PROJECT NOTES & CONDITIONS</h4>
+                        <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
+                    </div>
+                    <ul class="notes-list" id="notesList">
+                        <!-- notes injected -->
+                    </ul>
+                </div>
+
+                <!-- ===== FOOTER ===== -->
+                <div class="invoice-footer">
+                    Thank you for considering <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a> for your project.
+                </div>
             </div>
         </div>
+
+        <!-- ===== TOAST ===== -->
+        <div id="toast-container"></div>
     </div>
 
-    <!-- ===== TOAST CONTAINER ===== -->
-    <div id="toast-container"></div>
-</div>
+    <script>
+        // ===== CONFIG =====
+        const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzg2-h2bb1pnkd3STeAnAXNHtziuj8nQF-2kySZJPZ1iuiUf9r2z97NDAgj3m7zIcc-_Q/exec";
 
-<script>
-    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzg2-h2bb1pnkd3STeAnAXNHtziuj8nQF-2kySZJPZ1iuiUf9r2z97NDAgj3m7zIcc-_Q/exec";
+        // ===== DOM REFS =====
+        const loginContainer = document.getElementById('login-container');
+        const invoiceApp = document.getElementById('invoice-app');
+        const adminPass = document.getElementById('admin-pass');
+        const loginBtn = document.getElementById('login-btn');
+        const loginMsg = document.getElementById('login-msg');
+        const itemsBody = document.getElementById('itemsBody');
+        const notesList = document.getElementById('notesList');
 
-    const loginContainer = document.getElementById('login-container');
-    const invoiceApp     = document.getElementById('invoice-app');
-    const adminPass      = document.getElementById('admin-pass');
-    const loginBtn       = document.getElementById('login-btn');
-    const loginMsg       = document.getElementById('login-msg');
-    const itemsBody      = document.getElementById('itemsBody');
-    const notesList      = document.getElementById('notesList');
-    
-    const defaultNotes = [
-        "Standard warranty of 3 to 5 years on concealed wiring and 30 days on general electrical services.",
-        "Installation of specialty fixtures (e.g., ceiling fans, geysers, decorative chandeliers, profile lighting) will incur additional charges unless explicitly itemized above.",
-        "This estimate is valid for 15 days from the date of issue. Material prices are subject to market fluctuations.",
-        "Final billing will be calculated based on actual measured quantities and materials consumed on-site."
-    ];
+        // ===== DEFAULT DATA =====
+        const defaultNotes = [
+            "Standard warranty of 3 to 5 years on concealed wiring and 30 days on general electrical services.",
+            "Installation of specialty fixtures (e.g., ceiling fans, geysers, decorative chandeliers, profile lighting) will incur additional charges unless explicitly itemized above.",
+            "This estimate is valid for 15 days from the date of issue. Material prices are subject to market fluctuations.",
+            "Final billing will be calculated based on actual measured quantities and materials consumed on-site."
+        ];
 
-    let projectNotes = [];
+        let projectNotes = [];
+        let statusIndex = 0;
+        const statuses = ['draft', 'sent', 'approved'];
+        const statusLabels = ['📄 Draft', '📤 Sent', '✅ Approved'];
+        const statusColors = ['draft', 'sent', 'approved'];
 
-    // ===== INITIALIZATION & AUTO-SAVE =====
-    function triggerAutoSave() {
-        document.getElementById('last-updated').innerHTML = "⏳ Saving...";
-        document.getElementById('last-updated').style.color = "#f5b042";
-        
-        clearTimeout(window.saveTimer);
-        window.saveTimer = setTimeout(() => {
-            saveData();
-            const now = new Date();
-            document.getElementById('last-updated').innerHTML = `✓ Saved at ${now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`;
-            document.getElementById('last-updated').style.color = "#10b981";
-        }, 800);
-    }
-
-    function saveData() {
-        const rows = [];
-        document.querySelectorAll('#itemsBody tr').forEach(tr => {
-            rows.push({
-                desc: tr.querySelector('.desc-input').innerText.trim(),
-                qty: tr.querySelector('.qty-input').value,
-                rate: tr.querySelector('.rate-input').value,
-                disc: tr.querySelector('.disc-input').value
-            });
-        });
-
-        const data = {
-            cName: document.getElementById('custName').value,
-            cAddr1: document.getElementById('custAddr').value,
-            cAddr2: document.getElementById('custAddr2').value,
-            cPhone: document.getElementById('custPhone').value,
-            invNum: document.getElementById('invNumber').value,
-            invDate: document.getElementById('invDate').value,
-            vUntil: document.getElementById('validUntil').value,
-            rows: rows,
-            notes: projectNotes
-        };
-        localStorage.setItem('prakash_estimate_data', JSON.stringify(data));
-    }
-
-    function loadData() {
-        const saved = localStorage.getItem('prakash_estimate_data');
-        if (saved) {
-            const data = JSON.parse(saved);
-            document.getElementById('custName').value = data.cName || '';
-            document.getElementById('custAddr').value = data.cAddr1 || '';
-            document.getElementById('custAddr2').value = data.cAddr2 || '';
-            document.getElementById('custPhone').value = data.cPhone || '';
-            document.getElementById('invNumber').value = data.invNum || '';
-            document.getElementById('invDate').value = data.invDate || '';
-            document.getElementById('validUntil').value = data.vUntil || '';
-            
-            projectNotes = data.notes && data.notes.length > 0 ? data.notes : [...defaultNotes];
-            
-            itemsBody.innerHTML = '';
-            if (data.rows && data.rows.length > 0) {
-                data.rows.forEach(r => appendRowHtml(r.desc, r.qty, r.rate, r.disc));
-            } else {
-                appendRowHtml("", "", "", "");
-            }
-        } else {
-            setupDates();
-            projectNotes = [...defaultNotes];
-            appendRowHtml("Site Inspection & Diagnosis", "", "199", "100");
-            appendRowHtml("Complete House Wiring Estimate", "", "", "");
+        // ===== INIT =====
+        function setupDates() {
+            const today = new Date();
+            const expiry = new Date(today);
+            expiry.setDate(expiry.getDate() + 15);
+            document.getElementById('invDate').value = today.toLocaleDateString('en-IN', { day: '2-digit', month: 'short',
+                year: 'numeric' }).replace(/ /g, '-');
+            document.getElementById('validUntil').value = expiry.toLocaleDateString('en-IN', { day: '2-digit', month: 'short',
+                year: 'numeric' }).replace(/ /g, '-');
+            document.getElementById('invNumber').value = 'EST-' + today.getFullYear() + String(today.getMonth() + 1).padStart(2,
+                '0') + '-' + Math.floor(Math.random() * 900 + 100);
+            document.getElementById('projectDuration').value = '3-5 days';
+            document.getElementById('taxRate').value = '5';
+            updateDurationDisplay();
+            updateValidDisplay();
         }
-        renderNotes();
-        recalcTotals();
-    }
 
-    function setupDates() {
-        const today = new Date();
-        const expiry = new Date(today);
-        expiry.setDate(expiry.getDate() + 15); 
-        document.getElementById('invDate').value = today.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).replace(/ /g, '-');
-        document.getElementById('validUntil').value = expiry.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).replace(/ /g, '-');
-        document.getElementById('invNumber').value = 'EST-' + today.getFullYear() + String(today.getMonth()+1).padStart(2,'0') + '-' + Math.floor(Math.random()*900+100);
-    }
+        function updateDurationDisplay() {
+            const val = document.getElementById('projectDuration').value || '3-5 days';
+            document.getElementById('durationDisplay').textContent = val;
+        }
 
-    function resetEstimate() {
-        if(confirm("Clear current estimate and start fresh?")) {
-            localStorage.removeItem('prakash_estimate_data');
-            document.getElementById('custName').value = '';
-            document.getElementById('custAddr').value = '';
-            document.getElementById('custAddr2').value = '';
-            document.getElementById('custPhone').value = '';
-            setupDates();
-            projectNotes = [...defaultNotes];
-            itemsBody.innerHTML = '';
-            appendRowHtml("", "", "", "");
+        function updateValidDisplay() {
+            const val = document.getElementById('validUntil').value || '—';
+            document.getElementById('validDisplay').textContent = val;
+        }
+
+        // ===== STATUS =====
+        function changeStatus() {
+            statusIndex = (statusIndex + 1) % statuses.length;
+            const badge = document.getElementById('status-badge');
+            badge.textContent = statusLabels[statusIndex];
+            badge.className = 'status-badge ' + statusColors[statusIndex];
+            triggerAutoSave();
+            showToast('Status updated to: ' + statusLabels[statusIndex], 'success');
+        }
+
+        // ===== AUTO-SAVE =====
+        function triggerAutoSave() {
+            const el = document.getElementById('last-updated');
+            el.innerHTML = "⏳ Saving...";
+            el.style.color = "#f5b042";
+            clearTimeout(window.saveTimer);
+            window.saveTimer = setTimeout(() => {
+                saveData();
+                const now = new Date();
+                el.innerHTML = `✓ Saved at ${now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`;
+                el.style.color = "#10b981";
+                updateDurationDisplay();
+                updateValidDisplay();
+            }, 800);
+        }
+
+        function saveData() {
+            const rows = [];
+            document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                rows.push({
+                    desc: tr.querySelector('.desc-input').innerText.trim(),
+                    qty: tr.querySelector('.qty-input').value,
+                    rate: tr.querySelector('.rate-input').value,
+                    disc: tr.querySelector('.disc-input').value
+                });
+            });
+
+            const data = {
+                cName: document.getElementById('custName').value,
+                cAddr1: document.getElementById('custAddr').value,
+                cAddr2: document.getElementById('custAddr2').value,
+                cPhone: document.getElementById('custPhone').value,
+                invNum: document.getElementById('invNumber').value,
+                invDate: document.getElementById('invDate').value,
+                vUntil: document.getElementById('validUntil').value,
+                projectDuration: document.getElementById('projectDuration').value,
+                taxRate: document.getElementById('taxRate').value,
+                status: statuses[statusIndex],
+                rows: rows,
+                notes: projectNotes
+            };
+            localStorage.setItem('prakash_estimate_data', JSON.stringify(data));
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem('prakash_estimate_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                document.getElementById('custName').value = data.cName || '';
+                document.getElementById('custAddr').value = data.cAddr1 || '';
+                document.getElementById('custAddr2').value = data.cAddr2 || '';
+                document.getElementById('custPhone').value = data.cPhone || '';
+                document.getElementById('invNumber').value = data.invNum || '';
+                document.getElementById('invDate').value = data.invDate || '';
+                document.getElementById('validUntil').value = data.vUntil || '';
+                document.getElementById('projectDuration').value = data.projectDuration || '3-5 days';
+                document.getElementById('taxRate').value = data.taxRate || '5';
+
+                if (data.status) {
+                    const idx = statuses.indexOf(data.status);
+                    if (idx !== -1) statusIndex = idx;
+                }
+                updateStatusBadge();
+
+                projectNotes = data.notes && data.notes.length > 0 ? data.notes : [...defaultNotes];
+
+                itemsBody.innerHTML = '';
+                if (data.rows && data.rows.length > 0) {
+                    data.rows.forEach(r => appendRowHtml(r.desc, r.qty, r.rate, r.disc));
+                } else {
+                    appendRowHtml("", "", "", "");
+                }
+            } else {
+                setupDates();
+                projectNotes = [...defaultNotes];
+                appendRowHtml("Site Inspection & Diagnosis", "", "199", "100");
+                appendRowHtml("Complete House Wiring Estimate", "", "", "");
+                updateStatusBadge();
+            }
             renderNotes();
             recalcTotals();
-            triggerAutoSave();
-            showToast('✨ New Estimate Created', 'success');
-        }
-    }
-
-    // ===== UI HELPERS =====
-    function formatINR(num) {
-        if (isNaN(num)) num = 0;
-        return num.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
-    }
-
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
-    }
-
-    function showToast(message, type = 'success') {
-        const container = document.getElementById('toast-container');
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `<span style="font-size:1.2rem;">${type==='success'?'✅':'⚠️'}</span> ${message}`;
-        container.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateY(10px) translateX(-50%)';
-            setTimeout(() => toast.remove(), 300);
-        }, 3000);
-    }
-
-    // ===== TABLE LOGIC =====
-    function appendRowHtml(desc, qty, rate, disc) {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td><div class="desc-input" contenteditable="true" data-placeholder="Service / Material description" oninput="recalcTotals(); triggerAutoSave();">${escapeHtml(desc)}</div></td>
-            <td class="center"><input type="number" class="qty-input" value="${qty}" placeholder="-" oninput="recalcTotals(); triggerAutoSave();"></td>
-            <td class="right"><input type="number" class="rate-input" value="${rate === 0 || rate === '' ? '' : rate}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
-            <td class="center"><input type="number" class="disc-input" value="${disc === 0 || disc === '' ? '' : disc}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
-            <td class="right">
-                <span class="row-total-display">-</span>
-                <span class="badge-free" style="display:none">FREE</span>
-            </td>
-            <td class="center no-print"><button class="delete-row" title="Delete Row" onclick="removeRow(this)">✕</button></td>
-        `;
-        itemsBody.appendChild(tr);
-    }
-
-    function addNewRow() {
-        appendRowHtml("", "", "", "");
-        recalcTotals();
-        triggerAutoSave();
-    }
-
-    function removeRow(btn) {
-        btn.closest('tr').remove();
-        recalcTotals();
-        triggerAutoSave();
-    }
-
-    function recalcTotals() {
-        let subtotal = 0;
-        let totalDiscount = 0;
-        let validItemCount = 0;
-
-        document.querySelectorAll('#itemsBody tr').forEach(tr => {
-            const desc = tr.querySelector('.desc-input').innerText.trim();
-            const qtyStr = tr.querySelector('.qty-input').value;
-            const rateStr = tr.querySelector('.rate-input').value;
-            const discStr = tr.querySelector('.disc-input').value;
-            
-            const qty = parseFloat(qtyStr) || 0;
-            const rate = parseFloat(rateStr);
-            const disc = parseFloat(discStr) || 0;
-            
-            if (desc !== "") validItemCount++;
-
-            let total = 0;
-            let isFree = false;
-            let isEmptyRow = false;
-
-            if (desc === "" && qtyStr === "" && rateStr === "") {
-                isEmptyRow = true;
-            }
-
-            if (rateStr !== "") {
-                if (qtyStr !== "" && rate >= 0) total = qty * rate;
-                else if (qtyStr === "" && rate >= 0) total = rate;
-                
-                // Apply discount
-                if (disc > 0 && total > 0) {
-                    let discountAmount = total * (disc / 100);
-                    total = total - discountAmount;
-                    totalDiscount += discountAmount;
-                }
-                
-                if (total <= 0 && rateStr !== "") {
-                    total = 0;
-                    isFree = true;
-                }
-            }
-
-            const rowTotalSpan = tr.querySelector('.row-total-display');
-            const freeSpan = tr.querySelector('.badge-free');
-            
-            if (isEmptyRow || rateStr === "") {
-                rowTotalSpan.style.display = 'inline';
-                freeSpan.style.display = 'none';
-                rowTotalSpan.textContent = '-';
-            } else if (isFree) {
-                rowTotalSpan.style.display = 'none';
-                freeSpan.style.display = 'inline-block';
-            } else {
-                rowTotalSpan.style.display = 'inline';
-                freeSpan.style.display = 'none';
-                rowTotalSpan.textContent = '₹ ' + formatINR(total);
-            }
-            
-            subtotal += total;
-        });
-        
-        document.getElementById('subtotalVal').innerText = formatINR(subtotal);
-        document.getElementById('balanceDue').innerText = formatINR(subtotal); 
-
-        if (totalDiscount > 0) {
-            document.getElementById('discount-row').style.display = 'flex';
-            document.getElementById('discountVal').innerText = formatINR(totalDiscount);
-        } else {
-            document.getElementById('discount-row').style.display = 'none';
         }
 
-        document.getElementById('item-counter').textContent = '📋 Items: ' + validItemCount;
-    }
+        function updateStatusBadge() {
+            const badge = document.getElementById('status-badge');
+            badge.textContent = statusLabels[statusIndex];
+            badge.className = 'status-badge ' + statusColors[statusIndex];
+        }
 
-    // ===== NOTES ENGINE =====
-    function renderNotes() {
-        notesList.innerHTML = '';
-        projectNotes.forEach((note, idx) => {
-            const li = document.createElement('li');
-            li.className = 'note-item';
-            li.innerHTML = `
-                <div class="note-bullet">■</div>
-                <div class="note-text" contenteditable="true" oninput="updateNoteText(${idx}, this.innerText)">${escapeHtml(note)}</div>
-                <button class="delete-row no-print" onclick="deleteNote(${idx})" title="Remove note">✕</button>
+        function resetEstimate() {
+            if (confirm("Clear current estimate and start fresh?")) {
+                localStorage.removeItem('prakash_estimate_data');
+                document.getElementById('custName').value = '';
+                document.getElementById('custAddr').value = '';
+                document.getElementById('custAddr2').value = '';
+                document.getElementById('custPhone').value = '';
+                setupDates();
+                statusIndex = 0;
+                updateStatusBadge();
+                projectNotes = [...defaultNotes];
+                itemsBody.innerHTML = '';
+                appendRowHtml("", "", "", "");
+                renderNotes();
+                recalcTotals();
+                triggerAutoSave();
+                showToast('✨ New Estimate Created', 'success');
+            }
+        }
+
+        // ===== UI HELPERS =====
+        function formatINR(num) {
+            if (isNaN(num)) num = 0;
+            return num.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<span style="font-size:1.2rem;">${type === 'success' ? '✅' : '⚠️'}</span> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px) translateX(-50%)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ===== TABLE LOGIC =====
+        function appendRowHtml(desc, qty, rate, disc) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><div class="desc-input" contenteditable="true" data-placeholder="Service / Material description" oninput="recalcTotals(); triggerAutoSave();">${escapeHtml(desc)}</div></td>
+                <td class="center"><input type="number" class="qty-input" value="${qty}" placeholder="-" oninput="recalcTotals(); triggerAutoSave();"></td>
+                <td class="right"><input type="number" class="rate-input" value="${rate || ''}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
+                <td class="center"><input type="number" class="disc-input" value="${disc || ''}" placeholder="-" min="0" oninput="recalcTotals(); triggerAutoSave();"></td>
+                <td class="right">
+                    <span class="row-total-display">-</span>
+                    <span class="badge-free" style="display:none">FREE</span>
+                </td>
+                <td class="center no-print"><button class="delete-row" title="Delete Row" onclick="removeRow(this)">✕</button></td>
             `;
-            notesList.appendChild(li);
-        });
-    }
+            itemsBody.appendChild(tr);
+        }
 
-    window.addNewNote = function() {
-        projectNotes.push("New project note or condition...");
-        renderNotes();
-        triggerAutoSave();
-    };
+        function addNewRow() {
+            appendRowHtml("", "", "", "");
+            recalcTotals();
+            triggerAutoSave();
+        }
 
-    window.deleteNote = function(idx) {
-        projectNotes.splice(idx, 1);
-        renderNotes();
-        triggerAutoSave();
-    };
+        function removeRow(btn) {
+            btn.closest('tr').remove();
+            recalcTotals();
+            triggerAutoSave();
+        }
 
-    window.updateNoteText = function(idx, text) {
-        projectNotes[idx] = text;
-        triggerAutoSave();
-    };
+        function recalcTotals() {
+            let subtotal = 0;
+            let totalDiscount = 0;
+            let validItemCount = 0;
 
-    // ===== PRINT ENGINE =====
-    window.handlePrint = function() {
-        document.querySelectorAll('#itemsBody tr').forEach(tr => {
-            const desc = tr.querySelector('.desc-input').innerText.trim();
-            const qtyStr = tr.querySelector('.qty-input').value;
-            const rateStr = tr.querySelector('.rate-input').value;
-            
-            if (desc === "" && qtyStr === "" && rateStr === "") {
-                tr.style.display = 'none'; 
+            document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                const desc = tr.querySelector('.desc-input').innerText.trim();
+                const qtyStr = tr.querySelector('.qty-input').value;
+                const rateStr = tr.querySelector('.rate-input').value;
+                const discStr = tr.querySelector('.disc-input').value;
+
+                const qty = parseFloat(qtyStr) || 0;
+                const rate = parseFloat(rateStr);
+                const disc = parseFloat(discStr) || 0;
+
+                if (desc !== "") validItemCount++;
+
+                let total = 0;
+                let isFree = false;
+                let isEmptyRow = false;
+
+                if (desc === "" && qtyStr === "" && rateStr === "") {
+                    isEmptyRow = true;
+                }
+
+                if (rateStr !== "") {
+                    if (qtyStr !== "" && rate >= 0) total = qty * rate;
+                    else if (qtyStr === "" && rate >= 0) total = rate;
+
+                    if (disc > 0 && total > 0) {
+                        let discountAmount = total * (disc / 100);
+                        total = total - discountAmount;
+                        totalDiscount += discountAmount;
+                    }
+
+                    if (total <= 0 && rateStr !== "") {
+                        total = 0;
+                        isFree = true;
+                    }
+                }
+
+                const rowTotalSpan = tr.querySelector('.row-total-display');
+                const freeSpan = tr.querySelector('.badge-free');
+
+                if (isEmptyRow || rateStr === "") {
+                    rowTotalSpan.style.display = 'inline';
+                    freeSpan.style.display = 'none';
+                    rowTotalSpan.textContent = '-';
+                } else if (isFree) {
+                    rowTotalSpan.style.display = 'none';
+                    freeSpan.style.display = 'inline-block';
+                } else {
+                    rowTotalSpan.style.display = 'inline';
+                    freeSpan.style.display = 'none';
+                    rowTotalSpan.textContent = '₹ ' + formatINR(total);
+                }
+
+                subtotal += total;
+            });
+
+            // Calculate tax
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const taxAmount = subtotal * (taxRate / 100);
+            const grandTotal = subtotal + taxAmount;
+
+            document.getElementById('subtotalVal').innerText = formatINR(subtotal);
+            document.getElementById('taxVal').innerText = formatINR(taxAmount);
+            document.getElementById('balanceDue').innerText = formatINR(grandTotal);
+
+            if (totalDiscount > 0) {
+                document.getElementById('discount-row').style.display = 'flex';
+                document.getElementById('discountVal').innerText = formatINR(totalDiscount);
+            } else {
+                document.getElementById('discount-row').style.display = 'none';
+            }
+
+            document.getElementById('item-counter').textContent = '📋 Items: ' + validItemCount;
+        }
+
+        // ===== NOTES ENGINE =====
+        function renderNotes() {
+            notesList.innerHTML = '';
+            projectNotes.forEach((note, idx) => {
+                const li = document.createElement('li');
+                li.className = 'note-item';
+                li.innerHTML = `
+                    <div class="note-bullet">■</div>
+                    <div class="note-text" contenteditable="true" oninput="updateNoteText(${idx}, this.innerText)">${escapeHtml(note)}</div>
+                    <button class="delete-row no-print" onclick="deleteNote(${idx})" title="Remove note">✕</button>
+                `;
+                notesList.appendChild(li);
+            });
+        }
+
+        window.addNewNote = function() {
+            projectNotes.push("New project note or condition...");
+            renderNotes();
+            triggerAutoSave();
+        };
+
+        window.deleteNote = function(idx) {
+            projectNotes.splice(idx, 1);
+            renderNotes();
+            triggerAutoSave();
+        };
+
+        window.updateNoteText = function(idx, text) {
+            projectNotes[idx] = text;
+            triggerAutoSave();
+        };
+
+        // ===== SHARE WHATSAPP =====
+        function shareWhatsApp() {
+            const name = document.getElementById('custName').value || 'Customer';
+            const total = document.getElementById('balanceDue').innerText;
+            const invNum = document.getElementById('invNumber').value || 'EST-0000';
+            const msg =
+                `*🧾 ESTIMATE FROM PRAKASH ELECTRICIAN*\n\n*Estimate #:* ${invNum}\n*Client:* ${name}\n*Total Amount:* ₹${total}\n\n*Disclaimer:* This is a preliminary estimate. Final pricing may vary based on site conditions.\n\nThank you for considering Prakash Electrician.`;
+            const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // ===== PRINT ENGINE =====
+        function handlePrint() {
+            document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                const desc = tr.querySelector('.desc-input').innerText.trim();
+                const qtyStr = tr.querySelector('.qty-input').value;
+                const rateStr = tr.querySelector('.rate-input').value;
+                if (desc === "" && qtyStr === "" && rateStr === "") {
+                    tr.style.display = 'none';
+                }
+            });
+            window.print();
+            setTimeout(() => {
+                document.querySelectorAll('#itemsBody tr').forEach(tr => {
+                    tr.style.display = 'table-row';
+                });
+            }, 1000);
+        }
+
+        // ===== AUTHENTICATION =====
+        window.addEventListener('load', () => {
+            let savedPass = localStorage.getItem('wk_admin_pass');
+            if (savedPass) {
+                adminPass.value = savedPass;
+                loginBtn.click();
+            } else {
+                adminPass.focus();
             }
         });
-        
-        window.print();
-        
-        setTimeout(() => {
-            document.querySelectorAll('#itemsBody tr').forEach(tr => {
-                tr.style.display = 'table-row';
-            });
-        }, 1000);
-    };
 
-    // ===== AUTHENTICATION =====
-    window.addEventListener('load', () => {
-        let savedPass = localStorage.getItem('wk_admin_pass');
-        if(savedPass) {
-            adminPass.value = savedPass;
-            loginBtn.click();
-        } else {
-            adminPass.focus();
-        }
-    });
+        loginBtn.addEventListener('click', () => {
+            const pass = adminPass.value.trim();
+            if (!pass) return;
+            loginBtn.innerText = "Verifying...";
+            loginMsg.style.display = "none";
 
-    loginBtn.addEventListener('click', () => {
-        const pass = adminPass.value.trim();
-        if (!pass) return;
-        loginBtn.innerText = "Verifying...";
-        loginMsg.style.display = "none";
+            if (pass === "Prakash2026") {
+                localStorage.setItem('wk_admin_pass', pass);
+                loginContainer.style.display = "none";
+                invoiceApp.style.display = "block";
+                loadData();
+                showToast('Login successful!', 'success');
+            } else {
+                fetch(GOOGLE_SHEET_URL + "?action=checkAuth&pass=" + encodeURIComponent(pass))
+                    .then(res => res.text())
+                    .then(data => {
+                        if (data === "VALID") {
+                            localStorage.setItem('wk_admin_pass', pass);
+                            loginContainer.style.display = "none";
+                            invoiceApp.style.display = "block";
+                            loadData();
+                            showToast('Login successful!', 'success');
+                        } else {
+                            loginMsg.style.display = "block";
+                            loginMsg.innerHTML = "❌ Incorrect password";
+                            loginMsg.style.color = "#dc2626";
+                            loginBtn.innerText = "Authenticate";
+                        }
+                    }).catch(() => {
+                        loginMsg.style.display = "block";
+                        loginMsg.innerHTML = "⚠️ Network error. Try again.";
+                        loginBtn.innerText = "Authenticate";
+                    });
+            }
+        });
 
-        if (pass === "Prakash2026") {
-            localStorage.setItem('wk_admin_pass', pass);
-            loginContainer.style.display = "none";
-            invoiceApp.style.display = "block";
-            loadData();
-            showToast('Login successful!', 'success');
-        } else {
-            fetch(GOOGLE_SHEET_URL + "?action=checkAuth&pass=" + encodeURIComponent(pass))
-            .then(res => res.text())
-            .then(data => {
-                if (data === "VALID") {
-                    localStorage.setItem('wk_admin_pass', pass);
-                    loginContainer.style.display = "none";
-                    invoiceApp.style.display = "block";
-                    loadData();
-                    showToast('Login successful!', 'success');
-                } else {
-                    loginMsg.style.display = "block";
-                    loginMsg.innerHTML = "❌ Incorrect password";
-                    loginMsg.style.color = "#dc2626";
-                    loginBtn.innerText = "Authenticate";
-                }
-            }).catch(() => {
-                loginMsg.style.display = "block";
-                loginMsg.innerHTML = "⚠️ Network error. Try again.";
-                loginBtn.innerText = "Authenticate";
-            });
-        }
-    });
-
-    adminPass.addEventListener('keypress', (e) => { if (e.key === 'Enter') loginBtn.click(); });
-
-</script>
+        adminPass.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') loginBtn.click();
+        });
+    </script>
 
 </body>
 </html>
