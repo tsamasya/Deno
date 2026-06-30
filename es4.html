@@ -39,7 +39,7 @@
         /* ===== INVOICE CARD ===== */
         .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
 
-        /* HEADER - REFINED WITH GRADIENT & GOLD GLOW */
+        /* HEADER - FIXED LAYOUT */
         .invoice-header { 
             background: linear-gradient(135deg, #0a2b3e 0%, #1a3a5a 100%);
             padding: 35px 40px;
@@ -52,37 +52,18 @@
             overflow: hidden;
         }
         .invoice-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(245, 176, 66, 0.06);
-            border-radius: 50%;
-            pointer-events: none;
+            content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px;
+            background: rgba(245, 176, 66, 0.06); border-radius: 50%; pointer-events: none;
         }
         .brand { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
         .brand-badge { 
-            width: 54px; 
-            height: 54px; 
-            background: linear-gradient(135deg, #f5b042, #e0912a);
-            border-radius: 14px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem; 
-            font-weight: 800; 
-            color: #0a2b3e; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            flex-shrink: 0; 
-            box-shadow: 0 4px 16px rgba(245, 176, 66, 0.3);
+            width: 54px; height: 54px; background: linear-gradient(135deg, #f5b042, #e0912a);
+            border-radius: 14px; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; 
+            flex-shrink: 0; box-shadow: 0 4px 16px rgba(245, 176, 66, 0.3);
         }
         .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; white-space: nowrap; }
-        .brand-text h1 span { 
-            color: #f5b042; 
-            text-shadow: 0 0 30px rgba(245, 176, 66, 0.2);
-        }
+        .brand-text h1 span { color: #f5b042; text-shadow: 0 0 30px rgba(245, 176, 66, 0.2); }
         .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
         
         .header-contact { text-align: right; display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 1; }
@@ -91,80 +72,39 @@
         .header-contact a:hover { color: #f5b042; }
         .header-contact strong, .header-contact strong a { color: #f5b042; font-weight: 700; }
 
-        /* INFO PANEL */
+        /* INFO PANEL - EXACT 3 ROWS MATCH */
         .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
         .info-group { flex: 1; min-width: 240px; }
         .info-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.2px; color: #5b6e8c; margin-bottom: 16px; border-bottom: 2px solid #f5b042; display: inline-block; padding-bottom: 6px; }
-        .editable-field { display: block; width: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 8px 6px; border-bottom: 1px dashed #dce3ec; margin-bottom: 10px; outline: none; transition: 0.2s; }
+        
+        .editable-field { display: block; width: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 6px; border-bottom: 1px dashed #dce3ec; margin-bottom: 10px; outline: none; transition: 0.2s; }
         .editable-field:focus { border-bottom-color: #f5b042; background: #fffbf4; border-radius: 6px 6px 0 0; }
+        
         .inv-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .inv-meta-row label { font-weight: 700; width: 90px; font-size: 0.8rem; color: #5b6e8c; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .inv-meta-row label { font-weight: 700; width: 100px; font-size: 0.8rem; color: #5b6e8c; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .inv-meta-row .editable-field { padding: 8px 6px; }
 
-        /* TABLE - REFINED WITH WARMER HEADER & STRIPED ROWS */
+        /* TABLE - CONSISTENT ROW HEIGHTS */
         .table-wrapper { padding: 0 40px; overflow-x: auto; }
         .items-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-bottom: 10px; }
-        .items-table th { 
-            background: linear-gradient(135deg, #f8fafc, #f0f2f5);
-            padding: 14px 12px; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            font-weight: 700; 
-            text-align: left; 
-            border-bottom: 2px solid #cbd5e1; 
-            color: #0a2b3e; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px; 
-        }
+        .items-table th { background: linear-gradient(135deg, #f8fafc, #f0f2f5); padding: 14px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .items-table th.center, .items-table td.center { text-align: center; }
         .items-table th.right, .items-table td.right { text-align: right; }
-        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
+        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
         .items-table tbody tr:nth-child(even) { background: rgba(10, 43, 62, 0.02); }
         
-        .items-table input { 
-            width: 100%; 
-            border: 1px solid transparent; 
-            background: transparent; 
-            font-family: 'Inter', sans-serif; 
-            font-size: 0.95rem; 
-            font-weight: 500; 
-            color: #1a2c3e; 
-            padding: 8px 6px; 
-            border-radius: 6px; 
-            outline: none; 
-            transition: 0.2s; 
-        }
-        .items-table input:focus { 
-            background: #fffbf4; 
-            border-color: #f5b042; 
-            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); 
-        }
+        /* Unified height for all inputs */
+        .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 8px; border-radius: 6px; outline: none; transition: 0.2s; height: 42px; }
+        .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         .items-table input::placeholder { color: #94a3b8; }
         input[type="number"] { text-align: right; }
 
-        .desc-input { 
-            width: 100%; 
-            min-height: 20px; 
-            padding: 8px 6px; 
-            outline: none; 
-            font-size: 0.95rem; 
-            font-weight: 500; 
-            color: #1a2c3e; 
-            border: 1px solid transparent; 
-            border-radius: 6px; 
-            transition: 0.2s; 
-            white-space: pre-wrap; 
-            word-break: break-word; 
-            text-align: left; 
-        }
+        .desc-input { width: 100%; padding: 10px 8px; outline: none; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; border: 1px solid transparent; border-radius: 6px; transition: 0.2s; white-space: pre-wrap; word-break: break-word; text-align: left; min-height: 42px; display: flex; align-items: center; line-height: 1.4; }
         .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
-        .desc-input:focus { 
-            background: #fffbf4; 
-            border-color: #f5b042; 
-            box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); 
-        }
+        .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         
-        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; padding-top: 8px; }
-        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; margin-top: 8px; }
+        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; }
         .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
         .delete-row:hover { color: #ef4444; background: #fef2f2; }
         
@@ -183,15 +123,9 @@
         .totals-row.discount-row { color: #10b981; font-weight: 600; }
         .totals-row.balance-due { 
             background: linear-gradient(135deg, rgba(245, 176, 66, 0.12), rgba(245, 176, 66, 0.04));
-            padding: 18px 16px; 
-            border-radius: 14px; 
-            margin-top: 4px; 
-            margin-bottom: 0; 
-            font-weight: 800; 
-            font-size: 1.3rem; 
-            border-left: 4px solid #f5b042; 
-            color: #0a2b3e; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+            padding: 18px 16px; border-radius: 14px; margin-top: 4px; margin-bottom: 0; 
+            font-weight: 800; font-size: 1.3rem; border-left: 4px solid #f5b042; 
+            color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; 
             box-shadow: 0 4px 16px rgba(245, 176, 66, 0.08);
         }
         .totals-row .label { font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
@@ -226,7 +160,7 @@
             body { padding: 16px; }
             .invoice-card { border-radius: 16px; }
             .invoice-header { padding: 24px; flex-direction: column; align-items: flex-start; }
-            .header-contact { text-align: left; width: 100%; margin-top: 10px; }
+            .header-contact { text-align: left; margin-top: 10px; }
             .brand { width: 100%; }
             .brand-text h1 { font-size: 1.8rem; }
             .info-panel { padding: 24px; flex-direction: column; gap: 24px; }
@@ -246,20 +180,20 @@
             .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
             .invoice-card { box-shadow: none; border-radius: 0; border: none; }
             
-            /* Colorful Header Layout */
+            /* Colorful Header Layout (Strictly Side by Side) */
             .invoice-header { background: #0a2b3e !important; border-bottom: 3px solid #f5b042 !important; padding: 25px 40px !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; }
-            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; width: 60% !important; }
+            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
             .brand-badge { background: #f5b042 !important; color: #0a2b3e !important; box-shadow: none !important; }
             .brand-text h1 { color: white !important; margin-bottom: 2px !important; white-space: nowrap !important; }
             .brand-text h1 span { color: #f5b042 !important; }
             .brand-text p { color: #9bb3cc !important; margin: 0 !important; white-space: nowrap !important; }
             
-            .header-contact { display: block !important; text-align: right !important; width: 40% !important; margin: 0 !important; }
-            .header-contact p { color: #cbddee !important; margin: 0 0 2px 0 !important; white-space: nowrap !important; display: block !important; }
+            .header-contact { display: flex !important; flex-direction: column !important; text-align: right !important; margin: 0 !important; }
+            .header-contact p { color: #cbddee !important; margin: 0 0 2px 0 !important; white-space: nowrap !important; }
             .header-contact a { color: #cbddee !important; text-decoration: none !important; }
-            .header-contact strong { color: #f5b042 !important; }
+            .header-contact strong, .header-contact strong a { color: #f5b042 !important; }
             
-            /* Info Grid strictly side by side */
+            /* Info Grid strictly side by side (3 rows each) */
             .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
             .info-group { flex: none !important; width: 48% !important; display: block !important; }
             .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 8px !important; }
@@ -269,8 +203,8 @@
             /* Table Wrapping & Compact Height */
             .table-wrapper { padding: 0 !important; margin-top: 20px !important; overflow: visible !important; }
             .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; padding: 8px !important; }
-            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; } 
-            .items-table input, .desc-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; }
+            .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; vertical-align: middle !important; } 
+            .items-table input, .desc-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; min-height: auto !important; height: auto !important; display: inline !important;}
             .desc-input:empty::before, .items-table input::placeholder { color: transparent !important; }
             
             /* Force Totals section side-by-side */
@@ -321,7 +255,7 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
-            <!-- EXACT HEADER MATCH -->
+            <!-- PERFECT HEADER -->
             <div class="invoice-header">
                 <div class="brand">
                     <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
@@ -339,13 +273,12 @@
                 </div>
             </div>
 
-            <!-- INFO PANEL -->
+            <!-- EXACT 3-ROW INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">ESTIMATED FOR</div>
                     <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="" oninput="triggerAutoSave()">
                     <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location" oninput="triggerAutoSave()">
-                    <input type="text" class="editable-field" id="custAddr2" placeholder="City / State / PIN" oninput="triggerAutoSave()">
                     <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number" oninput="triggerAutoSave()">
                 </div>
                 <div class="info-group">
@@ -356,7 +289,7 @@
                 </div>
             </div>
 
-            <!-- TABLE -->
+            <!-- TABLE WITH CONSISTENT ROW HEIGHT -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
@@ -376,7 +309,7 @@
                 <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
             </div>
 
-            <!-- TOTALS -->
+            <!-- TOTALS WITH SMART MATH -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>ABOUT THIS ESTIMATE</h4>
@@ -468,7 +401,6 @@
         const data = {
             cName: document.getElementById('custName').value,
             cAddr1: document.getElementById('custAddr').value,
-            cAddr2: document.getElementById('custAddr2').value,
             cPhone: document.getElementById('custPhone').value,
             invNum: document.getElementById('invNumber').value,
             invDate: document.getElementById('invDate').value,
@@ -485,7 +417,6 @@
             const data = JSON.parse(saved);
             document.getElementById('custName').value = data.cName || '';
             document.getElementById('custAddr').value = data.cAddr1 || '';
-            document.getElementById('custAddr2').value = data.cAddr2 || '';
             document.getElementById('custPhone').value = data.cPhone || '';
             document.getElementById('invNumber').value = data.invNum || '';
             document.getElementById('invDate').value = data.invDate || '';
@@ -523,7 +454,6 @@
             localStorage.removeItem('prakash_estimate_data');
             document.getElementById('custName').value = '';
             document.getElementById('custAddr').value = '';
-            document.getElementById('custAddr2').value = '';
             document.getElementById('custPhone').value = '';
             setupDates();
             projectNotes = [...defaultNotes];
@@ -589,9 +519,10 @@
         triggerAutoSave();
     }
 
+    // PERFECT LOGICAL MATH FIX
     function recalcTotals() {
-        let subtotal = 0;
-        let totalDiscount = 0;
+        let grossSubtotal = 0; // Sum of everything BEFORE discount
+        let totalDiscount = 0; // Sum of all discounts
         let validItemCount = 0;
 
         document.querySelectorAll('#itemsBody tr').forEach(tr => {
@@ -606,7 +537,7 @@
             
             if (desc !== "") validItemCount++;
 
-            let total = 0;
+            let rowBaseTotal = 0;
             let isFree = false;
             let isEmptyRow = false;
 
@@ -615,43 +546,58 @@
             }
 
             if (rateStr !== "") {
-                if (qtyStr !== "" && rate >= 0) total = qty * rate;
-                else if (qtyStr === "" && rate >= 0) total = rate;
+                // 1. Calculate Base Total (No Discount)
+                if (qtyStr !== "" && rate >= 0) rowBaseTotal = qty * rate;
+                else if (qtyStr === "" && rate >= 0) rowBaseTotal = rate;
                 
-                // Apply discount
-                if (disc > 0 && total > 0) {
-                    let discountAmount = total * (disc / 100);
-                    total = total - discountAmount;
-                    totalDiscount += discountAmount;
+                // Add to GROSS Subtotal
+                grossSubtotal += rowBaseTotal;
+
+                // 2. Calculate Discount Amount
+                let rowDiscAmount = 0;
+                if (disc > 0 && rowBaseTotal > 0) {
+                    rowDiscAmount = rowBaseTotal * (disc / 100);
+                    totalDiscount += rowDiscAmount;
                 }
                 
-                if (total <= 0 && rateStr !== "") {
-                    total = 0;
+                // 3. Calculate Final Row Total
+                let rowFinalTotal = rowBaseTotal - rowDiscAmount;
+                
+                if (rowFinalTotal <= 0 && rateStr !== "") {
+                    rowFinalTotal = 0;
                     isFree = true;
                 }
-            }
 
-            const rowTotalSpan = tr.querySelector('.row-total-display');
-            const freeSpan = tr.querySelector('.badge-free');
-            
-            if (isEmptyRow || rateStr === "") {
+                // Update Row UI
+                const rowTotalSpan = tr.querySelector('.row-total-display');
+                const freeSpan = tr.querySelector('.badge-free');
+                
+                if (isEmptyRow || rateStr === "") {
+                    rowTotalSpan.style.display = 'inline';
+                    freeSpan.style.display = 'none';
+                    rowTotalSpan.textContent = '-';
+                } else if (isFree) {
+                    rowTotalSpan.style.display = 'none';
+                    freeSpan.style.display = 'inline-block';
+                } else {
+                    rowTotalSpan.style.display = 'inline';
+                    freeSpan.style.display = 'none';
+                    rowTotalSpan.textContent = '₹ ' + formatINR(rowFinalTotal);
+                }
+            } else {
+                const rowTotalSpan = tr.querySelector('.row-total-display');
+                const freeSpan = tr.querySelector('.badge-free');
                 rowTotalSpan.style.display = 'inline';
                 freeSpan.style.display = 'none';
                 rowTotalSpan.textContent = '-';
-            } else if (isFree) {
-                rowTotalSpan.style.display = 'none';
-                freeSpan.style.display = 'inline-block';
-            } else {
-                rowTotalSpan.style.display = 'inline';
-                freeSpan.style.display = 'none';
-                rowTotalSpan.textContent = '₹ ' + formatINR(total);
             }
-            
-            subtotal += total;
         });
         
-        document.getElementById('subtotalVal').innerText = formatINR(subtotal);
-        document.getElementById('balanceDue').innerText = formatINR(subtotal); 
+        let estimatedTotal = grossSubtotal - totalDiscount;
+        
+        // Update Bottom Totals UI
+        document.getElementById('subtotalVal').innerText = formatINR(grossSubtotal);
+        document.getElementById('balanceDue').innerText = formatINR(estimatedTotal); 
 
         if (totalDiscount > 0) {
             document.getElementById('discount-row').style.display = 'flex';
