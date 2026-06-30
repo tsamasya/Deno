@@ -39,29 +39,14 @@
         /* ===== INVOICE CARD ===== */
         .invoice-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); overflow: hidden; transition: box-shadow 0.3s ease; }
 
-        /* HEADER - FIXED LAYOUT */
+        /* HEADER */
         .invoice-header { 
             background: linear-gradient(135deg, #0a2b3e 0%, #1a3a5a 100%);
-            padding: 35px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            border-bottom: 4px solid #f5b042;
-            position: relative;
-            overflow: hidden;
+            padding: 35px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 4px solid #f5b042; position: relative; overflow: hidden;
         }
-        .invoice-header::before {
-            content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px;
-            background: rgba(245, 176, 66, 0.06); border-radius: 50%; pointer-events: none;
-        }
+        .invoice-header::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: rgba(245, 176, 66, 0.06); border-radius: 50%; pointer-events: none; }
         .brand { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
-        .brand-badge { 
-            width: 54px; height: 54px; background: linear-gradient(135deg, #f5b042, #e0912a);
-            border-radius: 14px; display: flex; align-items: center; justify-content: center; 
-            font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; 
-            flex-shrink: 0; box-shadow: 0 4px 16px rgba(245, 176, 66, 0.3);
-        }
+        .brand-badge { width: 54px; height: 54px; background: linear-gradient(135deg, #f5b042, #e0912a); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0a2b3e; font-family: 'Plus Jakarta Sans', sans-serif; flex-shrink: 0; box-shadow: 0 4px 16px rgba(245, 176, 66, 0.3); }
         .brand-text h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; color: white; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 4px; white-space: nowrap; }
         .brand-text h1 span { color: #f5b042; text-shadow: 0 0 30px rgba(245, 176, 66, 0.2); }
         .brand-text p { color: #9bb3cc; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
@@ -72,17 +57,17 @@
         .header-contact a:hover { color: #f5b042; }
         .header-contact strong, .header-contact strong a { color: #f5b042; font-weight: 700; }
 
-        /* INFO PANEL - EXACT 3 ROWS MATCH */
+        /* PERFECTLY ALIGNED INFO PANEL */
         .info-panel { padding: 30px 40px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-bottom: 1px solid #edf2f7; }
         .info-group { flex: 1; min-width: 240px; }
         .info-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.2px; color: #5b6e8c; margin-bottom: 16px; border-bottom: 2px solid #f5b042; display: inline-block; padding-bottom: 6px; }
         
-        .editable-field { display: block; width: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 6px; border-bottom: 1px dashed #dce3ec; margin-bottom: 10px; outline: none; transition: 0.2s; }
-        .editable-field:focus { border-bottom-color: #f5b042; background: #fffbf4; border-radius: 6px 6px 0 0; }
-        
-        .inv-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        /* Unified Wrapper for Left & Right Info Rows */
+        .inv-meta-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; height: 38px; }
         .inv-meta-row label { font-weight: 700; width: 100px; font-size: 0.8rem; color: #5b6e8c; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.5px; }
-        .inv-meta-row .editable-field { padding: 8px 6px; }
+        
+        .editable-field { display: block; width: 100%; height: 100%; border: none; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: #1a2c3e; padding: 0 6px; border-bottom: 1px dashed #dce3ec; outline: none; transition: 0.2s; }
+        .editable-field:focus { border-bottom-color: #f5b042; background: #fffbf4; border-radius: 6px 6px 0 0; }
 
         /* TABLE - CONSISTENT ROW HEIGHTS */
         .table-wrapper { padding: 0 40px; overflow-x: auto; }
@@ -90,10 +75,9 @@
         .items-table th { background: linear-gradient(135deg, #f8fafc, #f0f2f5); padding: 14px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; text-align: left; border-bottom: 2px solid #cbd5e1; color: #0a2b3e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .items-table th.center, .items-table td.center { text-align: center; }
         .items-table th.right, .items-table td.right { text-align: right; }
-        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+        .items-table td { padding: 8px 12px; border-bottom: 1px solid #edf2f7; vertical-align: top; }
         .items-table tbody tr:nth-child(even) { background: rgba(10, 43, 62, 0.02); }
         
-        /* Unified height for all inputs */
         .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 8px; border-radius: 6px; outline: none; transition: 0.2s; height: 42px; }
         .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         .items-table input::placeholder { color: #94a3b8; }
@@ -103,15 +87,15 @@
         .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
         .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         
-        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; }
-        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .row-total-display { font-weight: 700; color: #0a2b3e; font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; display: inline-block; padding-top: 8px; }
+        .badge-free { background: #10b981; color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 40px; display: inline-block; letter-spacing: 0.5px; margin-top: 8px; }
+        .delete-row { background: transparent; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer; transition: 0.2s; padding: 4px 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 4px; }
         .delete-row:hover { color: #ef4444; background: #fef2f2; }
         
         .add-row-btn { margin: 10px 0 24px 0; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; cursor: pointer; width: 100%; transition: 0.2s; color: #5b6e8c; }
         .add-row-btn:hover { background: #fffbf4; border-color: #f5b042; color: #0a2b3e; }
 
-        /* PAYMENT / TOTALS - REFINED GOLD ACCENT */
+        /* PAYMENT / TOTALS */
         .payment-section { padding: 24px 40px 30px; display: flex; flex-wrap: wrap; gap: 40px; background: #ffffff; border-top: 1px solid #edf2f7; }
         .payment-left { flex: 1.2; min-width: 280px; }
         .payment-left h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; color: #0a2b3e; font-weight: 800; }
@@ -143,7 +127,7 @@
         .note-bullet { color: #f5b042; margin-right: 12px; font-size: 1.2rem; line-height: 1.2; flex-shrink: 0; }
         .note-text { flex: 1; font-size: 0.9rem; line-height: 1.5; color: #3f5570; outline: none; border-bottom: 1px dashed transparent; padding: 2px 0; font-weight: 500; }
         .note-text:focus { border-bottom: 1px dashed #cbd5e1; }
-        .note-item .delete-row { margin-left: 12px; font-size: 1.1rem; padding: 4px; }
+        .note-item .delete-row { margin-left: 12px; font-size: 1.1rem; padding: 4px; margin-top: 0; }
 
         /* FOOTER */
         .invoice-footer { background: #0a2b3e; color: #9bb3cc; text-align: center; padding: 24px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; }
@@ -160,7 +144,7 @@
             body { padding: 16px; }
             .invoice-card { border-radius: 16px; }
             .invoice-header { padding: 24px; flex-direction: column; align-items: flex-start; }
-            .header-contact { text-align: left; margin-top: 10px; }
+            .header-contact { text-align: left; width: 100%; margin-top: 10px; }
             .brand { width: 100%; }
             .brand-text h1 { font-size: 1.8rem; }
             .info-panel { padding: 24px; flex-direction: column; gap: 24px; }
@@ -180,24 +164,26 @@
             .toolbar, .add-row-btn, .delete-row, .add-note-btn, .no-print { display: none !important; }
             .invoice-card { box-shadow: none; border-radius: 0; border: none; }
             
-            /* Colorful Header Layout (Strictly Side by Side) */
+            /* Colorful Header Layout */
             .invoice-header { background: #0a2b3e !important; border-bottom: 3px solid #f5b042 !important; padding: 25px 40px !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; align-items: center !important; }
-            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; }
+            .brand { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 16px !important; width: 60% !important; }
             .brand-badge { background: #f5b042 !important; color: #0a2b3e !important; box-shadow: none !important; }
             .brand-text h1 { color: white !important; margin-bottom: 2px !important; white-space: nowrap !important; }
             .brand-text h1 span { color: #f5b042 !important; }
             .brand-text p { color: #9bb3cc !important; margin: 0 !important; white-space: nowrap !important; }
             
-            .header-contact { display: flex !important; flex-direction: column !important; text-align: right !important; margin: 0 !important; }
-            .header-contact p { color: #cbddee !important; margin: 0 0 2px 0 !important; white-space: nowrap !important; }
+            .header-contact { display: block !important; text-align: right !important; width: 40% !important; margin: 0 !important; }
+            .header-contact p { color: #cbddee !important; margin: 0 0 2px 0 !important; white-space: nowrap !important; display: block !important; }
             .header-contact a { color: #cbddee !important; text-decoration: none !important; }
-            .header-contact strong, .header-contact strong a { color: #f5b042 !important; }
+            .header-contact strong { color: #f5b042 !important; }
             
-            /* Info Grid strictly side by side (3 rows each) */
-            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 0 !important; }
-            .info-group { flex: none !important; width: 48% !important; display: block !important; }
-            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 8px !important; }
-            .editable-field { border: none !important; background: transparent !important; padding: 2px 0 !important; margin-bottom: 4px !important; font-weight: 600 !important; color: #000 !important; }
+            /* Info Grid strictly side by side and ALIGNED */
+            .info-panel { padding: 20px 0 !important; border-bottom: 2px solid #eee !important; display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: space-between !important; gap: 40px !important; }
+            .info-group { flex: 1 !important; display: block !important; }
+            .info-title { color: #0a2b3e !important; border-bottom: 2px solid #0a2b3e !important; margin-bottom: 12px !important; }
+            
+            .inv-meta-row { margin-bottom: 8px !important; height: 30px !important; display: flex !important; align-items: center !important;}
+            .editable-field { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; height: 100% !important; }
             .editable-field::placeholder { color: transparent !important; }
             
             /* Table Wrapping & Compact Height */
@@ -231,7 +217,6 @@
 
 <div class="container">
 
-    <!-- ===== LOGIN SCREEN ===== -->
     <div id="login-container">
         <div class="brand-icon">⚡</div>
         <h2>Prakash <span class="brand-accent">Electrician</span></h2>
@@ -241,7 +226,6 @@
         <div id="login-msg"></div>
     </div>
 
-    <!-- ===== ESTIMATE APP ===== -->
     <div class="invoice-app" id="invoice-app" style="display: none;">
         <div class="toolbar no-print">
             <div class="toolbar-left">
@@ -255,7 +239,6 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
-            <!-- PERFECT HEADER -->
             <div class="invoice-header">
                 <div class="brand">
                     <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
@@ -273,23 +256,36 @@
                 </div>
             </div>
 
-            <!-- EXACT 3-ROW INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">ESTIMATED FOR</div>
-                    <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="" oninput="triggerAutoSave()">
-                    <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location" oninput="triggerAutoSave()">
-                    <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number" oninput="triggerAutoSave()">
+                    <div class="inv-meta-row">
+                        <input type="text" class="editable-field" id="custName" placeholder="Client / Project Name" value="" oninput="triggerAutoSave()">
+                    </div>
+                    <div class="inv-meta-row">
+                        <input type="text" class="editable-field" id="custAddr" placeholder="Address / Site Location" oninput="triggerAutoSave()">
+                    </div>
+                    <div class="inv-meta-row">
+                        <input type="tel" class="editable-field" id="custPhone" placeholder="Contact number" oninput="triggerAutoSave()">
+                    </div>
                 </div>
                 <div class="info-group">
                     <div class="info-title">ESTIMATE DETAILS</div>
-                    <div class="inv-meta-row"><label>Estimate #</label><input type="text" id="invNumber" class="editable-field" style="color:#d97706; font-weight:800;" placeholder="EST-2606-001" oninput="triggerAutoSave()"></div>
-                    <div class="inv-meta-row"><label>Date Issued</label><input type="text" id="invDate" class="editable-field" oninput="triggerAutoSave()"></div>
-                    <div class="inv-meta-row"><label>Valid Until</label><input type="text" id="validUntil" class="editable-field" oninput="triggerAutoSave()"></div>
+                    <div class="inv-meta-row">
+                        <label>Estimate #</label>
+                        <input type="text" id="invNumber" class="editable-field" style="color:#d97706; font-weight:800;" placeholder="EST-2606-001" oninput="triggerAutoSave()">
+                    </div>
+                    <div class="inv-meta-row">
+                        <label>Date Issued</label>
+                        <input type="text" id="invDate" class="editable-field" oninput="triggerAutoSave()">
+                    </div>
+                    <div class="inv-meta-row">
+                        <label>Valid Until</label>
+                        <input type="text" id="validUntil" class="editable-field" oninput="triggerAutoSave()">
+                    </div>
                 </div>
             </div>
 
-            <!-- TABLE WITH CONSISTENT ROW HEIGHT -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
@@ -303,13 +299,11 @@
                         </tr>
                     </thead>
                     <tbody id="itemsBody">
-                        <!-- rows will be injected dynamically -->
-                    </tbody>
+                        </tbody>
                 </table>
                 <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
             </div>
 
-            <!-- TOTALS WITH SMART MATH -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>ABOUT THIS ESTIMATE</h4>
@@ -331,25 +325,21 @@
                 </div>
             </div>
 
-            <!-- NOTES -->
             <div class="terms-block">
                 <div class="terms-header">
                     <h4>PROJECT NOTES & CONDITIONS</h4>
                     <button class="add-note-btn no-print" onclick="addNewNote()">＋ Add Note</button>
                 </div>
                 <ul class="notes-list" id="notesList">
-                    <!-- Notes injected by JS -->
-                </ul>
+                    </ul>
             </div>
 
-            <!-- FOOTER -->
             <div class="invoice-footer">
                 Thank you for considering <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a> for your project.
             </div>
         </div>
     </div>
 
-    <!-- ===== TOAST CONTAINER ===== -->
     <div id="toast-container"></div>
 </div>
 
@@ -521,8 +511,8 @@
 
     // PERFECT LOGICAL MATH FIX
     function recalcTotals() {
-        let grossSubtotal = 0; // Sum of everything BEFORE discount
-        let totalDiscount = 0; // Sum of all discounts
+        let grossSubtotal = 0; 
+        let totalDiscount = 0; 
         let validItemCount = 0;
 
         document.querySelectorAll('#itemsBody tr').forEach(tr => {
