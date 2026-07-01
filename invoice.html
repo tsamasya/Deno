@@ -82,9 +82,10 @@
         .items-table input { width: 100%; border: 1px solid transparent; background: transparent; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; padding: 10px 8px; border-radius: 6px; outline: none; transition: 0.2s; height: 42px; }
         .items-table input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         .items-table input::placeholder { color: #94a3b8; }
-        .qty-input, .rate-input, .disc-input { text-align: center; }
-
-        .desc-input { width: 100%; padding: 10px 8px; outline: none; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; border: 1px solid transparent; border-radius: 6px; transition: 0.2s; white-space: pre-wrap; word-break: break-word; text-align: left; min-height: 42px; display: flex; align-items: center; line-height: 1.4; }
+        
+        /* ALIGNMENT FIX */
+        .qty-input, .rate-input, .disc-input { text-align: center !important; }
+        .desc-input { width: 100%; padding: 10px 8px; outline: none; font-size: 0.95rem; font-weight: 500; color: #1a2c3e; border: 1px solid transparent; border-radius: 6px; transition: 0.2s; white-space: pre-wrap; word-break: break-word; text-align: left !important; min-height: 42px; display: flex; align-items: center; line-height: 1.4; }
         .desc-input:empty:before { content: attr(data-placeholder); color: #94a3b8; pointer-events: none; display: block; }
         .desc-input:focus { background: #fffbf4; border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         
@@ -114,7 +115,7 @@
         .totals-row.subtotal { border-bottom: 1px dashed #cbd5e1; padding-bottom: 14px; margin-bottom: 14px; }
         .totals-row.discount-row { color: #10b981; font-weight: 600; }
         
-        .advance-input { width: 100px; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 8px; text-align: right; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; outline: none; }
+        .advance-input { width: 100px; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 8px; text-align: right !important; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; outline: none; }
         .advance-input:focus { border-color: #f5b042; box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.15); }
         
         .totals-row.balance-due { 
@@ -165,7 +166,7 @@
         /* ===== PERFECT COLOR PRINT STYLES ===== */
         @media print {
             body { background: white; padding: 0; margin: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            .toolbar, .add-row-btn, .delete-row, .qr-options, .no-print { display: none !important; }
+            .toolbar, .add-row-btn, .delete-row, .qr-options, .no-print, #qrHelperText { display: none !important; }
             .invoice-card { box-shadow: none; border-radius: 0; border: none; }
             
             /* Colorful Header Layout */
@@ -194,8 +195,10 @@
             .table-wrapper { padding: 0 !important; margin-top: 20px !important; overflow: visible !important; }
             .items-table th { background: #f0f4f8 !important; color: #000 !important; border-bottom: 2px solid #0a2b3e !important; padding: 8px !important; }
             .items-table td { border-bottom: 1px solid #ddd !important; padding: 6px 8px !important; vertical-align: middle !important; } 
-            .items-table input, .desc-input, .advance-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; min-height: auto !important; height: auto !important; display: inline !important; text-align: right !important;}
+            .items-table input, .desc-input, .advance-input { border: none !important; background: transparent !important; padding: 0 !important; font-weight: 600 !important; color: #000 !important; min-height: auto !important; height: auto !important; display: inline !important;}
             .desc-input { text-align: left !important; }
+            .qty-input, .rate-input, .disc-input { text-align: center !important; }
+            .advance-input { text-align: right !important; }
             .desc-input:empty::before, .items-table input::placeholder { color: transparent !important; }
             
             /* Force Totals section side-by-side */
@@ -224,6 +227,7 @@
 
 <div class="container">
 
+    <!-- ===== LOGIN SCREEN ===== -->
     <div id="login-container">
         <div class="brand-icon">⚡</div>
         <h2>Prakash <span class="brand-accent">Electrician</span></h2>
@@ -233,6 +237,7 @@
         <div id="login-msg"></div>
     </div>
 
+    <!-- ===== INVOICE APP ===== -->
     <div class="invoice-app" id="invoice-app" style="display: none;">
         <div class="toolbar no-print">
             <div class="toolbar-left">
@@ -246,6 +251,7 @@
         </div>
 
         <div class="invoice-card" id="invoiceCard">
+            <!-- PERFECT HEADER -->
             <div class="invoice-header">
                 <div class="brand">
                     <a href="https://prakashelectrician.in" target="_blank" style="display:flex; align-items:center; gap:16px; text-decoration:none;">
@@ -263,6 +269,7 @@
                 </div>
             </div>
 
+            <!-- EXACT 3-ROW INFO PANEL -->
             <div class="info-panel">
                 <div class="info-group">
                     <div class="info-title">BILL TO</div>
@@ -293,6 +300,7 @@
                 </div>
             </div>
 
+            <!-- TABLE WITH CONSISTENT ALIGNMENT -->
             <div class="table-wrapper">
                 <table class="items-table" id="itemsTable">
                     <thead>
@@ -306,11 +314,13 @@
                         </tr>
                     </thead>
                     <tbody id="itemsBody">
-                        </tbody>
+                        <!-- rows will be injected dynamically -->
+                    </tbody>
                 </table>
-                <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / material</button>
+                <button class="add-row-btn no-print" onclick="addNewRow()">＋ Add new service / item</button>
             </div>
 
+            <!-- TOTALS & QR WITH SMART MATH -->
             <div class="payment-section">
                 <div class="payment-left">
                     <h4>PAYMENT INFORMATION</h4>
@@ -355,6 +365,7 @@
                 </div>
             </div>
 
+            <!-- TERMS -->
             <div class="terms-block">
                 <h4>TERMS & WARRANTY</h4>
                 <div class="terms-content">
@@ -364,6 +375,7 @@
                 </div>
             </div>
 
+            <!-- FOOTER -->
             <div class="invoice-footer">
                 Thank you for choosing <a href="https://prakashelectrician.in" target="_blank">Prakash Electrician</a>&nbsp;&nbsp;|&nbsp;
                 <a href="#" id="warrantyLink" target="_blank">Claim your warranty</a>
@@ -371,6 +383,7 @@
         </div>
     </div>
 
+    <!-- ===== TOAST CONTAINER ===== -->
     <div id="toast-container"></div>
 </div>
 
